@@ -11,12 +11,6 @@ if ($action == 'Deconnecter')
 	header("Location: index.php");
 }
 
-//---------------------------- Initialisation des variables sessions -------------------------------------
-// tests des variables de session
-if ( ! isset ($_SESSION['id']) == true)  $id = '';  else  $id = $_SESSION['id'];
-if ( ! isset ($_SESSION['ident']) == true)  $ident = '';  else  $ident = $_SESSION['ident'];
-if ( ! isset ($_SESSION['niveauUtilisateur']) == true)  $niveauUtilisateur = '';  else  $niveauUtilisateur = $_SESSION['niveauUtilisateur'];
-
 //--------------------------------------------------------------------------------------------------------
 //------------------------------------- Routes -----------------------------------------------------------
 //--------------------------------------------------------------------------------------------------------
