@@ -39,22 +39,10 @@ class DAO
 	public function __destruct() {
 		unset($this->cnx);
 	}
-
+	
 	//---------------------------------------------------------------------------------------------------------------------
-	//--------------------------------------------- Fonction connection --------------------------------------------------
+	//--------------------------------------------- Fonction connection ---------------------------------------------------
 	//---------------------------------------------------------------------------------------------------------------------
-
-	public function connection($ident, $mdp){
-		
-		//Verification la combinaison utilisateur / mdp existe dans la bdd
-		$req_pre= $this->cnx->prepare("SELECT * FROM utilisateurs WHERE Mail_U = :ident AND Mdp_U = :mdp");
-		$req_pre->bindValue(':ident', $ident, PDO::PARAM_STR);
-		$req_pre->bindValue(':mdp', $mdp, PDO::PARAM_STR);
-		$req_pre->execute();
-		$ligne = $req_pre->fetch(PDO::FETCH_OBJ);
-
-        return $ligne->Pseudo_U;
-	}
 	
 	public function login($email, $password) {
 	    
@@ -62,41 +50,33 @@ class DAO
         $stmt = $this->cnx->prepare("SELECT Id_U, Pseudo_U, Mdp_U, Salt_U FROM utilisateurs WHERE Mail_U = :mail LIMIT 1");
         $stmt->bindValue(':mail', $email, PDO::PARAM_STR);  // Lie "$email" aux paramètres.
         $stmt->execute();    // Exécute la déclaration.
-        
-        // Récupère les variables dans le résultat
-        //$user_id, $username, $db_password, $salt
         $ligne = $stmt->fetch(PDO::FETCH_OBJ);
-        var_dump($ligne);
-        $user_id = $ligne->Id_U;
-        $username = $ligne->Pseudo_U;
-        $db_password = $ligne->Mdp_U;
-        $salt = $ligne->Salt_U;
         
         
         // Hashe le mot de passe avec le salt unique
-        $password = hash('sha512', $password . $salt);
-        
-        var_dump($password);
+        $password = hash('sha512', $password . $ligne->Salt_U);
         
         // Vérifie si les deux mots de passe sont les mêmes
         // Le mot de passe que l’utilisateur a donné.
-        if ($db_password == $password) {
+        if ($ligne->Mdp_U == $password) {
             // Le mot de passe est correct!
             // Récupère la chaîne user-agent de l’utilisateur
             $user_browser = $_SERVER['HTTP_USER_AGENT'];
+            
             // Protection XSS car nous pourrions conserver cette valeur
-            $user_id = preg_replace("/[^0-9]+/", "", $user_id);
-            $_SESSION['user_id'] = $user_id;
+            $ligne->Id_U = preg_replace("/[^0-9]+/", "", $ligne->Id_U);
+            $_SESSION['user_id'] = $ligne->Id_U;
+            
             // Protection XSS car nous pourrions conserver cette valeur
-            $username = preg_replace("/[^a-zA-Z0-9_\-]+/",
-                "",
-                $username);
-            $_SESSION['username'] = $username;
-            $_SESSION['login_string'] = hash('sha512',
-                $password . $user_browser);
+            $ligne->Pseudo_U = preg_replace("/[^a-zA-Z0-9_\-]+/","",$ligne->Pseudo_U);
+            $_SESSION['username'] = $ligne->Pseudo_U;
+            $_SESSION['login_string'] = hash('sha512', $password . $user_browser);
+            
             // Ouverture de session réussie.
             return true;
+            
         } else {
+            
             //Le mot de passe est mauvais
             return false;
         }

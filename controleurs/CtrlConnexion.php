@@ -5,7 +5,7 @@ $dao = new DAO();
 
 // on verifie les parametres de connexion
 $ident = !empty($_POST['ident']) ? $_POST['ident'] : NULL;
-// Mot de passe de test: 6ZaxN2Vzm9NUJT2y
+
 $mdp = !empty($_POST['mdp']) ? $_POST['mdp'] : NULL; 
 
 //Si on recoit en post les données de connexion utilisateur alors essaye de se logger
@@ -16,5 +16,5 @@ if(isset($ident) AND isset($mdp)){
     }
 }
 
-include('/ressources/vues/VueConnexion.php'); 
+include('/ressources/vues/VueConnexion.php');
 ?>
