@@ -262,7 +262,6 @@ class Outils
 	    session_start();            // Démarre la session PHP
 	    session_regenerate_id();    // Génère une nouvelle session et efface la précédente
 	}
-
 } // fin de la classe Outils
 
 // ATTENTION : on ne met pas de balise de fin de script pour ne pas prendre le risque
