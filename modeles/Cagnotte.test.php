@@ -6,7 +6,7 @@ include('Cagnotte.class.php');
 
 //test des methodes get
 //---------------------
-$cagnotte = new Cagnotte(1, 'Anniv','annivairsaire de frank', '15/10/2018');
+$cagnotte = new Cagnotte(1, 'Anniv','Annivairsaire de frank', '15/10/2018');
 
 //Affichage du résultat
 $msg = "----------Test des methods get()-----------<br>";
@@ -22,14 +22,14 @@ echo $msg;
 //---------------------
 //Mise à jour des données
 $cagnotte->setId(1);
-$cagnotte->setTitre('Soirée');
-$cagnotte->setDescription('Cagnotte de financement des décorations');
+$cagnotte->setTitre('Soiree');
+$cagnotte->setDescription('Cagnotte de financement des decorations');
 $cagnotte->setDateFin('29/11/2018');
 
 //Affichage des nouvelles données
 $msg = "----------Test des methods set()-----------<br>";
 $msg .= "Nouvelles donnees :<br>";
-$msg .= "(id: 1, titre : Soirée , description : Cagnotte de financement des décorations, date de fin : 29/11/2018)<br><br>";
+$msg .= "(id: 1, titre : Soiree , description : Cagnotte de financement des decorations, date de fin : 29/11/2018)<br><br>";
 $msg .= $cagnotte->toString()."<br>";
 $msg .= "<br><br>";
 

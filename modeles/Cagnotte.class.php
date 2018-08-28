@@ -26,7 +26,7 @@ class Cagnotte
     }
     
     public function getTitre(){
-        return $this->_titre;
+        return $this->_Titre;
     }
     
     public function getDescription(){
