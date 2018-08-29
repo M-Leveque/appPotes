@@ -4,10 +4,7 @@
 //-----------------------------------------------------
 
 //On inclut la classe utilisateur
-include('Utilisateur.class.php');
-
-//On inclut la classe DAO
-include('DAO.class.php');
+include_once('Utilisateur.class.php');
 
 class Evenement
 {
@@ -15,14 +12,14 @@ class Evenement
     private $_Titre;
     private $_Description;
     private $_Date;
-    private $_IdUtilisateur;
+    private $_Utilisateur;
     
-    public function __construct($id, $titre, $description, $date, $idUtilsateur){
+    public function __construct($id, $titre, $description, $date, $Utilisateur){
         $this->_Id = $id;
         $this->_Titre = $titre;
         $this->_Description = $description;
         $this->_Date = $date;
-        $this->_IdUtilisateur = $idUtilsateur;
+        $this->_Utilisateur = $Utilisateur;
     }
     
     //-------------------------------
@@ -46,8 +43,7 @@ class Evenement
     }
 
     public function getUtilisateur(){
-        $dao = new DAO();
-        return $dao->getUtilsateur($this->_IdUtilisateur);
+        return $this->_Utilisateur;
     }
     
     //-------------------------------
@@ -58,18 +54,33 @@ class Evenement
         return $this->_Id = $id;
     }
     
-    public function setNom($nom){
-        return $this->_Nom = $nom;
+    public function setTitre($titre){
+        return $this->_Titre = $titre;
     }
     
+    public function setDescription($description){
+        return $this->_Description = $description;
+    }
+    
+    public function setDate($date){
+        return $this->_Date = $date;
+    }
+    
+    public function setUtilisateur($utilisateur){
+        return $this->_Utilisateur = $utilisateur;
+    }
+   
     //------------------------------
     //-----| Methode toString |-----
     //------------------------------
     
     public function toString() {
-        $msg = "Album :<br>";
+        $msg = "Evenement :<br>";
         $msg .= "id : ".$this->_Id."<br>";
-        $msg .= "nom : ".$this->_Nom."<br>";
+        $msg .= "titre : ".$this->_Titre."<br>";
+        $msg .= "description : ".$this->_Description."<br>";
+        $msg .= "date : ".$this->_Date."<br>";
+        $msg .= "utilisateur : ".$this->_Utilisateur->toString()."<br>";
         
         return $msg;
     }
