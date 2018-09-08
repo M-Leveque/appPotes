@@ -1,1 +1,63 @@
+#content-login,
+#content-login section,
+#content-login article,
+#content-login form {
+	display: flex;
+}
 
+#content-login {
+	width: 100%;
+	height: 100vh;
+	flex-direction: row;
+}
+
+#content-login section {
+	min-width: 50%;
+	min-height: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+#content-login article {
+	height: 100%;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: baseline;
+	align-content: center;
+}
+
+#content-login article h1 {
+	margin-top: 145px;
+	font-family: 'Trueno';
+    font-weight: 600;
+    font-style: normal;
+	font-size: 5.2vw;
+	color: #191919;
+}
+
+#content-login form {
+	flex-direction: column;
+	align-items: center;
+}
+
+#content-login input {
+	border: none;
+	border-width: 100%;
+	border-bottom: solid 1px #191919;
+	background: none;
+}
+
+#content-login button {
+	bottom: 0;
+}
+
+#content-login #slideshow {
+	background-color: #191919;
+	-webkit-box-shadow: inset 10px 0px 20px 0px rgba(0,0,0,1);
+-moz-box-shadow: inset 10px 0px 20px 0px rgba(0,0,0,1);
+box-shadow: inset 10px 0px 20px 0px rgba(0,0,0,1);
+}
+
+#open-modal {
+	bottom: 0;
+}

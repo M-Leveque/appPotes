@@ -1,11 +1,23 @@
-<section>
-	<div>
-		<form action="index.php?action=Connexion" method="post">
-    		<label>Identifiant :</label>
-    		<input type="mail" name="ident" placeholder="ex: admin@admin.com"><br><br>
-    		<label>Mot de passe :</label>
-    		<input type="password" name="mdp">
-    		<input type="Submit">
-		</form>
-	</div>
-</section>
+<link href="../css/StyleConnexion.css" rel="stylesheet" type="text/css">
+<main id="content-login">
+	<section id="login"><!-- droite connexion -->
+		<article>
+			<h1>Bienvenue !</h1>
+
+			<form action="index.php?action=Connexion" method="post"><!-- formulaire connexion -->
+				<input type="mail" name="ident" placeholder="Adresse mail :">
+				<input type="password" name="mdp" placeholder="Mot de passe :">
+				<input type="Submit">
+			</form>
+			
+			<button id="open-modal"><u>En savor plus</u></button><!-- modal -->
+		</article>
+		
+	</section><!-- #droite connexion -->
+	
+	<section id="slideshow"><!-- gauche slideshow-->
+
+	</section><!--#gauche slideshow-->
+	
+	
+</main>
