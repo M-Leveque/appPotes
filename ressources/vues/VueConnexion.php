@@ -5,9 +5,9 @@
 			<h1>Bienvenue !</h1>
 
 			<form action="index.php?action=Connexion" method="post"><!-- formulaire connexion -->
-				<input type="mail" name="ident" placeholder="Adresse mail :">
-				<input type="password" name="mdp" placeholder="Mot de passe :">
-				<input type="Submit">
+				<input type="mail" name="ident" placeholder="Adresse mail ">
+				<input type="password" name="mdp" placeholder="Mot de passe ">
+				<input id="button-form" type="Submit">
 			</form>
 			
 			<button id="open-modal"><u>En savor plus</u></button><!-- modal -->
