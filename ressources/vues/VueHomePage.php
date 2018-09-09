@@ -1,11 +1,34 @@
-<section>
-	<div>
-		<form action="index.php?action=Connexion" method="post">
-    		<label>Identifiant :</label>
-    		<input type="mail" name="ident" placeholder="ex: admin@admin.com"><br><br>
-    		<label>Mot de passe :</label>
-    		<input type="password" name="mdp">
-    		<input type="Submit">
-		</form>
-	</div>
-</section>
+<main id="content-home">
+	<section><!-- DERNIERS ALBUMS -->
+		<div class="title-section">
+			<h2>Derniers Albums</h2>
+			<span></span>
+		</div>
+			
+		<div>
+		
+		</div>
+	</section>
+	
+	<section><!-- EVENEMENTS -->
+		<div class="title-section">
+			<h2>Événements</h2>
+			<span></span>
+		</div>
+		
+		<div>
+		
+		</div>
+	</section>
+	
+	<section><!-- CAGNOTTES -->
+		<div class="title-section">
+			<h2>Cagnottes</h2>
+			<span></span>
+		</div>
+		
+		<div>
+		
+		</div>
+	</section>
+</main>

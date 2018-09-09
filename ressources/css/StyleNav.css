@@ -1,7 +1,35 @@
 /* CSS Document */
-#test {
+header {
+	width: 10.15vw; height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
 	font-family: 'Trueno';
-    font-weight: 600;
+    font-weight: 200;
     font-style: normal;
-	color: black;
+	font-size: 0.78vw;
+	color: #F2F2F2;
+	background-color: #191919;
+	-webkit-box-shadow: 3px 0px 10px 0px rgba(0,0,0,1);
+-moz-box-shadow: 3px 0px 10px 0px rgba(0,0,0,1);
+box-shadow: 3px 0px 10px 0px rgba(0,0,0,1);
+}
+
+nav ul {
+	padding: 0;
+	list-style: none;
+}
+
+.icon-home {
+	font-size: 10px;
+	color: white;
+}
+
+#button-add {
+	bottom: 0;
+}
+
+nav li {
+	margin-bottom: 50px;
 }
