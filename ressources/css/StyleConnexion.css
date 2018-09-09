@@ -1,11 +1,14 @@
 #content-login,
 #content-login section,
 #content-login article,
-#content-login form {
+#content-login form,
+#modal-login,
+#modal-login li{
 	display: flex;
 }
 
 #content-login {
+	overflow: hidden;
 	width: 100%;
 	height: 100vh;
 	flex-direction: row;
@@ -59,7 +62,7 @@
 
 #content-login #button-form {
 	width: 19.16vw;
-	height: 45px;
+	min-height: 3.64vw;
 	margin-top: 70px;
 	border-radius: 100px 100px 100px 100px;
 	background-color: #191919;
@@ -90,15 +93,14 @@ box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.5);
   transform: scale(1.05);
 }
 
-#content-login button {
+#content-login #open-modal {
 	bottom: 0;
 	margin: 0 auto;
-	background: none;
-	border: none;
 	font-family: 'Trueno';
     font-weight: 200;
     font-style: normal;
 	font-size:  0.78vw;
+	color: black;
 }
 
 #content-login #slideshow {
@@ -108,6 +110,71 @@ box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.5);
 box-shadow: inset 10px 0px 20px 0px rgba(0,0,0,1);
 }
 
-#open-modal {
+#modal-login {
+	min-width: 100%; height: 54vw;
+	margin: 0;
+	padding: 0;
+	flex-direction: row;
+	justify-content: space-around;
+	background-color: #191919;
+	color: white;
+}
+
+#modal-login h3 {
+	font-family: 'Trueno';
+    font-weight: normal;
+    font-style: normal;
+	font-size: 1.56vw;
+}
+
+#modal-login p,
+#modal-login ul li {
+	font-family: 'Trueno';
+    font-weight: 300;
+    font-style: normal;
+	font-size: 1vw;
+	list-style: none;
+}
+
+#modal-login section {
+	width: 40%;
+	margin: 0;
+}
+
+.modal-titre h2 {
+	margin: 0 0 10px 0;
+	font-family: 'Trueno';
+    font-weight: normal;
+    font-style: normal;
+	font-size: 2.6vw;
+}
+
+.modal-titre div {
+	width: 30px; height: 6px;
+	background-color: white;
+}
+
+/* liste */
+#modal-login ul {
+	padding: 0px;
+}
+
+#modal-login li {
+	align-items: center;
+}
+
+#modal-login li div {
+	width: 10px; height: 4px;
+	margin-right: 10px;
+	background-color: white;
+}
+
+#modal-login #modal-info {
 	bottom: 0;
+	text-align: center;
+	font-family: 'Trueno';
+    font-weight: 300;
+    font-style: italic;
+	font-size:  0.78vw;
+	color: #F2F2F2;
 }
