@@ -1,24 +1,27 @@
 <link href="../css/StyleConnexion.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
 <main id="content-login">
-	<section id="login"><!-- droite connexion -->
+	<!-- Right Login -->
+	<section id="login">
 		<article>
 			<h1>Bienvenue !</h1>
-
-			<form action="index.php?action=Connexion" method="post"><!-- formulaire connexion -->
+			
+			<!-- formulaire connexion -->
+			<form action="index.php?action=Connexion" method="post">
 				<input type="mail" name="ident" placeholder="Adresse mail ">
 				<input type="password" name="mdp" placeholder="Mot de passe ">
 				<input id="button-form" type="Submit" value="CONNEXION">
-			</form>
+			</form><!-- #formulaire connexion -->
 			
-			<a id="open-modal" href="#modal-login" rel="modal:open"><u>En savoir plus</u></a>
+			<!-- Open Modal -->
+			<a id="open-modal" href="#modal-login" rel="modal:open"><u>En savoir plus</u></a><!-- #Open Modal -->
 		</article>
-		
-	</section><!-- #droite connexion -->
+	</section><!-- #Right Login -->
 	
-	<section id="slideshow"><!-- gauche slideshow-->
-
-	</section><!--#gauche slideshow-->
+	<!-- Left Slideshow-->
+	<section id="slideshow">
+	</section><!-- #Left Slideshow-->
 	
 	<!-- Modal-Content -->
 	<div id="modal-login" class="modal">
@@ -67,5 +70,9 @@
 	
 </main>
 
+<!-------------------------------------
+	SCRIPT
+--------------------------------------->
+<!-- Modal -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>

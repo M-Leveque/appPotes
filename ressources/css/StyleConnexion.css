@@ -178,3 +178,22 @@ box-shadow: inset 10px 0px 20px 0px rgba(0,0,0,1);
 	font-size:  0.78vw;
 	color: #F2F2F2;
 }
+
+/*-----------------------------------------------------
+	RESPONSIVE
+-----------------------------------------------------*/
+
+@media screen and (max-width: 414px) {
+	
+	#content-login {
+		flex-direction: column;
+	}
+	
+	#content-login section {
+		width: 100%; min-height: 50%;
+	}
+	
+	#content-login #login {
+		order: 2;
+	}
+}
