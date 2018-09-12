@@ -14,7 +14,7 @@
 			<!-- Open Modal -->
 			<a id="open-modal" href="#modal-login" rel="modal:open"><u>En savoir plus</u></a><!-- #Open Modal -->
 		</article>
-	</section><!-- #Right Login -->
+	</section>
 	
 	<!-- Left Slideshow-->
 	<section id="slideshow">
