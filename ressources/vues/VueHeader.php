@@ -6,15 +6,15 @@
 	<!-- icon -->
 <link href="https://file.myfontastic.com/5zC6g53CrmnZGwzZyM6fhT/icons.css" rel="stylesheet">
 	<!-- fonts -->
-<link href="/ressources/css/font.css" rel="stylesheet" type="text/css">
+<link href="ressources/css/font.css" rel="stylesheet" type="text/css">
 	<!-- normalize.css -->
-<link href="/ressources/css/normalize.css" rel="stylesheet" type="text/css">
+<link href="ressources/css/normalize.css" rel="stylesheet" type="text/css">
 	<!-- style css -->
-<link href="/ressources/css/Style.css" rel="stylesheet" type="text/css">
+<link href="ressources/css/Style.css" rel="stylesheet" type="text/css">
 	<!-- Style Nav -->
-<link href="/ressources/css/StyleNav.css" rel="stylesheet" type="text/css">
+<link href="ressources/css/StyleNav.css" rel="stylesheet" type="text/css">
 	<!-- Style Connexion -->
-<link href="/ressources/css/StyleConnexion.css" rel="stylesheet" type="text/css">
+<link href="ressources/css/StyleConnexion.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
