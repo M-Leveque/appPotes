@@ -27,12 +27,12 @@ if(isset($ident) AND isset($mdp)){
 //-------------------------------------------------------------------------------------
 
 //On inclut le menu
-include('/ressources/vues/VueMenu.php');
+include('ressources/vues/VueHeader.php');
 
 //On inclut la page Connexion  
-include('/ressources/vues/VueConnexion.php');
+include('ressources/vues/VueConnexion.php');
 
 //On inclut le bas de page (Fermeture des balises html)
-include('/ressources/vues/VueFooter.php');
+include('ressources/vues/VueFooter.php');
 
 ?>
