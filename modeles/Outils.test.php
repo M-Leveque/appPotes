@@ -145,28 +145,54 @@ echo ('$resultat : ' . $resultat . '<br>');
 echo ('<br>');
 
 // test de la méthode estUneDateValide ---------------------------------------------------------
-$uneDate = '31/13/2016';
+$uneDate = '2018-12-14';
 if ( Outils::estUneDateValide($uneDate) ) $resultat = 'vrai'; else $resultat = 'faux';
 echo ('<b>Test de la méthode estUneDateValide : </b><br>');
 echo ('$uneDate : ' . $uneDate . '<br>');
 echo ('$resultat : ' . $resultat . '<br>');
 echo ('<br>');
 
-$uneDate = '31/12/2016';
+$uneDate = '2018-24-05';
 if ( Outils::estUneDateValide($uneDate) ) $resultat = 'vrai'; else $resultat = 'faux';
 echo ('$uneDate : ' . $uneDate . '<br>');
 echo ('$resultat : ' . $resultat . '<br>');
 echo ('<br>');
 
-$uneDate = '29/02/2015';
+$uneDate = '2018-10-32';
 if ( Outils::estUneDateValide($uneDate) ) $resultat = 'vrai'; else $resultat = 'faux';
 echo ('$uneDate : ' . $uneDate . '<br>');
 echo ('$resultat : ' . $resultat . '<br>');
 echo ('<br>');
 
-$uneDate = '29/02/2016';
-if ( Outils::estUneDateValide($uneDate) ) $resultat = 'vrai'; else $resultat = 'faux';
-echo ('$uneDate : ' . $uneDate . '<br>');
+// test de la méthode estUnDateTimeValide ---------------------------------------------------------
+$unDateTime = '2018-05-22 01:18:00';
+echo ('<b>Test de la méthode estUnDateTimeValide : </b><br>');
+if ( Outils::estUnDateTimeValide($unDateTime) ) $resultat = 'vrai'; else $resultat = 'faux';
+echo ('$uneDate : ' . $unDateTime . '<br>');
+echo ('$resultat : ' . $resultat . '<br>');
+echo ('<br>');
+
+$unDateTime = '2018-24-22 01:18:00';
+if ( Outils::estUnDateTimeValide($unDateTime) ) $resultat = 'vrai'; else $resultat = 'faux';
+echo ('$uneDate : ' . $unDateTime . '<br>');
+echo ('$resultat : ' . $resultat . '<br>');
+echo ('<br>');
+
+$unDateTime = '2018-05-32 01:18:00';
+if ( Outils::estUnDateTimeValide($unDateTime) ) $resultat = 'vrai'; else $resultat = 'faux';
+echo ('$uneDate : ' . $unDateTime . '<br>');
+echo ('$resultat : ' . $resultat . '<br>');
+echo ('<br>');
+
+$unDateTime = '2018-05-04 24:18:00';
+if ( Outils::estUnDateTimeValide($unDateTime) ) $resultat = 'vrai'; else $resultat = 'faux';
+echo ('$uneDate : ' . $unDateTime . '<br>');
+echo ('$resultat : ' . $resultat . '<br>');
+echo ('<br>');
+
+$unDateTime = '2018-05-04 24:60:00';
+if ( Outils::estUnDateTimeValide($unDateTime) ) $resultat = 'vrai'; else $resultat = 'faux';
+echo ('$uneDate : ' . $unDateTime . '<br>');
 echo ('$resultat : ' . $resultat . '<br>');
 echo ('<br>');
 

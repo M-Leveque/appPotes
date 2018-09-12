@@ -2,7 +2,7 @@
 //---------- Page de test -----------
 //---------- Class Utilisateur  -----------
 
-// connexion du serveur web à la base MySQL
+// connexion du serveur web ï¿½ la base MySQL
 include_once ('DAO.class.php');
 $dao = new DAO();
 
@@ -25,7 +25,7 @@ echo ('Utilisateur : Bon login / Mauvais mot de passe<br>');
 var_dump($connection4);
 
 
-echo '<br>------------------------------------------------------------<br><br>';
+echo '------------------------------------------------------------<br><br>';
 
 //test des methodes Utilisateur
 //-------------------------------------------------------------------------------------
