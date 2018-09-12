@@ -1,6 +1,3 @@
-<link href="../css/StyleConnexion.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-
 <main id="content-login">
 	<!-- Right Login -->
 	<section id="login">
