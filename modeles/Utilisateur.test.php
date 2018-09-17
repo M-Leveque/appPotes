@@ -6,7 +6,7 @@ include('Utilisateur.class.php');
 
 //test des methodes get
 //---------------------
-$utilisateur = new Utilisateur(1, 0,'test@test.fr', 'motdepasse', 'test', '/ressources/images/test.jpg');
+$utilisateur = new Utilisateur(1, 0,'test@test.fr', 'Administrateur1', 'test', '/ressources/images/test.jpg');
 
 //Affichage du r�sultat
 $msg = "----------Test des methods get()-----------<br>";
