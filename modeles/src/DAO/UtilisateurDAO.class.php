@@ -1,5 +1,6 @@
 <?php
-include('DAO.class.php');
+require_once('modeles/src/DAO/DAO.class.php');
+require_once('modeles/src/Utilisateur.class.php');
 
 class UtilisateurDAO extends DAO{
 

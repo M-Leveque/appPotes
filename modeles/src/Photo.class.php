@@ -15,39 +15,20 @@ class Photo
     private $_Chemin;
     private $_Compteur;
     private $_Date;
-    private $_Utilisateur;
-    private $_Album;
+    private $_DateU;
+    private $_IdUtilisateur;
+    private $_IdAlbum;
 
-    public function __construct($id, $titre, $chemin, $compteur, $date, $utilisateur, $album){
+    public function __construct($id, $titre, $chemin, $compteur, $date, $dateU, $idUtilisateur, $idAlbum){
 
-        //Verif variable $id
-        if(is_int($id) && $id >= 0 ){
-          $this->_Id = $id;
-        }
-
-        //Verif variable $titre
-        if(strlen($titre) < 20){
-          $this->_Titre = $titre;
-        }
-
-        $this->_Chemin = $chemin;
-
-        //Verif variable $compteur
-        if(is_int($compteur) && $compteur >= 0 ){
-          $this->_Compteur = $compteur;
-        }
-
-        if(Outils::estUneDateValide($date)){
-          $this->_Date = $date;
-        }
-
-        if(is_object($utilisateur)){
-          $this->_Utilisateur = $utilisateur;
-        }
-
-        if(is_object($album)){
-          $this->_Album = $album;
-        }
+        $this->setId($id);
+        $this->setTitre($titre);
+        $this->setChemin($chemin);
+        $this->setCompteur($compteur);
+        $this->setDate($date);
+        $this->setDateU($dateU);
+        $this->setIdUtilisateur($idUtilisateur);
+        $this->setIdAlbum($idAlbum);
     }
 
     //-------------------------------
@@ -74,12 +55,17 @@ class Photo
         return $this->_Date;
     }
 
-    public function getUtilisateur(){
-        return $this->_Utilisateur;
+    public function getDateU(){
+        return $this->_DateU;
     }
 
-    public function getAlbum(){
-        return $this->_Album;
+
+    public function getIdUtilisateur(){
+        return $this->_IdUtilisateur;
+    }
+
+    public function getIdAlbum(){
+        return $this->_IdAlbum;
     }
 
 
@@ -143,9 +129,20 @@ class Photo
       return $result;
     }
 
-    public function setUtilisateur($utilisateur){
-      if(is_object($utilisateur)){
-        $this->_Utilisateur = $utilisateur;
+    public function setDateU($dateU){
+      if(Outils::estUneDateValide($dateU)){
+        $this->_DateU = $dateU;
+        $result = "Reussi";
+      }
+      else{
+        $result = "Erreur : la donnée doit être un date valide";
+      }
+      return $result;
+    }
+
+    public function setIdUtilisateur($idUtilisateur){
+      if(is_int($idUtilisateur) && $idUtilisateur > 0 && !is_null($idUtilisateur)){
+        $this->_IdUtilisateur = $idUtilisateur;
         $result = "Reussi";
       }
       else{
@@ -154,9 +151,9 @@ class Photo
       return $result;
     }
 
-    public function setAlbum($album){
-      if(is_object($album)){
-        $this->_Album = $album;
+    public function setIdAlbum($idAlbum){
+      if(is_int($idAlbum) && $idAlbum > 0 && $idAlbum != null){
+        $this->_IdAlbum = $idAlbum;
         $result = "Reussi";
       }
       else{
@@ -176,8 +173,8 @@ class Photo
         $msg .= "chemin : ".$this->_Chemin."<br>";
         $msg .= "compteur : ".$this->_Compteur."<br>";
         $msg .= "date : ".$this->_Date."<br>";
-        $msg .= "utilisateur : ".$this->_Utilisateur->toString()."<br>";
-        $msg .= "album : ".$this->_Album->toString()."<br>";
+        $msg .= "utilisateur : ".$this->_IdUtilisateur."<br>";
+        $msg .= "album : ".$this->_IdAlbum."<br>";
 
         return $msg;
     }

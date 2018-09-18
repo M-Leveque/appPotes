@@ -7,6 +7,10 @@ class Album
 {
     private $_Id;
     private $_Nom;
+    private $_Priver;
+    private $_Visuel;
+    private $_IdE;
+    private $_IdU;
 
     public function __construct($id, $nom){
 

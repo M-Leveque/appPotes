@@ -1,6 +1,6 @@
 <?php
 //---------- Page de test -----------
-//---------- Class Utilisateur  -----------
+//---------- Class UtilisateurDAO  -----------
 require_once('modeles/src/DAO/UtilisateurDAO.class.php');
 
 $utilisateurDao = new UtilisateurDAO();

@@ -32,6 +32,12 @@ switch($action){
 	case 'TestUtilisateur':{
 		include_once ('modeles/tests/Utilisateur.test.php'); break;
 	}
+	case 'TestPhotoDAO':{
+		include_once ('modeles/tests/DAO/PhotoDAO.test.php'); break;
+	}
+	case 'TestPhoto':{
+		include_once ('modeles/tests/Photo.test.php'); break;
+	}
 	//---------------------------------------------------------------------------------------------------
 	default : {
 		// toute autre tentative est automatiquement redirig�e vers la page de connexion
