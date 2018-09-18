@@ -2,11 +2,11 @@
 //---------- Page de test -----------
 //---------- Class Utilisateur  -----------
 
-include('Utilisateur.class.php');
+include('modeles/src/Utilisateur.class.php');
 
 //test des methodes get
 //---------------------
-$utilisateur = new Utilisateur(1, 0,'test@test.fr', 'Administrateur1', 'test', '/ressources/images/test.jpg');
+$utilisateur = new Utilisateur(1, 0,'test@test.fr', 'Visiteur1', 'test', '/ressources/images/test.jpg');
 
 //Affichage du r�sultat
 $msg = "----------Test des methods get()-----------<br>";

@@ -1,11 +1,11 @@
 <?php
 session_start();		// permet d'utiliser des variables de session
 
-// on vérifie le paramètre action de l'URL
+// on vï¿½rifie le paramï¿½tre action de l'URL
 if ( ! isset ($_GET['action']) == true)  $action = '';  else   $action = $_GET['action'];
 
-//--------------------------------- Déconnexion ---------------------------------------------------------
-// lors d'une première connexion, ou après une déconnexion, on initialise à vide les variables de session
+//--------------------------------- Dï¿½connexion ---------------------------------------------------------
+// lors d'une premiï¿½re connexion, ou aprï¿½s une dï¿½connexion, on initialise ï¿½ vide les variables de session
 if ($action == 'Deconnecter')
 {	unset ($_SESSION['id']);
 	header("Location: index.php");
@@ -25,11 +25,16 @@ switch($action){
 	case 'Compte': {
 	    include_once ('controleurs/CtrlCompte.php'); break;
 	}
-    //-------------------------------- Modules ----------------------------------------------------------
-    
+  //-------------------------------- Tests ------------------------------------------------------------
+	case 'TestUtilisateurDAO': {
+			include_once ('modeles/tests/DAO/UtilisateurDAO.test.php'); break;
+	}
+	case 'TestUtilisateur':{
+		include_once ('modeles/tests/Utilisateur.test.php'); break;
+	}
 	//---------------------------------------------------------------------------------------------------
 	default : {
-		// toute autre tentative est automatiquement redirigée vers la page de connexion
+		// toute autre tentative est automatiquement redirigï¿½e vers la page de connexion
 		include_once ('controleurs/CtrlConnexion.php'); break;
 	}
 }

@@ -7,12 +7,12 @@
 // certaines m�thodes n�cessitent les fichiers Utilisateur.class.php,
 
 // inclusion des paramètres de l'application
-include_once('utilisateur.class.php');
-include_once ('parametres.localhost.php');
+require_once('modeles/src/Utilisateur.class.php');
+require_once('modeles/src/parametres.localhost.php');
 
 class DAO
 {
-	private $cnx;					// la connexion à la base de donn�es
+	protected $cnx;					// la connexion à la base de donn�es
 
 	//---------------------------------------------------------------------------------------------------------------------
 	//--------------------------------------------- Constructeur ---------------------------------------------------------

@@ -12,8 +12,9 @@ class Utilisateur
     private $_Mdp;
     private $_Pseudo;
     private $_Photo;
+    private $_Tmp;
 
-    public function __construct($id, $niveau, $mail, $mdp, $pseudo, $photo){
+    public function __construct($id, $niveau, $mail, $mdp, $pseudo, $photo, $tmp){
 
       //Verif $id
       if(is_int($id) && $id >= 0 ){
@@ -39,6 +40,11 @@ class Utilisateur
       }
 
       $this->_Photo = $photo;
+
+      //Verif $tmp
+      if(is_bool($tmp)){
+        $this->_Tmp = $tmp;
+      }
     }
 
     //-------------------------------
@@ -69,6 +75,9 @@ class Utilisateur
         return $this->_Photo;
     }
 
+    public function getTmp(){
+      return $this->_Tmp;
+    }
 
     //-------------------------------
     //-----| Liste des setters |-----
@@ -143,6 +152,17 @@ class Utilisateur
         return "Reussi";
     }
 
+    public function setTmp($tmp){
+      if(is_bool($tmp)){
+        $this->_Tmp = $tmp;
+        $result = 'Reussi';
+      }
+      else{
+        $result = 'Erreur : Le tmp doit être un booleen';
+      }
+      return $result;
+    }
+
     //------------------------------
     //-----| Methode toString |-----
     //------------------------------
@@ -155,6 +175,7 @@ class Utilisateur
         $msg .= "mdp : ".$this->_Mdp."<br>";
         $msg .= "pseudo : ".$this->_Pseudo."<br>";
         $msg .= "photo : ".$this->_Photo."<br>";
+        $msg .= "tmp : ".$this->_Tmp."<br>";
 
         return $msg;
     }
