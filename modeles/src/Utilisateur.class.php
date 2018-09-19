@@ -2,7 +2,7 @@
 //-----------------------------------------------------
 //-------------------| Class Utilisateur |-------------
 //-----------------------------------------------------
-include_once('Outils.class.php');
+include_once('modeles/src/Outils.class.php');
 
 class Utilisateur
 {

@@ -2,20 +2,20 @@
 //---------- Page de test -----------
 //---------- Class Evenement  -----------
 
-include('Evenement.class.php');
-include_once('Utilisateur.class.php');
+include('modeles/src/Evenement.class.php');
 //test des methodes get
 //---------------------
-$utilisateur = new Utilisateur(1, 0,'test@test.fr', 'motdepasse', 'test', '/ressources/images/test.jpg');
-$evenement = new Evenement(1, 'Anniv','Annivairsaire de frank', '2018-12-2018', 0, $utilisateur);
+$evenement = new Evenement(1, 'Anniv','Annivairsaire de frank', '2018-12-04', '2018-12-05 21:00:00', 0, 1, 1);
 
 //Affichage du résultat
-$msg = "----------Test des methods get()-----------<br>";
+$msg = "----------Test bonne données ----------<br>";
 $msg .= "getId() : ".$evenement->getId()."<br>";
 $msg .= "getTitre() : ".$evenement->getTitre()."<br>";
 $msg .= "getDescription() : ".$evenement->getDescription()."<br>";
 $msg .= "getDateFin() : ".$evenement->getDateTime()."<br>";
-$msg .= "getUtilisateur() : ".$evenement->getUtilisateur()->toString()."<br>";
+$msg .= "getDateC() : ".$evenement->getDateC()."<br>";
+$msg .= "getUtilisateur() : ".$evenement->getIdUtilisateur()."<br>";
+$msg .= "getEvenement() : ".$evenement->getIdEmoticon()."<br>";
 $msg .= "<br><br>";
 
 echo $msg;
@@ -23,39 +23,24 @@ echo $msg;
 //test des methodes set
 //---------------------
 //Mise à jour des données
-$utilisateur = new Utilisateur(2, 0,'admin@test.fr', 'motdepasse1', 'test2', '/ressources/images/test2.jpg');
-
-$res1 = $evenement->setId(1);
-$res2 = $evenement->setTitre('Soiree');
-$res3 = $evenement->setDescription('Cagnotte de financement des decorations');
-$res4 = $evenement->setDateTime('2018-12-04 00:12:53');
-$res5 = $evenement->setUtilisateur($utilisateur);
-
-//Affichage des nouvelles données
-$msg = "----------Test des methods set()-----------<br>";
-$msg .= "Nouvelles donnees :<br>";
-$msg .= "(id: 1, titre : Soiree , description : Cagnotte de financement des decorations, date de fin : 2018-12-2018,<br>";
-$msg .= "utilisateur: 2, 0,'admin@test.fr', 'motdepasse1', 'test2', '/ressources/images/test2.jpg')<br><br>";
-$msg .= "(cas reussi) Modification des données : <br>";
-$msg .= "Id : ".$res1."<br>";
-$msg .= "Titre : ".$res2."<br>";
-$msg .= "Description : ".$res3."<br>";
-$msg .= "DateTime : ".$res4."<br>";
-$msg .= "Utilisateur : ".$res5;
-$msg .= "<br><br>";
 
 $res1 = $evenement->setId('bonsoir');
 $res2 = $evenement->setTitre('Soireergsseqrgqelzhflqiuzef');
 $res3 = $evenement->setDescription('Cagnotte de financement des decorations');
 $res4 = $evenement->setDateTime('2018-12-2018 24:21:21');
-$res5 = $evenement->setUtilisateur('salut');
+$res5 = $evenement->setDateC('2018-06-05');
+$res6 = $evenement->setIdUtilisateur('salut');
+$res7 = $evenement->setIdEmoticon('salut');
 
+$msg = "----------Test mauvaise données -----------<br>";
 $msg .= "(cas erreur) Modification des données : <br>";
 $msg .= "Id : ".$res1."<br>";
 $msg .= "Titre : ".$res2."<br>";
 $msg .= "Description : ".$res3."<br>";
 $msg .= "DateTime : ".$res4."<br>";
-$msg .= "Utilisateur : ".$res5." <br><br>";
+$msg .= "DateC : ".$res5."<br>";
+$msg .= "Utilisateur : ".$res6." <br>";
+$msg .= "Emoticon : ".$res7." <br><br>";
 $msg .= "<br><br>";
 
 echo $msg;

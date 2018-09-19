@@ -24,12 +24,12 @@ class Message
         $this->_Contenu = $contenu;
 
         //Verif variable $evenement
-        if(is_object($evenement)){
+        if(is_int($evenement)){
           $this->_Evenement = $evenement;
         }
 
         //Verif variable $utilisateur
-        if(is_object($utilisateur)){
+        if(is_int($utilisateur)){
           $this->_Utilisateur = $utilisateur;
         }
     }
@@ -46,11 +46,11 @@ class Message
         return $this->_Contenu;
     }
 
-    public function getEvenement(){
+    public function getIdEvenement(){
         return $this->_Evenement;
     }
 
-    public function getUtilisateur(){
+    public function getIdUtilisateur(){
         return $this->_Utilisateur;
     }
 
@@ -78,8 +78,8 @@ class Message
         return "Reussi";
     }
 
-    public function setEvenement($evenement){
-        if(is_object($evenement)){
+    public function setIdEvenement($evenement){
+        if(is_int($evenement)){
           $this->_Evenement = $evenement;
           $result = "Reussi";
         }
@@ -89,8 +89,8 @@ class Message
         return $result;
     }
 
-    public function setUtilisateur($utilisateur){
-      if(is_object($utilisateur)){
+    public function setIdUtilisateur($utilisateur){
+      if(is_int($utilisateur)){
         $this->_Utilisateur = $utilisateur;
         $result = "Reussi";
       }

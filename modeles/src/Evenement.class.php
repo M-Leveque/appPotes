@@ -4,45 +4,30 @@
 //-----------------------------------------------------
 
 //On inclut la classe utilisateur
-include_once('Utilisateur.class.php');
-include_once('Outils.class.php');
+include_once('modeles/src/Outils.class.php');
 
 class Evenement
 {
     private $_Id;
     private $_Titre;
     private $_Description;
+    private $_DateC;
     private $_DateTime;
     private $_Archiver;
-    private $_Utilisateur;
+    private $_IdUtilisateur;
+    private $_IdEmoticon;
 
-    public function __construct($id, $titre, $description, $dateTime, $archiver, $utilisateur){
+    public function __construct($id, $titre, $description, $dateC, $dateTime, $archiver, $idUtilisateur, $idEmoticon){
 
-        //Verif variable $id
-        if(is_int($id) && $id >= 0 ){
-          $this->_Id = $id;
-        }
+        $this->setId($id);
+        $this->setTitre($titre);
+        $this->setDescription($description);
+        $this->setDateC($dateC);
+        $this->setDateTime($dateTime);
+        $this->setArchiver($archiver);
+        $this->setIdUtilisateur($idUtilisateur);
+        $this->setIdEmoticon($idEmoticon);
 
-        //Verif variable $titre
-        if(strlen($titre) < 20){
-          $this->_Titre = $titre;
-        }
-
-        $this->_Description = $description;
-
-        //Verif variable $dateHeure
-        if(Outils::estUnDateTimeValide($dateTime)){
-          $this->_DateTime = $dateTime;
-        }
-
-        //Verif variable $archiver
-        if($archiver == TRUE){
-          $this->_Archiver = $archiver;
-        }
-
-        if(is_object($utilisateur)){
-          $this->_Utilisateur = $utilisateur;
-        }
     }
 
     //-------------------------------
@@ -61,12 +46,24 @@ class Evenement
         return $this->_Description;
     }
 
+    public function getDateC(){
+      return $this->_DateC;
+    }
+
     public function getDateTime(){
         return $this->_DateTime;
     }
 
-    public function getUtilisateur(){
-        return $this->_Utilisateur;
+    public function getArchiver(){
+        return $this->_Archiver;
+    }
+
+    public function getIdUtilisateur(){
+        return $this->_IdUtilisateur;
+    }
+
+    public function getIdEmoticon(){
+        return $this->_IdEmoticon;
     }
 
     //-------------------------------
@@ -106,6 +103,17 @@ class Evenement
         return "Reussi";
     }
 
+    public function setDateC($dateC){
+        if(Outils::estUneDateValide($dateC)){
+          $this->_DateC = $dateC;
+          $result = "Reussi";
+        }
+        else{
+          $result = "Erreur : La donnée doit être un dateTime valide";
+        }
+        return $result;
+    }
+
     public function setDateTime($dateTime){
         if(Outils::estUnDateTimeValide($dateTime)){
           $this->_DateTime = $dateTime;
@@ -117,13 +125,35 @@ class Evenement
         return $result;
     }
 
-    public function setUtilisateur($utilisateur){
-      if(is_object($utilisateur)){
-        $this->_Utilisateur = $utilisateur;
+    public function setArchiver($archiver){
+        if(is_bool($archiver) || $archiver == 0 || $archiver == 1){
+          $this->_Archiver = $archiver;
+          $result = "Reussi";
+        }
+        else{
+          $result = "Erreur : La donnée doit être un dateTime valide";
+        }
+        return $result;
+    }
+
+    public function setIdUtilisateur($idUtilisateur){
+      if(is_int($idUtilisateur)){
+        $this->_IdUtilisateur = $idUtilisateur;
         $result = "Reussi";
       }
       else{
-        $result = "Erreur : La donnée doit être un objet";
+        $result = "Erreur : la donnée doit être un entier supérieur à 0";
+      }
+      return $result;
+    }
+
+    public function setIdEmoticon($idEmoticon){
+      if(is_int($idEmoticon)){
+        $this->_IdEmoticon = $idEmoticon;
+        $result = "Reussi";
+      }
+      else{
+        $result = "Erreur : la donnée doit être un entier supérieur à 0";
       }
       return $result;
     }
@@ -138,7 +168,10 @@ class Evenement
         $msg .= "titre : ".$this->_Titre."<br>";
         $msg .= "description : ".$this->_Description."<br>";
         $msg .= "date : ".$this->_DateTime."<br>";
-        $msg .= "utilisateur : ".$this->_Utilisateur->toString()."<br>";
+        $msg .= "date creation : ".$this->_DateC."<br>";
+        $msg .= "Archiver : ".$this->_Archiver."<br>";
+        $msg .= "utilisateur : ".$this->_IdUtilisateur."<br>";
+        $msg .= "emoticon : ".$this->_IdEmoticon."<br>";
 
         return $msg;
     }
