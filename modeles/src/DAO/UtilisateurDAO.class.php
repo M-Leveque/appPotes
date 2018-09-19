@@ -105,27 +105,26 @@ class UtilisateurDAO extends DAO{
 
     // Requete SQL
     $stmt = $this->cnx->prepare("UPDATE Utilisateur SET Niveau_U = :Niveau, Mail_U = :Mail, Pseudo_U = :Pseudo, Photo_U = :Photo, Tmp = :Tmp WHERE Id_U = :id");
-    $stmt->bindValue(':id', $utilisateur->getId(), PDO::PARAM_STR);
+    $stmt->bindValue(':id', intval($utilisateur->getId()), PDO::PARAM_INT);
     $stmt->bindValue(':Niveau', $utilisateur->getNiveau(), PDO::PARAM_STR);
     $stmt->bindValue(':Mail', $utilisateur->getMail(), PDO::PARAM_STR);
     $stmt->bindValue(':Pseudo', $utilisateur->getPseudo(), PDO::PARAM_STR);
     $stmt->bindValue(':Photo', $utilisateur->getPhoto(), PDO::PARAM_STR);
-    $stmt->bindValue(':Tmp', intval($utilisateur->getTmp()), PDO::PARAM_STR);
+    $stmt->bindValue(':Tmp', intval($utilisateur->getTmp()), PDO::PARAM_INT);
     $stmt->execute();    // Ex�cute la d�claration
-
   }
 
   public function add($utilisateur){
 
       // Requete SQL
       $stmt = $this->cnx->prepare("INSERT INTO Utilisateur(Id_U, Niveau_U, Mail_U, Mdp_U, Pseudo_U, Photo_U, Tmp) VALUES (:id, :Niveau, :Mail, :Mdp, :Pseudo, :Photo, :Tmp)");
-      $stmt->bindValue(':id', $utilisateur->getId(), PDO::PARAM_STR);
+      $stmt->bindValue(':id', intval()$utilisateur->getId()), PDO::PARAM_INT);
       $stmt->bindValue(':Niveau', $utilisateur->getNiveau(), PDO::PARAM_STR);
       $stmt->bindValue(':Mail', $utilisateur->getMail(), PDO::PARAM_STR);
       $stmt->bindValue(':Mdp', $utilisateur->getMdp(), PDO::PARAM_STR);
       $stmt->bindValue(':Pseudo', $utilisateur->getPseudo(), PDO::PARAM_STR);
       $stmt->bindValue(':Photo', $utilisateur->getPhoto(), PDO::PARAM_STR);
-      $stmt->bindValue(':Tmp', intval($utilisateur->getTmp()), PDO::PARAM_STR);
+      $stmt->bindValue(':Tmp', intval($utilisateur->getTmp()), PDO::PARAM_INT);
       $result = $stmt->execute();    // Exécute la déclaration
 
   }
@@ -134,7 +133,7 @@ class UtilisateurDAO extends DAO{
 
       // Requete SQL
       $stmt = $this->cnx->prepare("DELETE FROM Utilisateur WHERE Id_U = :id");
-      $stmt->bindValue(':id', $id, PDO::PARAM_STR);
+      $stmt->bindValue(':id', $id, PDO::PARAM_INT);
       $stmt->execute();    // Execute la declaration
   }
 
@@ -142,7 +141,7 @@ class UtilisateurDAO extends DAO{
 
       // L utilisation de declarations empeche les injections SQL
       $stmt = $this->cnx->prepare("SELECT Pseudo_U, Mdp_U FROM Utilisateur WHERE Id_U = :id");
-      $stmt->bindValue(':id', $id, PDO::PARAM_STR);  // Lie "$id" aux param�tres.
+      $stmt->bindValue(':id', $id, PDO::PARAM_INT);  // Lie "$id" aux param�tres.
       $stmt->execute();    // Execute la declaration.
       $ligne = $stmt->fetch(PDO::FETCH_OBJ);
 
@@ -152,7 +151,7 @@ class UtilisateurDAO extends DAO{
 
           // Requete SQL
           $stmt = $this->cnx->prepare("UPDATE Utilisateur SET Mdp_U= :Mdp WHERE Id_U = :id");
-          $stmt->bindValue(':id', $id, PDO::PARAM_STR);  // Lie "$id" aux parametres.
+          $stmt->bindValue(':id', $id, PDO::PARAM_INT);  // Lie "$id" aux parametres.
           $stmt->bindValue(':Mdp', password_hash($newMdp, PASSWORD_DEFAULT), PDO::PARAM_STR);
           $result = $stmt->execute();    // Execute la declaration.
 

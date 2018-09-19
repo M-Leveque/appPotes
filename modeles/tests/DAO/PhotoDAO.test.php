@@ -30,7 +30,7 @@ if (!$photoDao->get("c"))echo $reussi; else echo $echec;
 echo "<BR>Cas Echec : donnees < 0 :<BR>";
 if (!$photoDao->get(-1))echo $reussi; else echo $echec;
 
-echo "<BR><BR>---- fonction getAll()<BR>";
+echo "<BR><BR>---- fonction getAll<BR>";
 //Test recuperation
 $i = 0;
 $photos = array(
@@ -49,5 +49,27 @@ foreach ($photoDao->getAll() as $photo) {
   if($photo->getIdAlbum() == $photos[$i]->getIdAlbum()){$result = true;} else {$result = false; break;}
 }
 if ($result) echo $reussi; else echo $echec;
-echo "<BR><BR>---- fonction set()<BR>";
+
+echo "<BR><BR>---- fonction set<BR>";
 //Test UPDATE
+//Photo à modifier
+$photo = $photoDao->get(1);
+$photo->setChemin("ressources/test/img.png");
+$photoDao->set($photo);
+//Test du changement
+if($photoDao->get(1)->getChemin() == "ressources/test/img.png")echo $reussi; else echo $echec;
+//On remet le chemin de base
+$photo->setChemin("/ressources/images/photo.png");
+$photoDao->set($photo);
+
+echo "<BR><BR>---- fonction add<BR>";
+//Test ADD
+//Photo a ajouter
+$photo = new Photo(3, "img003","/ressources/images/photo3.png", 0, "2018-09-12", "2018-09-19",1 ,1);
+$photoDao->add($photo);
+if($photoDao->get(3))echo $reussi; else echo $echec;
+
+echo "<BR><BR>---- fonction delete<BR>";
+//Test DELETE
+$photoDao->delete(3);
+if(!$photoDao->get(3))echo $reussi; else echo $echec;
