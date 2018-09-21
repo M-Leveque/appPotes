@@ -5,7 +5,6 @@ header {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	align-items: center;
 	font-family: 'Trueno';
     font-weight: 200;
     font-style: normal;
@@ -22,6 +21,7 @@ nav {
 }
 
 nav ul {
+	margin-left: 14px;
 	padding: 0;
 	list-style: none;
 }
@@ -40,6 +40,7 @@ a .icon {
 
 #button-add {
 	bottom: 0;
+	margin: 0 auto;
 }
 
 nav li {
