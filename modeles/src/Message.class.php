@@ -1,4 +1,4 @@
-<?php 
+<?php
 //-----------------------------------------------------
 //-----------------| Class Message |------------------
 //-----------------------------------------------------
@@ -13,66 +13,105 @@ class Message
     private $_Contenu;
     private $_Evenement;
     private $_Utilisateur;
-    
+
     public function __construct($id, $contenu, $evenement, $utilisateur){
-        $this->_Id = $id;
+
+        //Verif variable $id
+        if(is_int($id) && $id >= 0 ){
+          $this->_Id = $id;
+        }
+
         $this->_Contenu = $contenu;
-        $this->_Evenement = $evenement;
-        $this->_Utilisateur = $utilisateur;
+
+        //Verif variable $evenement
+        if(is_int($evenement)){
+          $this->_Evenement = $evenement;
+        }
+
+        //Verif variable $utilisateur
+        if(is_int($utilisateur)){
+          $this->_Utilisateur = $utilisateur;
+        }
     }
-    
+
     //-------------------------------
     //-----| Liste des getters |-----
     //-------------------------------
-    
+
     public function getId(){
         return $this->_Id;
     }
-    
+
     public function getContenu(){
         return $this->_Contenu;
     }
-    
-    public function getEvenement(){
+
+    public function getIdEvenement(){
         return $this->_Evenement;
     }
-    
-    public function getUtilisateur(){
+
+    public function getIdUtilisateur(){
         return $this->_Utilisateur;
     }
-    
+
     //-------------------------------
     //-----| Liste des setters |-----
     //-------------------------------
-    
+
     public function setId($id){
-        return $this->_Id = $id;
+
+      //Verif variable $id
+      if(is_int($id) && $id >= 0 ){
+        $this->_Id = $id;
+        $result = "Reussi";
+      }
+      else
+      {
+        $result = "Erreur : la donnée doit être un entier supérieur à 0";
+      }
+      return $result;
     }
-    
+
+
     public function setContenu($contenu){
-        return $this->_Contenu = $contenu;
+        $this->_Contenu = $contenu;
+        return "Reussi";
     }
-    
-    public function setEvenement($evenement){
-        return $this->_Evenement = $evenement;
+
+    public function setIdEvenement($evenement){
+        if(is_int($evenement)){
+          $this->_Evenement = $evenement;
+          $result = "Reussi";
+        }
+        else{
+          $result = "Erreur : La donnée doit être un objet";
+        }
+        return $result;
     }
-    
-    public function setUtilisateur($utilisateur){
-        return $this->_Utilisateur = $utilisateur;
+
+    public function setIdUtilisateur($utilisateur){
+      if(is_int($utilisateur)){
+        $this->_Utilisateur = $utilisateur;
+        $result = "Reussi";
+      }
+      else{
+        $result = "Erreur : La donnée doit être un objet";
+      }
+      return $result;
     }
-    
-    
+
+
     //------------------------------
     //-----| Methode toString |-----
     //------------------------------
-    
+
     public function toString() {
         $msg = "Album :<br>";
         $msg .= "id : ".$this->_Id."<br>";
         $msg .= "contenu : ".$this->_Contenu."<br><br>";
         $msg .= "evenement : ".$this->_Evenement->toString()."<br><br>";
         $msg .= "utilisateur : ".$this->_Utilisateur->toString()."<br>";
-        
+
         return $msg;
     }
 }

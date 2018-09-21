@@ -18,6 +18,7 @@
 // estUnCodePostalValide    : validation d'un code postal (il doit comporter 5 chiffres)
 // estUneAdrMailValide      : validation d'une adresse mail
 // estUneDateValide         : validation d'une date (format jj/mm/aaaa ou bien jj-mm-aaaa)
+// estUnDateTimeValide			: validation d'un dateTime (format aaaa/mm/jj hh:mm:ss)
 // estUnNumTelValide        : validation d'un numéro de téléphone (5 groupes de 2 chiffres EVENTUELLEMENT séparés)
 
 // ce fichier est destiné à être inclus dans les pages PHP qui ont besoin des fonctions qu'il contient
@@ -41,7 +42,7 @@ class Outils
 		$jour = $tableau[2];
 		return ($jour . "/" . $mois . "/" . $an);		// on les reconcatène dans un ordre différent
 	}
-			
+
 	// La fonction dateUS convertit une date française (j/m/a) au format US (a-m-j)
 	// par exemple, le paramètre '16/05/2007' donnera '2007-05-16'
 	public static function convertirEnDateUS ($laDate)
@@ -51,14 +52,14 @@ class Outils
 		$an = $tableau[0];
 		return ($an . "-" . $mois . "-" . $jour);		// on les reconcatène dans un ordre différent
 	}
-	
+
 	// remplace les "/" par des "-"
 	public static function corrigerDate ($laDate)
 	{
 		$temporaire = str_replace ("-", "/", $laDate);
 		return $temporaire;
 	}
-	
+
 	// met en majuscules le premier caractère, et le caractère qui suit un éventuel tiret (le reste en minuscules)
 	public static function corrigerPrenom ($lePrenom)
 	{	if ($lePrenom != "")
@@ -79,7 +80,7 @@ class Outils
 		}
 		return $lePrenom;
 	}
-	
+
 	// met le numéro sous la forme de 5 groupes de 2 chiffres séparés par des points
 	public static function corrigerTelephone ($leNumero)
 	{	$temporaire = $leNumero;
@@ -89,7 +90,7 @@ class Outils
 		$temporaire = str_replace ("-", "", $temporaire);	// supprime les tirets
 		$temporaire = str_replace ("_", "", $temporaire);	// supprime les underscore
 		$temporaire = str_replace ("/", "", $temporaire);	// supprime les slash
-		
+
 		if (strlen($temporaire) == 10 )		// il ne doit rester que les 10 chiffres...
 		{   $resultat =             substr ($temporaire, 0, 2) . ".";
 			$resultat = $resultat . substr ($temporaire, 2, 2) . ".";
@@ -102,7 +103,7 @@ class Outils
 		{   return $leNumero;
 		}
 	}
-	
+
 	// met la ville en majuscules et remplace les "SAINT" par "St"
 	public static function corrigerVille ($laVille)
 	{	$temporaire = $laVille;
@@ -163,20 +164,13 @@ class Outils
 		}
 	}
 
-	//verifie et insert une photo dans le fichier images du serveur
-	//retourne true si insertion correcte, false si probleme
-	public static function ajoutPhoto ($photo)
-	{
-
-	}
-	
 	// fournit true si $codePostalAvalider est un code postal valide (5 chiffres), false sinon
 	public static function estUnCodePostalValide($codePostalAvalider)
 	{	// utilisation d'une expression régulière pour vérifier un code postal :
 		$EXPRESSION = "#^[0-9]{5,5}$#";
 		// on retourne true si le code est bon, mais aussi si le code est vide :
 		if ( preg_match ( $EXPRESSION , $codePostalAvalider ) == true || $codePostalAvalider == "" ) return true; else return false;
-	}	
+	}
 
 	// fournit true si $adrMailAvalider est une adresse valide, false sinon
 	public static function  estUneAdrMailValide ($adrMailAvalider)
@@ -185,26 +179,29 @@ class Outils
 		// on retourne true si l'adresse est bonne, mais aussi si l'adresse est vide :
 		if ( preg_match ( $EXPRESSION , $adrMailAvalider) == true || $adrMailAvalider == "" ) return true; else return false;
 	}
-	
-	// fournit true si $laDateAvalider est une date valide (format jj/mm/aaaa ou bien jj-mm-aaaa), false sinon
+
+	// fournit true si $laDateAvalider est une date valide (format aaaa-mm-jj), false sinon
 	public static function estUneDateValide ($laDateAvalider)
-	{	// on retourne true si la date est vide :
-		if ( $laDateAvalider == "" ) return true;
-		
+	{
+		// on retourne false si la date est vide :
+		if ( $laDateAvalider == "" ) return false;
+
 		// utilisation d'une expression régulière pour vérifier le format de la date :
-		$EXPRESSION = "#^[0-9]{2,2}(/|-)[0-9]{2,2}(/|-)[0-9]{4,4}$#";
+		$EXPRESSION = "#^[0-9]{4}-[0-9]{2}-[0-9]{2}$#";
 		if ( preg_match ( $EXPRESSION , $laDateAvalider) == false) return false;
-		
+
 		// jusque là, tout va bien ! on extrait les 3 sous-chaines et on les convertit en 3 entiers :
-		$chaine1 = substr ($laDateAvalider, 0, 2);
-		$chaine2 = substr ($laDateAvalider, 3, 2);
-		$chaine3 = substr ($laDateAvalider, 6, 4);
-		$jour = (int)($chaine1);
+		$chaine1 = substr ($laDateAvalider, 0, 4);
+		$chaine2 = substr ($laDateAvalider, 5, 2);
+		$chaine3 = substr ($laDateAvalider, 8, 2);
+		$an = (int)($chaine1);
 		$mois = (int)($chaine2);
-		$an = (int)($chaine3);
-	
+		$jour = (int)($chaine3);
+
+		//return "an : ".$an." mois : ".$mois." jour : ".$jour;
+
 		// test des valeurs
-		if ( $mois < 0 && $mois > 12 && $jour < 0 && $jour > 31 )
+		if ( $mois < 0 || $mois > 12 || $jour < 0 || $jour > 31 )
 			return false;
 		else
 		{   // cas des mois de 30 jours
@@ -226,10 +223,28 @@ class Outils
 				}
 			}
 		}
-		// si on arrive ici, c'est que la date est bonne :
+
 		return true;
 	}
-	
+
+	// fournit true si $leDatetime est un dateTime valide (aaaa-mm-jj hh:mm:ss), false sinon
+	public static function estUnDateTimeValide ($leDateTimeValider){
+		$result = false;
+
+		// utilisation d'une expression régulière pour vérifier le format de la date :
+		$EXPRESSION = "#^[0-9]{4}(-)[0-9]{1,2}(-)[0-9]{1,2} [0-2][0-9]:[0-5][0-9]:[0-5][0-9]$#";
+		if( preg_match( $EXPRESSION , $leDateTimeValider)){ $result = true; }
+
+		$chaine = substr($leDateTimeValider, 0, 10);
+		$result2 = Outils::estUneDateValide($chaine);
+
+		$chaine = substr($leDateTimeValider, 11, 2);
+		if ( $chaine > 23 ){ $result = false; }
+
+		if ( $result == true && $result2 == true ){ return true; }
+		else { return false; }
+	}
+
 	// fournit true si $numTelAvalider est un numéro de téléphone valide, false sinon
 	public static function  estUnNumTelValide ($numTelAvalider)
 	{	// utilisation d'une expression régulière pour vérifier un numéro de téléphone
@@ -239,28 +254,28 @@ class Outils
 		// on retourne true si le numéro est bon, mais aussi si le numéro est vide :
 		if ( preg_match ( $EXPRESSION , $numTelAvalider) == true || $numTelAvalider == "" ) return true; else return false;
 	}
-	
+
 	public static function sec_session_start() {
 	    $session_name = 'sec_session_id';   // Attribue un nom de session
 	    $secure = SECURE;
-	    // Cette variable emp�che Javascript d�acc�der � l�id de session
+	    // Cette variable emp�che Javascript d�acc�der � l�id de session
 	    $httponly = true;
-	    // Force la session � n�utiliser que les cookies
+	    // Force la session � n�utiliser que les cookies
 	    if (ini_set('session.use_only_cookies', 1) === FALSE) {
 	        header("Location: ../error.php?err=Could not initiate a safe session (ini_set)");
 	        exit();
 	    }
-	    // R�cup�re les param�tres actuels de cookies
+	    // R�cup�re les param�tres actuels de cookies
 	    $cookieParams = session_get_cookie_params();
 	    session_set_cookie_params($cookieParams["lifetime"],
 	        $cookieParams["path"],
 	        $cookieParams["domain"],
 	        $secure,
 	        $httponly);
-	    // Donne � la session le nom configur� plus haut
+	    // Donne � la session le nom configur� plus haut
 	    session_name($session_name);
-	    session_start();            // D�marre la session PHP
-	    session_regenerate_id();    // G�n�re une nouvelle session et efface la pr�c�dente
+	    session_start();            // D�marre la session PHP
+	    session_regenerate_id();    // G�n�re une nouvelle session et efface la pr�c�dente
 	}
 } // fin de la classe Outils
 
