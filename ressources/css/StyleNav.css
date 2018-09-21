@@ -1,6 +1,7 @@
 /* CSS Document */
 header {
 	width: 10.15vw; height: 100vh;
+	position: fixed;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;

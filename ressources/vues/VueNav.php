@@ -1,7 +1,7 @@
 <header>
 	<nav>
 		<ul>
-			<li><span class="icon-home icon"></span>Home</li>
+			<li><span class="icon-home"></span>Home</li>
 			<li><span class="icon-photo icon"></span>Albums</li>
 			<li><span class="icon-calendar icon"></span>Événements</li>
 			<li><span class="icon-money icon"></span>Cagnottes</li>

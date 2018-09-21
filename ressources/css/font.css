@@ -1,4 +1,16 @@
 @font-face {
+  font-family: 'APP_POTES';
+  src: url('/ressources/fonts/APP_POTES.eot');
+  src: url('/ressources/fonts/APP_POTES.eot') format('embedded-opentype'), 
+	  url('/ressources/fonts/APP_POTES.woff2') format('woff2'), 
+	  url('/ressources/fonts/APP_POTES.woff') format('woff'), 
+	  url('/ressources/fonts/APP_POTES.ttf') format('truetype'), 
+	  url('/ressources/fonts/APP_POTES.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
     font-family: 'Trueno';
     src: url('/ressources/fonts/font/TruenoExBd.eot');
     src: url('/ressources/fonts/TruenoExBd.eot?#iefix') format('embedded-opentype'),
