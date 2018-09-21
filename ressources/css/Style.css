@@ -1,4 +1,26 @@
 /* CSS Document */
+
+/*-----------------------
+	GENERAL STYLE
+------------------------*/
 body {
 	background-color: #191919;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+/*-----------------------
+	ICON FONTS
+------------------------*/
+.icon {
+  display: inline-block;
+  font: normal normal normal 1em/1 'app_potes';
+  speak: none;
+  text-transform: none;
+  /* Better Font Rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }

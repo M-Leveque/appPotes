@@ -1,11 +1,11 @@
 <header>
 	<nav>
 		<ul>
-			<li><span class="icon-home"></span>Home</li>
-			<li><span class="icon-photo icon"></span>Albums</li>
-			<li><span class="icon-calendar icon"></span>Événements</li>
-			<li><span class="icon-money icon"></span>Cagnottes</li>
-			<li><span class="icon-user icon"></span>Profile</li>
+			<li><a href="#"><span class="icon icon-home"></span>Home</a></li>
+			<li><a href="#"><span class="icon icon-pic"></span>Albums</a></li>
+			<li><a href="#"><span class="icon icon-calendar"></span>Événements</a></li>
+			<li><a href="#"><span class="icon icon-cash"></span>Cagnottes</a></li>
+			<li><a href="#"><span class="icon icon-people"></span>Profile</a></li>
 		</ul>
 	</nav>
 

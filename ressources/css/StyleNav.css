@@ -17,15 +17,26 @@ header {
 box-shadow: 3px 0px 10px 0px rgba(0,0,0,1);
 }
 
+nav {
+	margin-top: 51px;
+}
+
 nav ul {
 	padding: 0;
 	list-style: none;
 }
 
-.icon-home {
-	font-size: 10px;
-	color: white;
+a .icon {
+	margin-right: 13px;
+	font-size: 2vw;
 }
+
+.icon-home::before {content: "\ea12";}
+.icon-pic::before {content: "\ea16";}
+.icon-calendar::before {content: "\ea09";}
+.icon-cash::before {content: "\ea0a";}
+.icon-people::before {content: "\ea15";}
+
 
 #button-add {
 	bottom: 0;
@@ -33,4 +44,9 @@ nav ul {
 
 nav li {
 	margin-bottom: 50px;
+}
+
+nav a {
+	display: flex;
+	align-items: center;
 }
