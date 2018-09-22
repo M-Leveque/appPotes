@@ -3,7 +3,7 @@
 <!-------------------------------------
 	SCRIPT
 --------------------------------------->
-<!-- Modal -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<!-- TOGGLE -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="../js/toggle.js"></script>
 </html>
