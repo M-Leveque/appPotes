@@ -2,58 +2,18 @@
 //---------- Page de test -----------
 //---------- Class Album  -----------
 
-include('Album.class.php');
+include('modeles/src/Album.class.php');
+
+$reussi = "<font color='#8FCF3C'>Reussi</font>";
+$echec = "<font color='#DB0B32'>Echec</font>";
 
 //test des methodes get
-//---------------------
-$album = new Album(1, 'Vacances 2017-2018');
-$id = $album->getId();
-$nom = $album->getNom();
 
-//Affichage du r�sultat
-$msg = "----------Test des methods get()-----------<br>";
-$msg .= "getId() : ".$id."<br>";
-$msg .= "getNom() : ".$nom."<br>";
-$msg .= "<br><br>";
+echo "---- Test constructeur";
+echo "<BR>Test constructeur : Cas normal : ";
+$album = new Album(1, 'Vacances 2017-2018', 0, 'img.png', 0, 1);
+if($album)echo $reussi; else echo $ehec;
 
-echo $msg;
-
-//test des methodes set
-//---------------------
-$album = new Album(1, 'Vacances 2017-2018');
-
-//Affichage des anciennes donn�es
-$msg = "----------Test des methodes set()----------<br>";
-$msg .= "Anciennes donnees :<br>";
-$msg .= $album->toString()."<br>";
-
-echo $msg;
-
-//Mise � jour des donn�es
-$res1 = $album->setId(2);
-$res2 = $album->setNom('Vacances 2001 - 2002');
-
-//Affichage des nouvelles donn�es
-$msg = "(cas reussi) Nouvelles donnees :<br>";
-$msg .= "Id : $res1 <br>";
-$msg .= "Nom : $res2 <br>";
-$msg .= "<br><br>";
-
-echo $msg;
-
-//Mise � jour des donn�es
-$res1 = $album->setId('test');
-$res2 = $album->setNom('Vacances 2001 - 2002 : ski');
-
-//Affichage des nouvelles donn�es
-$msg = "(cas erreur) Nouvelles donnees :<br>";
-$msg .= "Id : $res1 <br>";
-$msg .= "Nom : $res2 <br>";
-$msg .= "<br><br>";
-
-echo $msg;
-
-
-
-
-?>
+echo "<BR>Test constructeur : Cas echec : ";
+$album = new Album("test", 'Vacances 2017-2018Vacances 2017-2018Vacances 2017-2018', -1, null, -2, null);
+if($album->getId() == null && $album->getNom() == null && $album->getPriver() == null&& $album->getVisuel() == null && $album->getIdEvenement() == null && $album->getIdUtilisateur() == null)echo $reussi; else echo $echec;

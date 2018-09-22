@@ -3,61 +3,47 @@
 //---------- Class Utilisateur  -----------
 
 include('modeles/src/Utilisateur.class.php');
+$reussi = "<font color='#8FCF3C'>Reussi</font>";
+$echec = "<font color='#DB0B32'>Echec</font>";
 
-//test des methodes get
-//---------------------
-$utilisateur = new Utilisateur(1, 0,'test@test.fr', 'Visiteur1', 'test', '/ressources/images/test.jpg');
+$test = 0;
+$utilisateur = new Utilisateur(1, 0,'test@test.fr', 'Visiteur1', 'test', '/ressources/images/test.jpg', false);
+echo 'Test de la classe Utilisateur<BR>';
+echo 'Constructeur : Cas normal : ';
+echo "<BR>     id : ";
+if($utilisateur->getId() == 1){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     niveau : ";
+if($utilisateur->getNiveau() == 0){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     mail : ";
+if($utilisateur->getMail() == 'test@test.fr'){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     mdp : ";
+if(password_verify('Visiteur1', $utilisateur->getMdp())){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     pseudo : ";
+if($utilisateur->getPseudo() == 'test'){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     photo : ";
+if($utilisateur->getPhoto() == '/ressources/images/test.jpg'){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     tmp : ";
+if(!$utilisateur->getTmp()){echo $reussi; $test++;} else echo $echec;
+echo "<BR> <strong>Resultat :</strong> ";
+if($test == 7 )echo $reussi; else echo $echec;
 
-//Affichage du r�sultat
-$msg = "----------Test des methods get()-----------<br>";
-$msg .= "getId() : ".$utilisateur->getId()."<br>";
-$msg .= "getNiveau() : ".$utilisateur->getNiveau()."<br>";
-$msg .= "getMail() : ".$utilisateur->getMail()."<br>";
-$msg .= "getMdp() : ".$utilisateur->getMdp()."<br>";
-$msg .= "getPseudo() : ".$utilisateur->getPseudo()."<br>";
-$msg .= "getPhoto() : ".$utilisateur->getPhoto()."<br>";
-$msg .= "<br><br>";
-
-echo $msg;
-
-//test des methodes set
-//---------------------
-//Mise à jour des données
-$res1 = $utilisateur->setId(2);
-$res2 = $utilisateur->setNiveau(1);
-$res3 = $utilisateur->setMail('test2@test2.fr');
-$res4 = $utilisateur->setPseudo('test2');
-$res5 = $utilisateur->setPhoto('/ressources/images/test2.jpg');
-
-//Affichage des nouvelles donn�es
-$msg = "----------Test des methods set()-----------<br>";
-$msg .= "(cas reussi ) Nouvelles donnees :<br>";
-$msg .= "(id: 2, niveau : 1, mail : test2@test2.fr, pseudo : test2, photo : /ressources/images/test2.jpg)<br><br>";
-$msg .= "Id : ".$res1."<br>";
-$msg .= "Niveau : ".$res2."<br>";
-$msg .= "Mail : ".$res3."<br>";
-$msg .= "Pseudo : ".$res4."<br>";
-$msg .= "Photo : ".$res5."<br>";
-$msg .= "<br><br>";
-
-echo $msg;
-
-//Mise à jour des données
-$res1 = $utilisateur->setId('test');
-$res2 = $utilisateur->setNiveau(3);
-$res3 = $utilisateur->setMail('test2test2');
-$res4 = $utilisateur->setPseudo('test2test2test2test2test2');
-$res5 = $utilisateur->setPhoto('/ressources/images/test2.jpg');
-
-$msg = "(cas erreur ) Nouvelles donnees :<br>";
-$msg .= "(id: test, niveau : 3, mail : test2test2, pseudo : test2test2test2test2test2, photo : /ressources/images/test2.jpg)<br><br>";
-$msg .= "Id : ".$res1."<br>";
-$msg .= "Niveau : ".$res2."<br>";
-$msg .= "Mail : ".$res3."<br>";
-$msg .= "Pseudo : ".$res4."<br>";
-$msg .= "Photo : ".$res5."<br>";
-$msg .= "<br><br>";
-
-echo $msg;
-
-?>
+$test = 0;
+$utilisateur = new Utilisateur(-2, 3,'test@test', 'Visiteurmpkdjfhrytugidjfhztsfcbfktiezytfhgnfmqoziehfmhfeozm', 'test1test1test1test11', null, 0);
+echo '<BR><BR>Test de la classe Utilisateur<BR>';
+echo 'Constructeur : Cas echec : ';
+echo "<BR>     id : ";
+if($utilisateur->getId() == null){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     niveau : ";
+if($utilisateur->getNiveau() == null){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     mail : ";
+if($utilisateur->getMail() == null){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     mdp : ";
+if($utilisateur->getMdp() == null){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     pseudo : ";
+if($utilisateur->getPseudo() == null){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     photo : ";
+if($utilisateur->getPhoto() ==null){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     tmp : ";
+if($utilisateur->getTmp() == null){echo $reussi; $test++;} else echo $echec;
+echo "<BR> <strong>Resultat :</strong> ";
+if($test == 7 )echo $reussi; else echo $echec;

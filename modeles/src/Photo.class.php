@@ -4,9 +4,7 @@
 //-----------------------------------------------------
 
 //On inclut lles class en lien avec photo
-include_once('Outils.class.php');
-include_once('Utilisateur.class.php');
-include_once('Album.class.php');
+include_once('modeles/src/Outils.class.php');
 
 class Photo
 {
@@ -31,10 +29,8 @@ class Photo
         $this->setIdAlbum($idAlbum);
     }
 
-    //-------------------------------
-    //-----| Liste des getters |-----
-    //-------------------------------
 
+    //Getteurs
     public function getId(){
         return $this->_Id;
     }
@@ -69,22 +65,14 @@ class Photo
     }
 
 
-    //-------------------------------
-    //-----| Liste des setters |-----
-    //-------------------------------
 
+    //Setteurs
     public function setId($id){
 
       //Verif variable $id
       if(is_int($id) && $id >= 0 ){
         $this->_Id = $id;
-        $result = "Reussi";
       }
-      else
-      {
-        $result = "Erreur : la donnée doit être un entier supérieur à 0";
-      }
-      return $result;
     }
 
     public function setTitre($titre){
@@ -92,12 +80,7 @@ class Photo
         //Verif variable $titre
         if(strlen($titre) < 20){
           $this->_Titre = $titre;
-          $result = "Reussi";
-        }
-        else {
-          $result = "Erreur: le titre doit contenir un maximum de 20 caractères";
-        }
-        return $result;
+      }
 
     }
 
@@ -109,63 +92,34 @@ class Photo
       //Verif variable $id
       if(is_int($compteur) && $compteur >= 0 ){
         $this->_Compteur = $compteur;
-        $result = "Reussi";
       }
-      else
-      {
-        $result = "Erreur : la donnée doit être un entier supérieur à 0";
-      }
-      return $result;
     }
 
     public function setDate($date){
       if(Outils::estUneDateValide($date)){
         $this->_Date = $date;
-        $result = "Reussi";
       }
-      else{
-        $result = "Erreur : la donnée doit être un date valide";
-      }
-      return $result;
     }
 
     public function setDateU($dateU){
       if(Outils::estUneDateValide($dateU)){
         $this->_DateU = $dateU;
-        $result = "Reussi";
       }
-      else{
-        $result = "Erreur : la donnée doit être un date valide";
-      }
-      return $result;
     }
 
     public function setIdUtilisateur($idUtilisateur){
       if(is_int($idUtilisateur) && $idUtilisateur > 0 && !is_null($idUtilisateur)){
         $this->_IdUtilisateur = $idUtilisateur;
-        $result = "Reussi";
       }
-      else{
-        $result = "Erreur : La donnée doit être un objet";
-      }
-      return $result;
     }
 
     public function setIdAlbum($idAlbum){
       if(is_int($idAlbum) && $idAlbum > 0 && $idAlbum != null){
         $this->_IdAlbum = $idAlbum;
-        $result = "Reussi";
       }
-      else{
-        $result = "Erreur : La donnée doit être un objet";
-      }
-      return $result;
     }
 
-    //------------------------------
-    //-----| Methode toString |-----
-    //------------------------------
-
+    //toString
     public function toString() {
         $msg = "Utilisateur :<br>";
         $msg .= "id : ".$this->_Id."<br>";

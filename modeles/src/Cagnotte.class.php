@@ -61,13 +61,7 @@ class Cagnotte
       //Verif variable $id
       if(is_int($id) && $id >= 0 ){
         $this->_Id = $id;
-        $result = "Reussi";
       }
-      else
-      {
-        $result = "Erreur : la donnée doit être un entier supérieur à 0";
-      }
-      return $result;
     }
 
     public function setTitre($titre){
@@ -75,30 +69,18 @@ class Cagnotte
         //Verif variable $titre
         if(strlen($titre) < 20){
           $this->_Titre = $titre;
-          $result = "Reussi";
         }
-        else {
-          $result = "Erreur: le titre doit contenir un maximum de 20 caractères";
-        }
-        return $result;
-
     }
 
 
     public function setDescription($description){
         $this->_Description = $description;
-        return "Reussi";
     }
 
     public function setDateFin($dateFin){
       if(Outils::estUneDateValide($dateFin)){
         $this->_DateFin = $dateFin;
-        $result = "Reussi";
-      }
-      else{
-        $result = "Erreur : la donnée doit être un date valide";
-      }
-      return $result;
+        }
     }
 
 

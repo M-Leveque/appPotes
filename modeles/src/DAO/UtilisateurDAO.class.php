@@ -118,7 +118,7 @@ class UtilisateurDAO extends DAO{
 
       // Requete SQL
       $stmt = $this->cnx->prepare("INSERT INTO Utilisateur(Id_U, Niveau_U, Mail_U, Mdp_U, Pseudo_U, Photo_U, Tmp) VALUES (:id, :Niveau, :Mail, :Mdp, :Pseudo, :Photo, :Tmp)");
-      $stmt->bindValue(':id', intval()$utilisateur->getId()), PDO::PARAM_INT);
+      $stmt->bindValue(':id', intval($utilisateur->getId()), PDO::PARAM_INT);
       $stmt->bindValue(':Niveau', $utilisateur->getNiveau(), PDO::PARAM_STR);
       $stmt->bindValue(':Mail', $utilisateur->getMail(), PDO::PARAM_STR);
       $stmt->bindValue(':Mdp', $utilisateur->getMdp(), PDO::PARAM_STR);

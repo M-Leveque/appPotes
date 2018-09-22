@@ -3,46 +3,54 @@
 //---------- Class Evenement  -----------
 
 include('modeles/src/Evenement.class.php');
-//test des methodes get
-//---------------------
-$evenement = new Evenement(1, 'Anniv','Annivairsaire de frank', '2018-12-04', '2018-12-05 21:00:00', 0, 1, 1);
+$reussi = "<font color='#8FCF3C'>Reussi</font>";
+$echec = "<font color='#DB0B32'>Echec</font>";
 
-//Affichage du résultat
-$msg = "----------Test bonne données ----------<br>";
-$msg .= "getId() : ".$evenement->getId()."<br>";
-$msg .= "getTitre() : ".$evenement->getTitre()."<br>";
-$msg .= "getDescription() : ".$evenement->getDescription()."<br>";
-$msg .= "getDateFin() : ".$evenement->getDateTime()."<br>";
-$msg .= "getDateC() : ".$evenement->getDateC()."<br>";
-$msg .= "getUtilisateur() : ".$evenement->getIdUtilisateur()."<br>";
-$msg .= "getEvenement() : ".$evenement->getIdEmoticon()."<br>";
-$msg .= "<br><br>";
+$test = 0;
+$evenement = new Evenement(1, 'Anniv','Anniversaire de frank', '2018-02-04', '2018-01-05 21:00:00', false, 1, 1);
+echo 'Test de la classe Evenement<BR>';
+echo 'Constructeur : Cas normal : ';
+echo "<BR>     id : ";
+if($evenement->getId() == 1){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     titre : ";
+if($evenement->getTitre() == 'Anniv'){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     description : ";
+if($evenement->getDescription() == 'Anniversaire de frank'){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     dateTime : ";
+if($evenement->getDateTime() == '2018-01-05 21:00:00'){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     dateC : ";
+if($evenement->getDateC() == '2018-02-04'){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     archiver : ";
+if($evenement->getArchiver() == false){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     id utilisateur : ";
+if($evenement->getIdUtilisateur() == 1){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     id emoticon : ";
+if($evenement->getIdEmoticon() == 1){echo $reussi; $test++;} else echo $echec;
 
-echo $msg;
+echo "<BR> <strong>Resultat :</strong> ";
+if($test == 8 )echo $reussi; else echo $echec;
 
-//test des methodes set
-//---------------------
-//Mise à jour des données
+$test = 0;
+$evenement = new Evenement("t", 'Anniversaire de franck', null, '2018-33-04', '2018-12-05 21:65:00', 1, -4, 'fer');
+echo '<br><br>Constructeur : Cas echec : ';
+echo "<BR>     id : ";
+if($evenement->getId() == null){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     titre : ";
+if($evenement->getTitre() == null){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     description : ";
+if($evenement->getDescription() == null){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     dateTime : ";
+if($evenement->getDateTime() == null){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     dateC : ";
+if($evenement->getDateC() == null){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     archiver : ";
+if($evenement->getArchiver() == null){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     id utilisateur : ";
+if($evenement->getIdUtilisateur() == null){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     id emoticon : ";
+if($evenement->getIdEmoticon() == null){echo $reussi; $test++;} else echo $echec;
 
-$res1 = $evenement->setId('bonsoir');
-$res2 = $evenement->setTitre('Soireergsseqrgqelzhflqiuzef');
-$res3 = $evenement->setDescription('Cagnotte de financement des decorations');
-$res4 = $evenement->setDateTime('2018-12-2018 24:21:21');
-$res5 = $evenement->setDateC('2018-06-05');
-$res6 = $evenement->setIdUtilisateur('salut');
-$res7 = $evenement->setIdEmoticon('salut');
-
-$msg = "----------Test mauvaise données -----------<br>";
-$msg .= "(cas erreur) Modification des données : <br>";
-$msg .= "Id : ".$res1."<br>";
-$msg .= "Titre : ".$res2."<br>";
-$msg .= "Description : ".$res3."<br>";
-$msg .= "DateTime : ".$res4."<br>";
-$msg .= "DateC : ".$res5."<br>";
-$msg .= "Utilisateur : ".$res6." <br>";
-$msg .= "Emoticon : ".$res7." <br><br>";
-$msg .= "<br><br>";
-
-echo $msg;
+echo "<BR> <strong>Resultat :</strong> ";
+if($test == 8 )echo $reussi; else echo $echec;
 
 ?>

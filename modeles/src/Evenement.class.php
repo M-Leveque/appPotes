@@ -73,89 +73,50 @@ class Evenement
     public function setId($id){
 
       //Verif variable $id
-      if(is_int($id) && $id >= 0 ){
+      if(is_int($id) && $id > 0 ){
         $this->_Id = $id;
-        $result = "Reussi";
       }
-      else
-      {
-        $result = "Erreur : la donnée doit être un entier supérieur à 0";
-      }
-      return $result;
     }
 
     public function setTitre($titre){
-
         //Verif variable $titre
         if(strlen($titre) < 20){
           $this->_Titre = $titre;
-          $result = "Reussi";
         }
-        else {
-          $result = "Erreur: le titre doit contenir un maximum de 20 caractères";
-        }
-        return $result;
-
     }
 
     public function setDescription($description){
         $this->_Description = $description;
-        return "Reussi";
     }
 
     public function setDateC($dateC){
         if(Outils::estUneDateValide($dateC)){
           $this->_DateC = $dateC;
-          $result = "Reussi";
         }
-        else{
-          $result = "Erreur : La donnée doit être un dateTime valide";
-        }
-        return $result;
     }
 
     public function setDateTime($dateTime){
         if(Outils::estUnDateTimeValide($dateTime)){
           $this->_DateTime = $dateTime;
-          $result = "Reussi";
         }
-        else{
-          $result = "Erreur : La donnée doit être un dateTime valide";
-        }
-        return $result;
     }
 
     public function setArchiver($archiver){
-        if(is_bool($archiver) || $archiver == 0 || $archiver == 1){
+        if(is_bool($archiver)){
           $this->_Archiver = $archiver;
-          $result = "Reussi";
         }
-        else{
-          $result = "Erreur : La donnée doit être un dateTime valide";
-        }
-        return $result;
     }
 
     public function setIdUtilisateur($idUtilisateur){
-      if(is_int($idUtilisateur)){
+      if(is_int($idUtilisateur) && $idUtilisateur > 0){
         $this->_IdUtilisateur = $idUtilisateur;
-        $result = "Reussi";
-      }
-      else{
-        $result = "Erreur : la donnée doit être un entier supérieur à 0";
-      }
-      return $result;
+        }
     }
 
     public function setIdEmoticon($idEmoticon){
-      if(is_int($idEmoticon)){
+      if(is_int($idEmoticon) && $idEmoticon > 0){
         $this->_IdEmoticon = $idEmoticon;
-        $result = "Reussi";
-      }
-      else{
-        $result = "Erreur : la donnée doit être un entier supérieur à 0";
-      }
-      return $result;
+        }
     }
 
     //------------------------------
