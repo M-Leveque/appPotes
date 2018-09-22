@@ -163,7 +163,7 @@
         url('ressources/TruenoUltLt.woff2') format('woff2'),
         url('ressources/TruenoUltLt.woff') format('woff'),
         url('ressources/TruenoUltLt.ttf') format('truetype'),
-        url('ressources/ÒTruenoUltLt.svg#TruenoUltLt') format('svg');
+        url('ressources/TruenoUltLt.svg#TruenoUltLt') format('svg');
     font-weight: 200;
     font-style: normal;
 }
