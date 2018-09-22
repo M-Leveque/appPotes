@@ -26,11 +26,35 @@ switch($action){
 	    include_once ('controleurs/CtrlCompte.php'); break;
 	}
   //-------------------------------- Tests ------------------------------------------------------------
+	case 'TestUtilisateur':{
+		include_once ('modeles/tests/Utilisateur.test.php'); break;
+	}
+	case 'TestUtilisateurDAO':{
+		include_once ('modeles/tests/DAO/UtilisateurDAO.test.php'); break;
+	}
+	case 'TestPhoto':{
+		include_once ('modeles/tests/Photo.test.php'); break;
+	}
+	case 'TestPhotoDAO':{
+		include_once ('modeles/tests/DAO/PhotoDAO.test.php'); break;
+	}
+	case 'TestMessage':{
+		include_once ('modeles/tests/Message.test.php'); break;
+	}
+	case 'TestMessageDAO':{
+		include_once ('modeles/tests/DAO/MessageDAO.test.php'); break;
+	}
 	case 'TestEvenement':{
 		include_once ('modeles/tests/Evenement.test.php'); break;
 	}
 	case 'TestEvenementDAO':{
 		include_once ('modeles/tests/DAO/EvenementDAO.test.php'); break;
+	}
+	case 'TestAlbum':{
+		include_once ('modeles/tests/Album.test.php'); break;
+	}
+	case 'TestAlbumDAO':{
+		include_once ('modeles/tests/DAO/AlbumDAO.test.php'); break;
 	}
 	//---------------------------------------------------------------------------------------------------
 	default : {
