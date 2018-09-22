@@ -18,8 +18,8 @@
 <!-- menu ajout -->
 <section id="add-menu">
 	<ul>
-		<a href="#"><div class="icon icon-add-pic"></div><span>Ajouter<br>un album</span></a>
-		<a href="#"><div class="icon icon-add-calendar"></div><span>Ajouter<br>un événement</span></a>
-		<a href="#"><div class="icon icon-add-cash"></div><span>Ajouter<br>une cagnotte</span></a>
+		<a href="#"><li class="icon icon-add-pic"></li>Ajouter<br>un album</a>
+		<a href="#"><li class="icon icon-add-calendar"></li>Ajouter<br>un album</a>
+		<a href="#"><li class="icon icon-add-cash"></li>Ajouter<br>un album</a>
 	</ul>
 </section>
