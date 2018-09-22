@@ -1,7 +1,6 @@
 // JavaScript Document
 $(document).ready(function(){
-	$(".menu").click(function(){
-		$(".add-menu").toggleClass("show");
+	$("#menu").click(function() {
+		$("#add-menu").toggle("slide");
 	});
-
 });

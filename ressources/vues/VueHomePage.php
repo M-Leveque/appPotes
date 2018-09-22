@@ -1,3 +1,6 @@
+<!--
+	CONTENT HOMEPAGE
+-->
 <main id="content-home">
 	<section><!-- DERNIERS ALBUMS -->
 		<div class="title-section"><!-- title -->
@@ -9,7 +12,7 @@
 			<div class="album album-com">
 			</div>
 			 
-			<!-- GRID ALBUMS ------------->
+			<!-- grid albums------------->
 			<div class="album album-grid">
 				<img src="/ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
 				<span>Text</span>
@@ -24,7 +27,7 @@
 				<img src="/ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
 				<span>Text</span>
 			</div>
-			<!-- #GRID ALBUMS ------------->
+			<!-- #grid albums ------------->
 		</div>
 	</section>
 	
