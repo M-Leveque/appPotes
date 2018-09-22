@@ -57,6 +57,7 @@ a .icon {
 .add-menu {
 	z-index: 1;
 	width: 19.16vw; height: 100vh;
+	position: relative;
 	display: none;
 	margin-left: 10.15vw;
 	background-color: #191919;
@@ -65,10 +66,9 @@ a .icon {
 box-shadow: 3px 0px 10px 0px rgba(0,0,0,1);
 }
 
-
 section .add-menu.show {
 	display: flex;
-	left: 10.15vw;
+	left: 100px;
 }
 
 .btn-menu {

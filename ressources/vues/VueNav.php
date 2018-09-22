@@ -1,3 +1,6 @@
+<!--
+	NAV
+-->
 <header>
 	<nav>
 		<ul>
@@ -12,6 +15,7 @@
 	<button class="menu" type="button" name="menu"></button>
 </header>
 
+<!-- menu ajout -->
 <section class="add-menu">
 	<ul class="btn-menu">
 		<a href="#"><li><div class="icon icon-add-pic"></div></li>Ajouter<br>un album</a>
@@ -22,4 +26,3 @@
 
 <script src="/ressources/js/toggle.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
