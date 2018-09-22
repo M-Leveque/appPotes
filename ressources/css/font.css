@@ -26,24 +26,24 @@
 
 @font-face {
     font-family: 'Trueno';
-    src: url('TruenoBd.eot');
-    src: url('TruenoBd.eot?#iefix') format('embedded-opentype'),
-        url('TruenoBd.woff2') format('woff2'),
-        url('TruenoBd.woff') format('woff'),
-        url('TruenoBd.ttf') format('truetype'),
-        url('TruenoBd.svg#TruenoBd') format('svg');
+    src: url('ressources/TruenoBd.eot');
+    src: url('ressources/TruenoBd.eot?#iefix') format('embedded-opentype'),
+        url('ressources/TruenoBd.woff2') format('woff2'),
+        url('ressources/TruenoBd.woff') format('woff'),
+        url('ressources/TruenoBd.ttf') format('truetype'),
+        url('ressources/TruenoBd.svg#TruenoBd') format('svg');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Trueno';
-    src: url('TruenoBlkOl.eot');
-    src: url('TruenoBlkOl.eot?#iefix') format('embedded-opentype'),
-        url('TruenoBlkOl.woff2') format('woff2'),
-        url('TruenoBlkOl.woff') format('woff'),
-        url('TruenoBlkOl.ttf') format('truetype'),
-        url('TruenoBlkOl.svg#TruenoBlkOl') format('svg');
+    src: url('ressources/TruenoBlkOl.eot');
+    src: url('ressources/TruenoBlkOl.eot?#iefix') format('embedded-opentype'),
+        url('ressources/TruenoBlkOl.woff2') format('woff2'),
+        url('ressources/TruenoBlkOl.woff') format('woff'),
+        url('ressources/TruenoBlkOl.ttf') format('truetype'),
+        url('ressources/TruenoBlkOl.svg#TruenoBlkOl') format('svg');
     font-weight: 900;
     font-style: normal;
 }
@@ -62,12 +62,12 @@
 
 @font-face {
     font-family: 'Trueno';
-    src: url('TruenoExBdIt.eot');
-    src: url('TruenoExBdIt.eot?#iefix') format('embedded-opentype'),
-        url('TruenoExBdIt.woff2') format('woff2'),
-        url('TruenoExBdIt.woff') format('woff'),
-        url('TruenoExBdIt.ttf') format('truetype'),
-        url('TruenoExBdIt.svg#TruenoExBdIt') format('svg');
+    src: url('ressources/TruenoExBdIt.eot');
+    src: url('ressources/TruenoExBdIt.eot?#iefix') format('embedded-opentype'),
+        url('ressources/TruenoExBdIt.woff2') format('woff2'),
+        url('ressources/TruenoExBdIt.woff') format('woff'),
+        url('ressources/TruenoExBdIt.ttf') format('truetype'),
+        url('ressources/TruenoExBdIt.svg#TruenoExBdIt') format('svg');
     font-weight: 800;
     font-style: italic;
 }
@@ -158,12 +158,12 @@
 
 @font-face {
     font-family: 'Trueno';
-    src: url('TruenoUltLt.eot');
-    src: url('TruenoUltLt.eot?#iefix') format('embedded-opentype'),
-        url('TruenoUltLt.woff2') format('woff2'),
-        url('TruenoUltLt.woff') format('woff'),
-        url('TruenoUltLt.ttf') format('truetype'),
-        url('TruenoUltLt.svg#TruenoUltLt') format('svg');
+    src: url('ressources/TruenoUltLt.eot');
+    src: url('ressources/TruenoUltLt.eot?#iefix') format('embedded-opentype'),
+        url('ressources/TruenoUltLt.woff2') format('woff2'),
+        url('ressources/TruenoUltLt.woff') format('woff'),
+        url('ressources/TruenoUltLt.ttf') format('truetype'),
+        url('ressources/ÒTruenoUltLt.svg#TruenoUltLt') format('svg');
     font-weight: 200;
     font-style: normal;
 }
@@ -182,24 +182,24 @@
 
 @font-face {
     font-family: 'Trueno';
-    src: url('TruenoUltBlk.eot');
-    src: url('TruenoUltBlk.eot?#iefix') format('embedded-opentype'),
-        url('TruenoUltBlk.woff2') format('woff2'),
-        url('TruenoUltBlk.woff') format('woff'),
-        url('TruenoUltBlk.ttf') format('truetype'),
-        url('TruenoUltBlk.svg#TruenoUltBlk') format('svg');
+    src: url('ressources/TruenoUltBlk.eot');
+    src: url('ressources/TruenoUltBlk.eot?#iefix') format('embedded-opentype'),
+        url('ressources/TruenoUltBlk.woff2') format('woff2'),
+        url('ressources/TruenoUltBlk.woff') format('woff'),
+        url('ressources/TruenoUltBlk.ttf') format('truetype'),
+        url('ressources/TruenoUltBlk.svg#TruenoUltBlk') format('svg');
     font-weight: 900;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Trueno';
-    src: url('TruenoUltBlkIt.eot');
-    src: url('TruenoUltBlkIt.eot?#iefix') format('embedded-opentype'),
-        url('TruenoUltBlkIt.woff2') format('woff2'),
-        url('TruenoUltBlkIt.woff') format('woff'),
-        url('TruenoUltBlkIt.ttf') format('truetype'),
-        url('TruenoUltBlkIt.svg#TruenoUltBlkIt') format('svg');
+    src: url('ressources/TruenoUltBlkIt.eot');
+    src: url('ressources/TruenoUltBlkIt.eot?#iefix') format('embedded-opentype'),
+        url('ressources/TruenoUltBlkIt.woff2') format('woff2'),
+        url('ressources/TruenoUltBlkIt.woff') format('woff'),
+        url('ressources/TruenoUltBlkIt.ttf') format('truetype'),
+        url('ressources/TruenoUltBlkIt.svg#TruenoUltBlkIt') format('svg');
     font-weight: 900;
     font-style: italic;
 }
@@ -218,12 +218,12 @@
 
 @font-face {
     font-family: 'Trueno';
-    src: url('TruenoSBd.eot');
-    src: url('TruenoSBd.eot?#iefix') format('embedded-opentype'),
-        url('TruenoSBd.woff2') format('woff2'),
-        url('TruenoSBd.woff') format('woff'),
-        url('TruenoSBd.ttf') format('truetype'),
-        url('TruenoSBd.svg#TruenoSBd') format('svg');
+    src: url('ressources/TruenoSBd.eot');
+    src: url('ressources/TruenoSBd.eot?#iefix') format('embedded-opentype'),
+        url('ressources/TruenoSBd.woff2') format('woff2'),
+        url('ressources/TruenoSBd.woff') format('woff'),
+        url('ressources/TruenoSBd.ttf') format('truetype'),
+        url('ressources/TruenoSBd.svg#TruenoSBd') format('svg');
     font-weight: 600;
     font-style: normal;
 }
@@ -242,12 +242,12 @@
 
 @font-face {
     font-family: 'Trueno';
-    src: url('TruenoBlkIt.eot');
-    src: url('TruenoBlkIt.eot?#iefix') format('embedded-opentype'),
-        url('TruenoBlkIt.woff2') format('woff2'),
-        url('TruenoBlkIt.woff') format('woff'),
-        url('TruenoBlkIt.ttf') format('truetype'),
-        url('TruenoBlkIt.svg#TruenoBlkIt') format('svg');
+    src: url('ressources/TruenoBlkIt.eot');
+    src: url('ressources/TruenoBlkIt.eot?#iefix') format('embedded-opentype'),
+        url('ressources/TruenoBlkIt.woff2') format('woff2'),
+        url('ressources/TruenoBlkIt.woff') format('woff'),
+        url('ressources/TruenoBlkIt.ttf') format('truetype'),
+        url('ressources/TruenoBlkIt.svg#TruenoBlkIt') format('svg');
     font-weight: 900;
     font-style: italic;
 }
