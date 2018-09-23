@@ -61,7 +61,7 @@ a .icon {
 	z-index: 1;
 	width: 19.16vw; height: 100vh;
 	margin-left: 10.15vw;
-	position: absolute;
+	position: fixed;
 	display: none;
 	flex-direction: column;
 	justify-content: space-around;

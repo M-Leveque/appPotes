@@ -33,7 +33,7 @@
 
 	<section><!-- EVENEMENTS -->
 		<div class="title-section"><!-- title -->
-			<h2>Événements</h2>
+			<h2>Évènements</h2>
 			<span></span>
 		</div>
 
