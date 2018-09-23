@@ -50,6 +50,12 @@ switch($action){
 	case 'TestEvenementDAO':{
 		include_once ('modeles/tests/DAO/EvenementDAO.test.php'); break;
 	}
+	case 'TestEmoticon':{
+		include_once ('modeles/tests/Emoticon.test.php'); break;
+	}
+	case 'TestEvenementDAO':{
+		include_once ('modeles/tests/DAO/EmoticonDAO.test.php'); break;
+	}
 	case 'TestAlbum':{
 		include_once ('modeles/tests/Album.test.php'); break;
 	}

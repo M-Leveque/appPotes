@@ -5,9 +5,9 @@
 
 class Emoticon
 {
-  private $Id;
-  private $Titre;
-  private $Chemin;
+  private $_Id;
+  private $_Titre;
+  private $_Chemin;
 
   public function __construct($id, $titre, $chemin){
     $this->setId($id);
@@ -41,7 +41,7 @@ class Emoticon
 
   public function setChemin($chemin){
     if(strlen($chemin) < 255){
-      $this->_Titre = $id;
+      $this->_Chemin = $chemin;
     }
   }
 

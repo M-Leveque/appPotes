@@ -2,21 +2,38 @@
 //---------- Page de test -----------
 //---------- Class Emoticon  -----------
 
-include('Emoticon.class.php');
+include('modeles/src/Emoticon.class.php');
 
-//test des methodes get
-//---------------------
-$emoticon = new Emoticon(1, 'Content', '/ressources/images/emoticons/content.jpg');
-$msg = "----------Test des methodes get()----------<br>";
-$msg .= $emoticon->getId()."<br>";
-$msg .= $emoticon->getTitre()."<br>";
-$msg .= $emoticon->getChemin()."<br><br>";
+$reussi = "<font color='#8FCF3C'>Reussi</font>";
+$echec = "<font color='#DB0B32'>Echec</font>";
 
-echo $msg;
 
-//test de la methode $toString
-//----------------------------
-$msg = "----------Test de la methode toString()----------<br>";
-$msg .= $emoticon->toString()."<br><br>";
+//test du Constructeur
+//--------------------
 
-echo $msg;
+$test = 0;
+$emoticon = new Emoticon(1, 'Content', 'ressources/images/emoticons/content.jpg');
+echo 'Test de la classe Emoticon<BR>';
+echo 'Constructeur : Cas normal : ';
+echo "<BR>     id : ";
+if($emoticon->getId() == 1){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     titre : ";
+if($emoticon->getTitre() == 'Content'){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     chemin : ";
+if($emoticon->getChemin() == 'ressources/images/emoticons/content.jpg'){echo $reussi; $test++;} else echo $echec;
+
+echo "<BR> <strong>Resultat :</strong> ";
+if($test == 3 )echo $reussi; else echo $echec;
+
+$test = 0;
+$emoticon = new Emoticon("d", 'Titre superieur a vinght caracteres', null);
+echo '<BR><BR>Constructeur : Cas Erreur : ';
+echo "<BR>     id : ";
+if($emoticon->getId() == null){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     titre : ";
+if($emoticon->getTitre() == null){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     chemin : ";
+if($emoticon->getChemin() == null){echo $reussi; $test++;} else echo $echec;
+
+echo "<BR> <strong>Resultat :</strong> ";
+if($test == 3 )echo $reussi; else echo $echec;
