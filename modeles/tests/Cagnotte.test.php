@@ -2,57 +2,49 @@
 //---------- Page de test -----------
 //---------- Class Cagnotte  -----------
 
-include('Cagnotte.class.php');
+include('modeles/src/Cagnotte.class.php');
 
-//test des methodes get
-//---------------------
-$cagnotte = new Cagnotte(1, 'Anniv','Annivairsaire de frank', '15/10/2018');
+$reussi = "<font color='#8FCF3C'>Reussi</font>";
+$echec = "<font color='#DB0B32'>Echec</font>";
 
-//Affichage du r�sultat
-$msg = "----------Test des methods get()-----------<br>";
-$msg .= "getId() : ".$cagnotte->getId()."<br>";
-$msg .= "getTitre() : ".$cagnotte->getTitre()."<br>";
-$msg .= "getDescription() : ".$cagnotte->getDescription()."<br>";
-$msg .= "getDateFin() : ".$cagnotte->getDateFin()."<br>";
-$msg .= "<br><br>";
 
-echo $msg;
+//test du Constructeur
+//--------------------
+$test = 0;
+$cagnotte = new Cagnotte(1, 'Cagnotte', 'Cagnotte pour l anniv de chalene', '2018-05-03 23:00:00', 0, 1);
+echo 'Test de la classe Cagnotte<BR>';
+echo 'Constructeur : Cas normal : ';
+echo "<BR>     id : ";
+if($cagnotte->getId() == 1){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     titre : ";
+if($cagnotte->getTitre() == 'Cagnotte'){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     description : ";
+if($cagnotte->getDescription() == 'Cagnotte pour l anniv de chalene'){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     dateTime : ";
+if($cagnotte->getDateHeurefin() == '2018-05-03 23:00:00'){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     ArgentR : ";
+if($cagnotte->getArgentR() == 0){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     Id Evenement : ";
+if($cagnotte->getIdE() == 1){echo $reussi; $test++;} else echo $echec;
 
-//test des methodes set
-//---------------------
-//Mise � jour des donn�es
-$res1 = $cagnotte->setId(1);
-$res2 = $res1 = $cagnotte->setTitre('Soiree');
-$res3 = $cagnotte->setDescription('Cagnotte de financement des decorations');
-$res4 = $cagnotte->setDateFin('2018-05-06');
+echo "<BR> <strong>Resultat :</strong> ";
+if($test == 6 )echo $reussi; else echo $echec;
 
-//Affichage des nouvelles donn�es
-$msg = "----------Test des methods set()-----------<br>";
-$msg .= "(Cas reussi) Nouvelles donnees :<br>";
-$msg .= "(id: 1, titre : Soiree , description : Cagnotte de financement des decorations, date de fin : 2018-05-06)<br><br>";
-$msg .= "Id : $res1 <br>";
-$msg .= "Titre : $res2 <br>";
-$msg .= "Description : $res3 <br>";
-$msg .= "DateFin : $res4 <br>";
-$msg .= "<br><br>";
+$test = 0;
+$cagnotte = new Cagnotte("s", 'Cagnottemelfkcjvnfhrj', null, '2018-33-03 23:00:00', -2, null);
+echo '<BR><BR>Constructeur : Cas normal : ';
+echo "<BR>     id : ";
+if($cagnotte->getId() == null){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     titre : ";
+if($cagnotte->getTitre() == null){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     description : ";
+if($cagnotte->getDescription() == null){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     dateTime : ";
+if($cagnotte->getDateHeurefin() == null){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     ArgentR : ";
+if($cagnotte->getArgentR() == null){echo $reussi; $test++;} else echo $echec;
+echo "<BR>     Id Evenement : ";
+if($cagnotte->getIdE() == null){echo $reussi; $test++;} else echo $echec;
 
-echo $msg;
-
-//Mise à jour des données
-$res1 = $cagnotte->setId(-2);
-$res2 = $cagnotte->setTitre('sgresqgresgsergsergserges');
-$res3 = $cagnotte->setDescription('Cagnotte de financement des decorations');
-$res4 = $cagnotte->setDateFin('2018-04-29 resg');
-
-//Affichage des nouvelles donn�es
-$msg = "----------Test des methods set()-----------<br>";
-$msg .= "(Cas erreur) Nouvelles donnees :<br>";
-$msg .= "Id : $res1 <br>";
-$msg .= "Titre : $res2 <br>";
-$msg .= "Description : $res3 <br>";
-$msg .= "DateFin : $res4 <br>";
-$msg .= "<br><br>";
-
-echo $msg;
-
-?>
+echo "<BR> <strong>Resultat :</strong> ";
+if($test == 6 )echo $reussi; else echo $echec;

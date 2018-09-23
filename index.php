@@ -56,6 +56,12 @@ switch($action){
 	case 'TestEmoticonDAO':{
 		include_once ('modeles/tests/DAO/EmoticonDAO.test.php'); break;
 	}
+	case 'TestCagnotte':{
+		include_once ('modeles/tests/Cagnotte.test.php'); break;
+	}
+	case 'TestCagnotteDAO':{
+		include_once ('modeles/tests/DAO/CagnotteDAO.test.php'); break;
+	}
 	case 'TestAlbum':{
 		include_once ('modeles/tests/Album.test.php'); break;
 	}
