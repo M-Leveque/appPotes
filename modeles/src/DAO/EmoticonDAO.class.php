@@ -16,7 +16,7 @@ class EmoticonDAO extends DAO{
     }
 
     //Requete SQL
-    $stmt = $this->cnx->prepare("SELECT * FROM Emoticon WHERE Id_E = :id");
+    $stmt = $this->cnx->prepare("SELECT * FROM Emoticon WHERE Id_Em = :id");
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
     $ligne = $stmt->fetch(PDO::FETCH_OBJ);

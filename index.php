@@ -53,7 +53,7 @@ switch($action){
 	case 'TestEmoticon':{
 		include_once ('modeles/tests/Emoticon.test.php'); break;
 	}
-	case 'TestEvenementDAO':{
+	case 'TestEmoticonDAO':{
 		include_once ('modeles/tests/DAO/EmoticonDAO.test.php'); break;
 	}
 	case 'TestAlbum':{
