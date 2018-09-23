@@ -11,7 +11,7 @@ $echec = "<font color='#DB0B32'>Echec</font>";
 echo "Test<BR><BR>";
 
 //---------- Test de la methode get ----------
-echo "<BR><BR>---- fonction get<BR>";
+echo "---- fonction get<BR>";
 //Recuperation reussi -----
 //Test de cas Reussi (Donnees correct)
 echo "Cas Reussi : donnees correct :<BR>";
