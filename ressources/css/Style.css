@@ -28,7 +28,6 @@ a {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 /*--------------------------------------------------------------------
 	HOMEPAGE
 ------------------------*/
@@ -79,7 +78,7 @@ a {
 .album-com {
 	width: 25.26vw; height: 10.26vw;
 	background-image: url(ressources/img/vignettes/pic-1.jpg);
-	background-repeat: no-repeat, repeat;
+	background-repeat: no-repeat, repeat;	
 }
 
 .album-grid {
