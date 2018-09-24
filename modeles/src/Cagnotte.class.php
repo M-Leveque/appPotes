@@ -4,32 +4,24 @@
 //-----------------------------------------------------
 
 //On inclut lles class en lien avec Cagnotte
-include_once('Outils.class.php');
+include_once('modeles/src/Outils.class.php');
 
 class Cagnotte
 {
     private $_Id;
     private $_Titre;
     private $_Description;
-    private $_DateFin;
+    private $_DateHeureFin;
+    private $_ArgentR;
+    private $_IdE;
 
-    public function __construct($id, $titre, $description, $dateFin){
-        //Verif variable $id
-        if(is_int($id) && $id >= 0 ){
-          $this->_Id = $id;
-        }
-
-        //Verif variable $titre
-        if(strlen($titre) < 20){
-          $this->_Titre = $titre;
-        }
-
-        $this->_Description = $description;
-
-        //Verif variable $date
-        if(Outils::estUneDateValide($dateFin)){
-          $this->_DateFin = $dateFin;
-        }
+    public function __construct($id, $titre, $description, $dateHeureFin, $argentR, $idE){
+      $this->setId($id);
+      $this->setTitre($titre);
+      $this->setDescription($description);
+      $this->setHeureDateFin($dateHeureFin);
+      $this->setArgentR($argentR);
+      $this->setIdE($idE);
     }
 
     //-------------------------------
@@ -48,8 +40,16 @@ class Cagnotte
         return $this->_Description;
     }
 
-    public function getDatefin(){
-        return $this->_DateFin;
+    public function getDateHeurefin(){
+        return $this->_DateHeureFin;
+    }
+
+    public function getArgentR(){
+      return $this->_ArgentR;
+    }
+
+    public function getIdE(){
+      return $this->_IdE;
     }
 
     //-------------------------------
@@ -77,10 +77,22 @@ class Cagnotte
         $this->_Description = $description;
     }
 
-    public function setDateFin($dateFin){
-      if(Outils::estUneDateValide($dateFin)){
-        $this->_DateFin = $dateFin;
-        }
+    public function setHeureDateFin($dateHeureFin){
+      if(Outils::estUnDateTimeValide($dateHeureFin)){
+        $this->_DateHeureFin = $dateHeureFin;
+      }
+    }
+
+    public function setArgentR($argentR){
+      if(is_int($argentR) && $argentR > 0){
+        $this->_ArgentR = $argentR;
+      }
+    }
+
+    public function setIdE($idE){
+      if(is_int($idE) && $idE > 0){
+        $this->_IdE = $idE;
+      }
     }
 
 
@@ -93,7 +105,9 @@ class Cagnotte
         $msg .= "id : ".$this->_Id."<br>";
         $msg .= "titre : ".$this->_Titre."<br>";
         $msg .= "description : ".$this->_Description."<br>";
-        $msg .= "date de fin : ".$this->_DateFin."<br>";
+        $msg .= "date et heure de fin : ".$this->_DateHeureFin."<br>";
+        $msg .= "Argent récolté : ".$this->_ArgentR."<br>";
+        $msg .= "id Evenement : ".$this->_IdE."<br>";
 
         return $msg;
     }

@@ -75,8 +75,8 @@ class Album
 
     public function setvisuel($visuel){
       //Verif variable $titre
-      if(strlen($visuel) <= 255 && $visuel){
-        $this->_Nom = $visuel;
+      if(strlen($visuel) <= 255){
+        $this->_Visuel = $visuel;
       }
     }
 

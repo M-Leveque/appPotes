@@ -40,7 +40,7 @@ $evenementDao->add($evenement);
 if($evenementDao->get(3))echo $reussi; else echo $echec;
 echo "<BR>Cas echec : donnees null<BR>";
 if(!$evenementDao->add(null))echo $reussi; else echo $echec;
-echo "<BR>Cas echec : donnees srting<BR>";
+echo "<BR>Cas echec : donnees string<BR>";
 if(!$evenementDao->add("test"))echo $reussi; else echo $echec;
 
 echo "<BR><BR>---- fonction delete<BR>";
