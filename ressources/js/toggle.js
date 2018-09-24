@@ -10,6 +10,6 @@ $(document).ready(function(){
 // NOM BOUTON AJOUT //
 $(document).ready(function(){
 $("button").click(function() {
-  $("p").toggle();
+  $(".btn-add").toggle();
 	});
 });
