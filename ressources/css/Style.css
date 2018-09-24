@@ -19,7 +19,8 @@ a {
 /* EFFECT */
 #add-menu a,
 .album,
-.even {
+.even,
+.content-cagn button {
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
@@ -33,7 +34,8 @@ a {
 #add-menu a:hover, #add-menu a:focus, #add-menu a:active,
 .icon:hover, .icon:focus, .icon:active,
 .album:hover, .album:focus, .album:active,
-.even:hover, .even:focus, .even:active {
+.even:hover, .even:focus, .even:active,
+.content-cagn button:hover, .content-cagn button:focus , .content-cagn button:active {
 	-webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
@@ -67,10 +69,11 @@ a {
 .title {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 }
 
 .title-section {
-	margin-top: 30px;
+	margin: 2vw 0 1.95vw 0;
 }
 
 h2 {
@@ -160,6 +163,11 @@ box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ec5fc', endColorstr='#e0c3fc', GradientType=1 );
 }
 
+.even p {
+	margin: 0px; 
+	padding: 0px;
+}
+
 .content-even {
 	width: 25.36vw; height: 5vw;
 	display: flex;
@@ -170,10 +178,11 @@ box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
 	background-color: #1C1C1C;
 }
 
-.content-even span {font-size: 3.125vw;}
+/* emoji */
+.content-even span {font-size: 2.5vw;}
 
 h6 {
-	margin: 0;
+	margin: 0 0 0.45vw 0;
 	padding: 0;
 	font-family: 'Trueno';
     font-weight: normal;
@@ -199,8 +208,93 @@ h6 {
 	font-size: 0.625vw;
 }
 
-.date-even span {font-size: 1.04vw;}
+.date-even span {
+	margin-top: 1vw;
+	font-size: 1.04vw;
+}
 
 /*-----------------------
 	SECTION CAGNOTTES
 ------------------------*/
+.content-cagn {
+	margin-right: 1.56vw;
+	margin-bottom: 3vw;
+	padding-bottom: 1.4vw;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	color: white;
+	border: none;
+	border-bottom: solid 0.15vw #FFFFFF;
+}
+
+.content-cagn p {
+	margin: 0px;
+	padding: 0px;
+}
+
+h5 {
+	margin: 0 0 1.04vw 0;
+	padding: 0;
+	font-family: 'Trueno';
+    font-weight: normal;
+    font-style: normal;
+	font-size: 1.82vw;
+}
+
+.desc-cagn {
+	width: 14.5vw;
+	font-family: 'Trueno';
+    font-weight: 200;
+    font-style: normal;
+	font-size: 0.78vw;
+}
+
+.prix-cagn {
+	text-align: right;
+	font-family: 'Trueno';
+    font-weight: 200;
+    font-style: normal;
+	font-size: 0.78vw;
+}
+
+.prix-cagn span {
+	text-align: right;
+	font-family: 'Trueno';
+    font-weight: normal;
+    font-style: normal;
+	font-size: 2.08vw;
+}
+
+.prix-cagn p span {
+	font-family: 'Trueno';
+    font-weight: 300;
+    font-style: normal;
+	font-size: 0.78vw;
+}
+
+.content-cagn button {
+	width: 10.10vw; height: 2.18vw;
+	margin: 1.04vw 0 0 0;
+	border-radius: 100px;
+	border: none;
+	font-family: 'Trueno';
+    font-weight: 600;
+    font-style: normal;
+	font-size: 1.04vw;
+	color: white;
+	background: rgba(142,197,252,1);
+	background: -moz-linear-gradient(-45deg, rgba(142,197,252,1) 0%, rgba(224,195,252,1) 100%);
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(142,197,252,1)), color-stop(100%, rgba(224,195,252,1)));
+	background: -webkit-linear-gradient(-45deg, rgba(142,197,252,1) 0%, rgba(224,195,252,1) 100%);
+	background: -o-linear-gradient(-45deg, rgba(142,197,252,1) 0%, rgba(224,195,252,1) 100%);
+	background: -ms-linear-gradient(-45deg, rgba(142,197,252,1) 0%, rgba(224,195,252,1) 100%);
+	background: linear-gradient(135deg, rgba(142,197,252,1) 0%, rgba(224,195,252,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ec5fc', endColorstr='#e0c3fc', GradientType=1 );
+	-webkit-box-shadow: 0px 3px 10px 0px rgba(0,0,0,1);
+-moz-box-shadow: 0px 3px 10px 0px rgba(0,0,0,1);
+box-shadow: 0px 3px 10px 0px rgba(0,0,0,1);
+	
+}
+

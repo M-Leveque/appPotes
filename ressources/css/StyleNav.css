@@ -149,9 +149,6 @@ box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
 .icon-add-calendar::before {content: "\ea02";}
 .icon-add-cash::before {content: "\ea03";}
 
-/*-- HOVER -------------------------------------*/
-
-
 /*----------------------------------------------
 	RESPONSIVE
 -----------------------------------------------*/

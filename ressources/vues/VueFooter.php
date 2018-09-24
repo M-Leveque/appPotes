@@ -3,6 +3,9 @@
 <!-------------------------------------
 	SCRIPT
 --------------------------------------->
+<!-- SCROLL REVEAL -->
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="ressources/js/scroll-reveal.js"></script>
 <!-- TOGGLE -->
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
 <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

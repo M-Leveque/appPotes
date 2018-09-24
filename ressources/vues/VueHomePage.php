@@ -88,14 +88,14 @@
 				<span>🎁</span>
 				
 				<div class="desc-even">
-					<h6>Titre événement</h6>
-					<p>Déscription événement</p>
+					<h6>Anniversaire Bastien</h6>
+					<p>Déscription événement Sp cum ducibus est civitas memoriam crudelitatem.</p>
 				</div>
 				
 				<div class="date-even">
-					<p>JOUR</p>
-					<span>00</span>
-					<p>MOIS</p>
+					<p>VEN</p>
+					<span>14</span>
+					<p>JUIN</p>
 				</div>
 			</div>
 		</a>
@@ -161,5 +161,32 @@
 				<span class="icon icon-arrow-26"></span>
 			</div>
 		</a>
+		
+		<!-- content cagnotte -->
+		<div class="content-cagn">
+			<div class="desc-cagn">
+				<h5>Cadeau Bastien</h5>
+				<p>Déscription cagnottes Et eodem impetu Domitianum praecipitem per scalas itidem funibus constrinxerunt, eosque coniunctos per ampla spatia civitatis acri</p>
+				<button>Participer</button>
+			</div>
+			
+			<div class="prix-cagn">
+				<span>51,00 €</span>
+				<p>Fin le<span> 00/00/00</span></p>
+			</div>
+		</div>
+		
+		<div class="content-cagn">
+			<div class="desc-cagn">
+				<h5>Titre Cagnotte</h5>
+				<p>Déscription cagnottes Et eodem impetu Domitianum praecipitem per scalas itidem funibus constrinxerunt, eosque coniunctos per ampla spatia civitatis acri</p>
+				<button>Participer</button>
+			</div>
+			
+			<div class="prix-cagn">
+				<span>00,00 €</span>
+				<p>Fin le<span> 00/00/00</span></p>
+			</div>
+		</div>
 	</section>
 </main>
