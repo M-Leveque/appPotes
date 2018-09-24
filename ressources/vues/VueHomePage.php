@@ -27,6 +27,26 @@
 				<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
 				<span>Text</span>
 			</div>
+			
+			<div class="album album-grid">
+				<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
+				<span>Text</span>
+			</div>
+			
+			<div class="album album-grid">
+				<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
+				<span>Text</span>
+			</div>
+			
+			<div class="album album-grid">
+				<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
+				<span>Text</span>
+			</div>
+			
+			<div class="album album-grid">
+				<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
+				<span>Text</span>
+			</div>
 			<!-- #grid albums ------------->
 		</div>
 	</section>

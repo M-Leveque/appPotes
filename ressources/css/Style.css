@@ -82,7 +82,7 @@ a {
 }
 
 .album-grid {
-	width: 11.14vw; height: 11.14vw;
+	max-width: 11.14vw; max-height: 11.14vw;
 }
 
 .album-grid img {
