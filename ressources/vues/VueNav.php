@@ -76,7 +76,7 @@
 <section id="add-menu">
 	<ul>
 		<a href="#"><li><div class="icon icon-add-pic"></div></li>Ajouter<br>un album</a>
-		<a href="#"><li><div class="icon icon-add-calendar"></div></li>Ajouter<br>un album</a>
-		<a href="#"><li><div class="icon icon-add-cash"></div></li>Ajouter<br>un album</a>
+		<a href="#"><li><div class="icon icon-add-calendar"></div></li>Ajouter<br>un événement</a>
+		<a href="#"><li><div class="icon icon-add-cash"></div></li>Ajouter<br>une cagnotte</a>
 	</ul>
 </section>
