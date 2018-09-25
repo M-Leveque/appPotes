@@ -1,230 +1,92 @@
-#content-login,
-#content-login section,
-#content-login article,
-#content-login form,
-#modal-login,
-#modal-login li{
+#content-connexion {
+	margin: 0;
 	display: flex;
-}
-
-/* Right Login ----------------------------------------------------------*/
-#content-login {
-	overflow: hidden;
-	width: 100%;
-	height: 100vh;
-	flex-direction: row;
-}
-
-#content-login section {
-	min-width: 50%;
-	min-height: 100%;
-	justify-content: center;
-	align-items: center;
-	background-color: white;
-}
-
-#content-login article {
-	height: 100%;
 	flex-direction: column;
-	justify-content: space-between;
-	align-items: baseline;
-	align-content: center;
 }
 
-#content-login article h1 {
-	margin-top: 145px;
+#content-connexion section {
+	display: flex;
+	flex-direction: row;
+	
+}
+
+#content-connexion h1 {
+	margin-top: 7.6vw;
 	font-family: 'Trueno';
     font-weight: 600;
     font-style: normal;
 	font-size: 5.2vw;
-	color: #191919;
 }
 
-#content-login form {
-	width: 100%;
+#content-connexion div {
+	width: 50%; min-height: 100vh;
+	margin: 0;
+}
+
+#content-connexion div:first-child {
+	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	align-items: center;
+	background-color: white;
+	-webkit-box-shadow: 3px 0px 20px 0px rgba(0,0,0,1);
+-moz-box-shadow: 3px 0px 20px 0px rgba(0,0,0,1);
+box-shadow: 3px 0px 20px 0px rgba(0,0,0,1);
 }
 
-#content-login input {
+#content-connexion form {
+	width: 27.7vw; height: 18.85vw;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#content-connexion input {
 	width: 100%;
-	padding-bottom: 5px;
-	margin-bottom: 60px;
+	margin-bottom: 4.89vw;
 	border: none;
-	border-width: 29.27vw;
 	border-bottom: solid 1px #191919;
-	background: none;
 	font-family: 'Trueno';
     font-weight: 300;
     font-style: italic;
-	font-size: 1vw;
+	font-size: 1.04vw;
 	color: #707070;
 	outline: none;
 }
 
-#content-login #button-form {
-	width: 19.16vw;
-	min-height: 3.64vw;
-	margin-top: 70px;
-	border-radius: 100px 100px 100px 100px;
-	background-color: #191919;
-	font-family: 'Trueno';
-    font-weight: bold;
-    font-style: normal;
-	font-size: 1vw;
-	color: white;
-	-webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.5);
--moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.5);
-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.5);
-	
-/* anim */
-	display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: transform;
-  transition-property: transform;
-}
-
-#content-login #button-form:hover, 
-#content-login #button-form:focus, 
-#content-login #button-form:active {
-	-webkit-transform: scale(1.5);
-  transform: scale(1.05);
-}
-
-#content-login #open-modal {
-	bottom: 0;
-	margin: 0 auto;
-	margin-bottom: 10px;
-	font-family: 'Trueno';
-    font-weight: 200;
-    font-style: normal;
-	font-size:  0.78vw;
-	color: black;
-}
-
-/* Left Slideshow ----------------------------------------------------------*/
-#content-login #slideshow {
-	background: none;
-	-webkit-box-shadow: inset 10px 0px 20px 0px rgba(0,0,0,1);
--moz-box-shadow: inset 10px 0px 20px 0px rgba(0,0,0,1);
-box-shadow: inset 10px 0px 20px 0px rgba(0,0,0,1);
-}
-
-/* Modal ----------------------------------------------------------*/
-#modal-login {
-	min-width: 100%; height: 54vw;
-	margin: 0;
-	padding: 0;
-	flex-direction: row;
-	justify-content: space-around;
-	background-color: #191919;
-	color: white;
-}
-
-#modal-login h3 {
+#content-connexion #btn-form {
+	width: 19.16vw; height: 3.64vw;
+	border-radius: 100px;
 	font-family: 'Trueno';
     font-weight: normal;
     font-style: normal;
-	font-size: 1.56vw;
+	font-size: 1.04vw;
+	color: white;
+	background-color: #191919;
+	-webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
+-moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
+box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
 }
 
-#modal-login p,
-#modal-login ul li {
-	font-family: 'Trueno';
-    font-weight: 300;
-    font-style: normal;
-	font-size: 1vw;
-	list-style: none;
-}
-
-#modal-login section {
-	width: 40%;
-	margin: 0;
-}
-
-.modal-titre h2 {
-	margin: 0 0 10px 0;
-	font-family: 'Trueno';
-    font-weight: normal;
-    font-style: normal;
-	font-size: 2.6vw;
-}
-
-.modal-titre div {
-	width: 30px; height: 6px;
-	background-color: white;
-}
-
-/* liste */
-#modal-login ul {
-	padding: 0px;
-}
-
-#modal-login li {
-	align-items: center;
-}
-
-#modal-login li div {
-	width: 10px; height: 4px;
-	margin-right: 10px;
-	background-color: white;
-}
-
-#modal-login #modal-info {
+#open-toggle {
 	bottom: 0;
 	text-align: center;
+	border: none;
 	font-family: 'Trueno';
-    font-weight: 300;
-    font-style: italic;
-	font-size:  0.78vw;
-	color: #F2F2F2;
+	font-size: 0.78vw;
+    font-weight: 200;
+    font-style: normal;
+	background: none;
 }
 
-/*-----------------------------------------------------
-	RESPONSIVE
------------------------------------------------------*/
+#toggle {
+	z-index: 1;
+	width: 100%; height: 90vh;
+	display: none;
+	background-color: red;
+}
 
-@media screen and (max-width: 414px) {
-	
-	/* Right Login */
-	#content-login {
-		flex-direction: column;
-	}
-	
-	#content-login section {
-		width: 100%; min-height: 50%;
-	}
-	
-	#content-login #login {
-		order: 2;
-	}
-	
-	#content-login article {
-		min-height: 100%;
-	}
-	
-	#content-login article h1 {
-		margin: 0;
-		color: #FFFFFF;
-		font-size: 11.97vw;
-	}
-	
-	#content-login input {
-		font-size: 3.59vw;
-	}
-	
-	#content-login #button-form {
-		width: 56.88vw; height: 11.97vw;
-		margin-top: 0;
-		font-size: 4.49vw;
-	}
-	
-	#content-login #open-modal {
-		margin: 0;
-		font-size: 3.59vw;
-	}
+section #toggle.show {
+	display: flex;
 }

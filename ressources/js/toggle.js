@@ -1,5 +1,4 @@
 // JavaScript Document
-
 // MENU AJOUT //
 $(document).ready(function(){
 	$("#menu").click(function() {
