@@ -13,6 +13,8 @@
 <link href="ressources/css/StyleNav.css" rel="stylesheet" type="text/css">
 	<!-- Style Connexion -->
 <link href="ressources/css/StyleConnexion.css" rel="stylesheet" type="text/css">
+	<!-- Style Photos -->
+<link href="ressources/css/StylePhotos.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>

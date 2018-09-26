@@ -16,11 +16,16 @@ a {
 	text-decoration: none;
 }
 
+p {
+	margin: 0px;
+}
+
 /* EFFECT */
 #add-menu a,
 .album,
 .even,
-.content-cagn button {
+.content-cagn button,
+#header-pic button {
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
@@ -35,7 +40,8 @@ a {
 .icon:hover, .icon:focus, .icon:active,
 .album:hover, .album:focus, .album:active,
 .even:hover, .even:focus, .even:active,
-.content-cagn button:hover, .content-cagn button:focus , .content-cagn button:active {
+.content-cagn button:hover, .content-cagn button:focus , .content-cagn button:active,
+#header-pic button:hover, #header-pic button:focus, #header-pic button:active {
 	-webkit-transform: scale(1.1);
   transform: scale(1.1);
 }

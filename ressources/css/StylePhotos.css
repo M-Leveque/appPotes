@@ -1,0 +1,64 @@
+/* CSS Document */
+#content-pic {
+	margin-left: 10.10vw;
+	display: flex;
+	flex-direction: column;
+}
+
+#header-pic {
+	width: 100%; height: 21.61vw;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-end;
+	border: none;
+	border-bottom: solid 3px;
+	font-family: 'Trueno';
+    font-weight: 300;
+    font-style: normal;
+	font-size: 1.04vw;
+	color: white;
+	background-image: url(ressources/img/vignettes/pic-2.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#header-pic div {
+	margin-left: 3.75vw;
+	margin-bottom: 4.42vw;
+}
+
+#header-pic p:first-child {
+	font-size: 0.625vw;
+}
+
+#header-pic span {
+	font-family: 'Trueno';
+    font-weight: normal;
+    font-style: normal;
+}
+
+#header-pic h1 {
+	margin: 0;
+	font-family: 'Trueno';
+    font-weight: 600;
+    font-style: normal;
+	font-size: 3.64vw;
+}
+
+#header-pic button {
+	width: 14.11vw; height: 3.69vw;
+	margin-right: 5.05vw;
+	margin-bottom: 1.71vw;
+	border: none;
+	border-radius: 10px;
+	font-family: 'Trueno';
+    font-weight: 300;
+    font-style: normal;
+	font-size: 0.78vw;
+	color: white;
+	background-color: #1D1D1D;
+	-webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
+-moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
+box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
+}
