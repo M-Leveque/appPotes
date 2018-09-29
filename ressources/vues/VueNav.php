@@ -14,7 +14,7 @@
 	
 	<div id="btn-add">
 		<button id="menu" type="button" name="menu">
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" height="4vw" width="4vw"><title>icon 7</title>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><title>icon 7</title>
     <g class="nc-icon-wrapper js-transition-icon" data-effect="scale" data-event="click">
         <g class="js-transition-icon__state" transform="translate(0 0) scale(1)" style="display: block;">
             <g>
