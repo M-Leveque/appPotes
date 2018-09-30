@@ -60,6 +60,10 @@ a .icon {
 	border: none;
 }
 
+#menu svg {
+	width: 4vw; height: 4vw;
+}
+
 #btn-add p {
 	margin-top: 0;
 }
