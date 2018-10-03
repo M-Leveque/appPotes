@@ -17,7 +17,7 @@ $mdp = !empty($_POST['mdp']) ? $_POST['mdp'] : NULL;
 if(isset($ident) AND isset($mdp)){
 
    if($utilisateurDao->login($ident , $mdp ) == true){
-        //Si la connexion reussi, on envoie vers la HomePage
+      //Si la connexion reussi, on envoie vers la HomePage
       header("Location: index.php?action=HomePage");
     }
 }

@@ -11,7 +11,7 @@ class UtilisateurDAO extends DAO{
   public function login($email, $password) {
 
     // L�utilisation de d�clarations emp�che les injections SQL
-    $stmt = $this->cnx->prepare("SELECT Id_U, Pseudo_U, Mdp_U FROM Utilisateur WHERE Mail_U = :mail LIMIT 1");
+    $stmt = $this->cnx->prepare("SELECT Id_U, Niveau_U, Pseudo_U, Mdp_U FROM Utilisateur WHERE Mail_U = :mail LIMIT 1");
     $stmt->bindValue(':mail', $email, PDO::PARAM_STR);  // Lie "$email" aux param�tres.
     $stmt->execute();    // Ex�cute la d�claration.
     $ligne = $stmt->fetch(PDO::FETCH_OBJ);
@@ -27,6 +27,7 @@ class UtilisateurDAO extends DAO{
           // Protection XSS car nous pourrions conserver cette valeur
           $ligne->Id_U = preg_replace("/[^0-9]+/", "", $ligne->Id_U);
           $_SESSION['user_id'] = $ligne->Id_U;
+          $_SESSION['user_type'] = intval($ligne->Niveau_U);
 
           // Protection XSS car nous pourrions conserver cette valeur
           $ligne->Pseudo_U = preg_replace("/[^a-zA-Z0-9_\-]+/","",$ligne->Pseudo_U);

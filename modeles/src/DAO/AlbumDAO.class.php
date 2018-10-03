@@ -41,7 +41,7 @@ class AlbumDAO extends DAO{
           $i++;
           $ligne = $stmt->fetch(PDO::FETCH_OBJ);
         }
-        return true;
+        return $albums;
     }
     else{return false;}
   }
