@@ -4,14 +4,14 @@
 <header>
 	<nav>
 		<ul>
-			<li><a href="#"><div class="icon icon-home"></div><span>Home</span></a></li>
-			<li><a href="#"><div class="icon icon-pic"></div><span>Albums</span></a></li>
-			<li><a href="#"><div class="icon icon-calendar"></div><span>Événements</span></a></li>
-			<li><a href="#"><div class="icon icon-cash"></div><span>Cagnottes</span></a></li>
-			<li><a href="#"><div class="icon icon-people"></div><span>Profile</span></a></li>
+			<li><a href="?action=HomePage"><div class="icon icon-home"></div><span>Home</span></a></li>
+			<li><a href="?action=Albums"><div class="icon icon-pic"></div><span>Albums</span></a></li>
+			<li><a href="?action=Evenements"><div class="icon icon-calendar"></div><span>Événements</span></a></li>
+			<li><a href="?action=Cagnottes"><div class="icon icon-cash"></div><span>Cagnottes</span></a></li>
+			<li><a href="?action=Compte"><div class="icon icon-people"></div><span>Profile</span></a></li>
 		</ul>
 	</nav>
-	
+
 	<div id="btn-add">
 		<button id="menu" type="button" name="menu">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><title>icon 7</title>

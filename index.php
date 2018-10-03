@@ -24,8 +24,17 @@ if($niveauUtilisateur === 1 || $niveauUtilisateur === 2){
 		case 'HomePage': {
 				include_once ('controleurs/CtrlHomePage.php'); break;
 		}
+		case 'Albums': {
+				include_once ('controleurs/CtrlAlbums.php'); break;
+		}
 		case 'Photos': {
 				include_once ('controleurs/CtrlPhotos.php'); break;
+		}
+		case 'Evenements': {
+				include_once ('controleurs/CtrlEvenements.php'); break;
+		}
+		case 'Cagnottes': {
+				include_once ('controleurs/CtrlCagnottes.php'); break;
 		}
 		case 'Compte': {
 				include_once ('controleurs/CtrlCompte.php'); break;
@@ -33,62 +42,8 @@ if($niveauUtilisateur === 1 || $niveauUtilisateur === 2){
 		case 'Connexion': {
 				include_once ('controleurs/CtrlConnexion.php'); break;
 		}
-	}
-	//Connexion administrateur
-	if ($niveauUtilisateur == 2){
-		switch($action){
-			case 'TestUtilisateur':{
-				include_once ('modeles/tests/Utilisateur.test.php'); break;
-			}
-			case 'TestUtilisateurDAO':{
-				include_once ('modeles/tests/DAO/UtilisateurDAO.test.php'); break;
-			}
-			case 'TestPhoto':{
-				include_once ('modeles/tests/Photo.test.php'); break;
-			}
-			case 'TestPhotoDAO':{
-				include_once ('modeles/tests/DAO/PhotoDAO.test.php'); break;
-			}
-			case 'TestMessage':{
-				include_once ('modeles/tests/Message.test.php'); break;
-			}
-			case 'TestMessageDAO':{
-				include_once ('modeles/tests/DAO/MessageDAO.test.php'); break;
-			}
-			case 'TestEvenement':{
-				include_once ('modeles/tests/Evenement.test.php'); break;
-			}
-			case 'TestEvenementDAO':{
-				include_once ('modeles/tests/DAO/EvenementDAO.test.php'); break;
-			}
-			case 'TestEmoticon':{
-				include_once ('modeles/tests/Emoticon.test.php'); break;
-			}
-			case 'TestEmoticonDAO':{
-				include_once ('modeles/tests/DAO/EmoticonDAO.test.php'); break;
-			}
-			case 'TestCagnotte':{
-				include_once ('modeles/tests/Cagnotte.test.php'); break;
-			}
-			case 'TestCagnotteDAO':{
-				include_once ('modeles/tests/DAO/CagnotteDAO.test.php'); break;
-			}
-			case 'TestAlbum':{
-				include_once ('modeles/tests/Album.test.php'); break;
-			}
-			case 'TestAlbumDAO':{
-				include_once ('modeles/tests/DAO/AlbumDAO.test.php'); break;
-			}
-			case 'TestAcces': {
-				include_once ('modeles/tests/Acces.test.php'); break;
-			}
-			case 'TestAccesDAO': {
-				include_once ('modeles/tests/DAO/AccesDAO.test.php'); break;
-			}
-			default : {
-				// toute autre tentative est automatiquement redirigee vers la page de connexion
-				include_once ('controleurs/CtrlHomePage.php'); break;
-			}
+		default: {
+			include_once ('controleurs/CtrlHomePage.php'); break;
 		}
 	}
 }
