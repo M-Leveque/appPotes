@@ -5,24 +5,24 @@
 
 class Acces
 {
-  private $_IdU;
-  private $_IdE;
+  private $_Utilisateur;
+  private $_Evenement;
 
-  public function __construct($idU, $idE){
-    $this->setIdUtilisateur($idU);
-    $this->setIdEvenement($idE);
+  public function __construct($utilisateur, $Evenement){
+    $this->setIdUtilisateur($utilisateur);
+    $this->setIdEvenement($Evenement);
   }
 
-  public function getIdUtilisateur(){
-    return $this->_IdU;
+  public function getUtilisateur(){
+    return $this->_Utilisateur;
   }
 
-  public function getIdEvenement(){
-    return $this->_Titre;
+  public function getEvenement(){
+    return $this->_Evenemenet;
   }
 
   public function setIdUtilisateur($idU){
-    if(is_int($idU) && $idU >= 0){
+    if(){
       $this->_IdU = $idU;
     }
   }
@@ -30,6 +30,16 @@ class Acces
   public function setIdEvenement($idE){
     if(is_int($idE) && $idE >= 0){
       $this->_IdE = $idE;
+    }
+  }
+  
+  public function isValidAcces($acces){
+    if(get_Class($acces) == "Acces"){
+      if(get_class($acces->getUtilisateur()->isUtilisateurValid() && $acces->getEvenement()->isUtilisateurValid()))
+      return true;
+    }
+    else{
+      return flase;
     }
   }
 

@@ -45,6 +45,18 @@ class Emoticon
     }
   }
 
+  public function isValidEmoticon(){
+    if(get_Class($emoticon) == "Emoticon"){
+      if(isset($emoticon->getId()) && isset($emoticon->getTitre()) && isset($emoticon->getChemin())){
+          return true;
+      }
+    }
+    else{
+      return flase;
+    }
+  }
+
+
   public function toString(){
     $msg = "Emoticon :<br>";
     $msg .= "id : ".$this->_Id."<br>";
