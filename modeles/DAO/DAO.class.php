@@ -7,7 +7,7 @@
 // certaines m�thodes n�cessitent les fichiers Utilisateur.class.php,
 
 // inclusion des paramètres de l'application
-require_once('modeles/src/parametres.localhost.php');
+require_once('modeles/parametres.localhost.php');
 
 class DAO
 {

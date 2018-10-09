@@ -4,7 +4,7 @@
 //-------------------------------------------------------------------------------------
 
 //On inclut la class DAO (Data Access Objet)
-include('modeles/src/DAO/UtilisateurDAO.class.php');
+include('modeles/DAO/UtilisateurDAO.class.php');
 
 //On se connecte � la base de donn�es
 $utilisateurDao = new UtilisateurDAO();

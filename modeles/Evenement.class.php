@@ -1,10 +1,10 @@
 <?php
 //-----------------------------------------------------
-//-------------------| Class Evenement |-------------------
+//-------------------| Class Evenement |---------------
 //-----------------------------------------------------
 
 //On inclut la classe utilisateur
-include_once('modeles/src/Outils.class.php');
+include_once('../Outils.class.php');
 
 class Evenement
 {
@@ -14,10 +14,10 @@ class Evenement
     private $_DateC;
     private $_DateTime;
     private $_Archiver;
-    private $_IdUtilisateur;
-    private $_IdEmoticon;
+    private $_Utilisateur;
+    private $_Emoticon;
 
-    public function __construct($id, $titre, $description, $dateC, $dateTime, $archiver, $idUtilisateur, $idEmoticon){
+    public function __construct($id, $titre, $description, $dateC, $dateTime, $archiver, $utilisateur, $emoticon){
 
         $this->setId($id);
         $this->setTitre($titre);
@@ -25,8 +25,8 @@ class Evenement
         $this->setDateC($dateC);
         $this->setDateTime($dateTime);
         $this->setArchiver($archiver);
-        $this->setIdUtilisateur($idUtilisateur);
-        $this->setIdEmoticon($idEmoticon);
+        $this->setUtilisateur($utilisateur);
+        $this->setEmoticon($emoticon);
 
     }
 
@@ -58,12 +58,12 @@ class Evenement
         return $this->_Archiver;
     }
 
-    public function getIdUtilisateur(){
-        return $this->_IdUtilisateur;
+    public function getUtilisateur(){
+        return $this->_Utilisateur;
     }
 
-    public function getIdEmoticon(){
-        return $this->_IdEmoticon;
+    public function getEmoticon(){
+        return $this->_Emoticon;
     }
 
     //-------------------------------
@@ -71,27 +71,40 @@ class Evenement
     //-------------------------------
 
     public function setId($id){
-
       //Verif variable $id
-      if(is_int($id) && $id > 0 ){
+      if(is_int($id) && $id > 0 && isset($id)){
         $this->_Id = $id;
+      }
+      else{
+        throw new Exception("L'attribut id doit être un integer > 0 non null");
       }
     }
 
     public function setTitre($titre){
         //Verif variable $titre
-        if(strlen($titre) < 20){
+        if(strlen($titre) < 20 && isset($titre)){
           $this->_Titre = $titre;
+        }
+        else{
+          throw new Exception("L'attribut titre doit être < 20 non null");
         }
     }
 
     public function setDescription($description){
+      if(isset($description)){
         $this->_Description = $description;
+      }
+      else{
+        throw new Exception("L'attribut description ne doit pas être null");
+      }
     }
 
     public function setDateC($dateC){
         if(Outils::estUneDateValide($dateC)){
           $this->_DateC = $dateC;
+        }
+        else{
+          throw new Exception("L'attribut dateC doit être une date valid");
         }
     }
 
@@ -99,24 +112,44 @@ class Evenement
         if(Outils::estUnDateTimeValide($dateTime)){
           $this->_DateTime = $dateTime;
         }
+        else{
+          throw new Exception("L'attribut dateC doit être un dateTime valid");
+        }
     }
 
     public function setArchiver($archiver){
         if(is_bool($archiver)){
           $this->_Archiver = $archiver;
         }
-    }
-
-    public function setIdUtilisateur($idUtilisateur){
-      if(is_int($idUtilisateur) && $idUtilisateur > 0){
-        $this->_IdUtilisateur = $idUtilisateur;
+        else{
+          throw new Exception("L'attribut archiver doit être un booleen");
         }
     }
 
-    public function setIdEmoticon($idEmoticon){
-      if(is_int($idEmoticon) && $idEmoticon > 0){
-        $this->_IdEmoticon = $idEmoticon;
+    public function setUtilisateur($utilisateur){
+      try{
+        $utilisateur->isValidUtilisateur();
+        $this->_Utilisateur = $utilisateur;
+      }
+      catch(Exception $e){
+        throw new \Error($e);
+      }
+
+    }
+
+    public function setEmoticon($emoticon){
+      try{
+        if(get_class($emoticon) == "Emoticon"){
+          $this->_Emoticon = $emoticon;
         }
+        else{
+          throw new Exception("L'attribut emoticon n'est pas une instance de la class emoticon");
+        }
+      }
+      catch(Exception $e){
+        throw new Exception($e);
+      }
+
     }
 
     //------------------------------
@@ -131,8 +164,8 @@ class Evenement
         $msg .= "date : ".$this->_DateTime."<br>";
         $msg .= "date creation : ".$this->_DateC."<br>";
         $msg .= "Archiver : ".$this->_Archiver."<br>";
-        $msg .= "utilisateur : ".$this->_IdUtilisateur."<br>";
-        $msg .= "emoticon : ".$this->_IdEmoticon."<br>";
+        $msg .= "utilisateur : ".$this->_Utilisateur->toString()."<br>";
+        $msg .= "emoticon : ".$this->_Emoticon->toString()."<br>";
 
         return $msg;
     }

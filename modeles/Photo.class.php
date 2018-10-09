@@ -4,7 +4,7 @@
 //-----------------------------------------------------
 
 //On inclut lles class en lien avec photo
-include_once('modeles/src/Outils.class.php');
+include_once('modeles/Outils.class.php');
 
 class Photo
 {
@@ -14,10 +14,10 @@ class Photo
     private $_Compteur;
     private $_Date;
     private $_DateU;
-    private $_IdUtilisateur;
-    private $_IdAlbum;
+    private $_Utilisateur;
+    private $_Album;
 
-    public function __construct($id, $titre, $chemin, $compteur, $date, $dateU, $idUtilisateur, $idAlbum){
+    public function __construct($id, $titre, $chemin, $compteur, $date, $dateU, $utilisateur, $album){
 
         $this->setId($id);
         $this->setTitre($titre);
@@ -25,8 +25,8 @@ class Photo
         $this->setCompteur($compteur);
         $this->setDate($date);
         $this->setDateU($dateU);
-        $this->setIdUtilisateur($idUtilisateur);
-        $this->setIdAlbum($idAlbum);
+        $this->setUtilisateur($utilisateur);
+        $this->setAlbum($album);
     }
 
 
@@ -56,12 +56,12 @@ class Photo
     }
 
 
-    public function getIdUtilisateur(){
-        return $this->_IdUtilisateur;
+    public function getUtilisateur(){
+        return $this->_Utilisateur;
     }
 
-    public function getIdAlbum(){
-        return $this->_IdAlbum;
+    public function getAlbum(){
+        return $this->_Album;
     }
 
 
@@ -107,15 +107,15 @@ class Photo
       }
     }
 
-    public function setIdUtilisateur($idUtilisateur){
-      if(is_int($idUtilisateur) && $idUtilisateur > 0 && !is_null($idUtilisateur)){
-        $this->_IdUtilisateur = $idUtilisateur;
+    public function setUtilisateur($utilisateur){
+      if(is_int($utilisateur) && $utilisateur > 0 && !is_null($utilisateur)){
+        $this->_Utilisateur = $utilisateur;
       }
     }
 
-    public function setIdAlbum($idAlbum){
-      if(is_int($idAlbum) && $idAlbum > 0 && $idAlbum != null){
-        $this->_IdAlbum = $idAlbum;
+    public function setAlbum($album){
+      if(is_int($album) && $album > 0 && $album != null){
+        $this->_Album = $album;
       }
     }
 
@@ -127,8 +127,8 @@ class Photo
         $msg .= "chemin : ".$this->_Chemin."<br>";
         $msg .= "compteur : ".$this->_Compteur."<br>";
         $msg .= "date : ".$this->_Date."<br>";
-        $msg .= "utilisateur : ".$this->_IdUtilisateur."<br>";
-        $msg .= "album : ".$this->_IdAlbum."<br>";
+        $msg .= "utilisateur : ".$this->_Utilisateur."<br>";
+        $msg .= "album : ".$this->_Album."<br>";
 
         return $msg;
     }

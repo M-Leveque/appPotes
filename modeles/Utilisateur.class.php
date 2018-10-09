@@ -2,7 +2,7 @@
 //-----------------------------------------------------
 //-------------------| Class Utilisateur |-------------
 //-----------------------------------------------------
-include_once('modeles/src/Outils.class.php');
+include_once "Outils.class.php";
 
 class Utilisateur
 {
@@ -62,6 +62,9 @@ class Utilisateur
       if(is_int($id) && $id >= 0){
         $this->_Id = $id;
       }
+      else{
+        throw new Exception("L'attribut id doit être un entier > ou = à 0.");
+      }
     }
 
     public function setNiveau($niveau){
@@ -69,6 +72,9 @@ class Utilisateur
       //Verif $niveau
       if ( $niveau === 0 ||  $niveau === 1 ||  $niveau === 2 ){
          $this->_Niveau = $niveau;
+      }
+      else{
+        throw new Exception("L'attribut niveau doit être = à 0, 1 ou 2.");
       }
     }
 
@@ -78,11 +84,17 @@ class Utilisateur
       if (Outils::estUneAdrMailValide($mail)){
         $this->_Mail = $mail;
       }
+      else{
+        throw new Exception("L'attribut mail doi être une addresse mail valide");
+      }
     }
 
   	public function setMdp($mdp){
       if(strlen($mdp) < 50 ){
         $this->_Mdp = password_hash($mdp, PASSWORD_DEFAULT);
+      }
+      else{
+        throw new Exception("L'attribut mdp doit être < à 50.");
       }
     }
 
@@ -90,6 +102,9 @@ class Utilisateur
       //verif $pseudo
       if ( strlen($pseudo) <=  20){
         $this->_Pseudo = $pseudo;
+      }
+      else{
+        throw new Exception("L'attribut pseudo doit être < ou = à 20.");
       }
     }
 
@@ -101,8 +116,24 @@ class Utilisateur
       if(is_bool($tmp)){
         $this->_Tmp = $tmp;
       }
+      else{
+        throw new Exception("L'attribut Tmp doit être un boolean.");
+      }
     }
 
+    //Cette methode compare tout les attributs d'un utilisateur
+    //pour verifier la validite global de l'utilisateur
+    public function isValidUtilisateur(){
+      if(is_null($this->_Id) || is_null($this->_Niveau) || is_null($this->_Mail) || is_null($this->_Mdp) || is_null($this->_Pseudo) ||
+          is_null($this->_Photo) || is_null($this->_Tmp) ){
+
+        return false;
+        throw new Exception("L'utilisateur ne doit pas avoir d'attribut null");
+      }
+      else{
+        return true;
+      }
+    }
 
     //toString
     public function toString() {
