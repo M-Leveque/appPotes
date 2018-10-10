@@ -302,6 +302,26 @@ h5 {
 	-webkit-box-shadow: 0px 3px 10px 0px rgba(0,0,0,1);
 -moz-box-shadow: 0px 3px 10px 0px rgba(0,0,0,1);
 box-shadow: 0px 3px 10px 0px rgba(0,0,0,1);
-	
 }
 
+/*---------------------------------------------------------------------------------------------------
+	PAGES EVENEMENTS / CAGNOTTES
+---------------------------------------------------------------------------------------------------*/
+.grid-gen {
+	display: flex;
+	justify-content: space-between;
+	align-content: flex-start;
+	flex-wrap: wrap;
+}
+
+.grid-even {
+	width: 56.66vw;
+}
+
+.grid-even button {
+	width: 25.37vw; height: 5.1vw;
+	border : none;
+	border-radius: 10px;
+	color: #707070;
+	background-color: #1D1D1D;
+}
