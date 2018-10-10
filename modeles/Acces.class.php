@@ -8,9 +8,9 @@ class Acces
   private $_Utilisateur;
   private $_Evenement;
 
-  public function __construct($utilisateur, $Evenement){
+  public function __construct($utilisateur, $evenement){
     $this->setUtilisateur($utilisateur);
-    $this->setEvenement($Evenement);
+    $this->setEvenement($evenement);
   }
 
   public function getUtilisateur(){
@@ -22,26 +22,37 @@ class Acces
   }
 
   public function setUtilisateur($utilisateur){
-      $this->_Utilisateur = $utilisateur;
+    try{
+      if(get_Class($utilisateur) == "Utilisateur"){
+        $this->_Utilisateur = $utilisateur;
+      }
+      else{
+        throw new Exception("L'object doit être une instance de la class Utilisateur");
+      }
+    }
+    catch(Exception $e){
+      throw new Exception("Vous devez passer un objet en parametre");
+    }
   }
 
   public function setEvenement($evenement){
-      $this->_Evenement = $evenement;
-  }
-
-  public function isValidAcces($acces){
-    if(get_Class($acces) == "Acces"){
-      return true;
+    try{
+      if(get_Class($evenement) == "Evenement"){
+        $this->_Evenement = $evenement;
+      }
+      else{
+        throw new Exception("L'object doit être une instance de la class Evenement");
+      }
     }
-    else{
-      return flase;
+    catch(Exception $e){
+      throw new Exception("Vous devez passer un objet en parametre");
     }
   }
 
   public function toString(){
     $msg = "Acces :<br>";
-    $msg .= "id utilisateur : ".$this->_IdU."<br>";
-    $msg .= "id Evenement : ".$this->_IdE."<br>";
+    $msg .= "Utilisateur : ".$this->_Utilisateur."<br>";
+    $msg .= "Evenement : ".$this->_Evenement."<br>";
 
     return $msg;
   }

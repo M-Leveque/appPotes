@@ -27,7 +27,7 @@ class EmoticonTest extends TestCase
   /**
    * @expectedException Exception
    */
-  public  function  testSetIdException(){
+  public  function  testSetIdNonIntegerException(){
     $emoticon = $this->constructEmoticonValid();
     $emoticon->setId('s');
   }
@@ -35,7 +35,23 @@ class EmoticonTest extends TestCase
   /**
    * @expectedException Exception
    */
-  public  function  testSetTitreException(){
+  public  function  testSetIdNullException(){
+    $emoticon = $this->constructEmoticonValid();
+    $emoticon->setId(null);
+  }
+
+  /**
+   * @expectedException Exception
+   */
+  public  function  testSetIdinfZeroException(){
+    $emoticon = $this->constructEmoticonValid();
+    $emoticon->setId(-1);
+  }
+
+  /**
+   * @expectedException Exception
+   */
+  public  function  testSetTitreSup20Exception(){
     $emoticon = $this->constructEmoticonValid();
     $emoticon->setTitre("CeTitreEstBeaucoupTropLong"); //chaine de 23 caracteres
   }
@@ -43,8 +59,25 @@ class EmoticonTest extends TestCase
   /**
    * @expectedException Exception
    */
-  public  function  testSetCheminException(){
+  public  function  testSetTitreNullException(){
     $emoticon = $this->constructEmoticonValid();
     $emoticon->setTitre(null); //chaine de 23 caracteres
+  }
+
+  /**
+   * @expectedException Exception
+   */
+  public  function  testSetCheminNullException(){
+    $emoticon = $this->constructEmoticonValid();
+    $emoticon->setTitre(null); //chaine de 23 caracteres
+  }
+
+  /**
+   * @expectedException Exception
+   */
+  public  function  testSetCheminSup255Exception(){
+    $emoticon = $this->constructEmoticonValid();
+    $emoticon->setTitre("5mlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlskdjfheymlkjh");
+    //chaine de 256 caracteres
   }
 }

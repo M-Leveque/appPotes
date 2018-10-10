@@ -61,7 +61,7 @@ class EvenementTest extends TestCase
   /**
    * @expectedException Exception
    */
-  public  function  testSetIdException(){
+  public  function  testSetIdNonIntException(){
     $evenement = $this->constructEvenementValid();
     $evenement->setId('s');
   }
@@ -69,9 +69,33 @@ class EvenementTest extends TestCase
   /**
    * @expectedException Exception
    */
-  public  function  testSetTitreException(){
+  public  function  testSetIdNullException(){
+    $evenement = $this->constructEvenementValid();
+    $evenement->setId(null);
+  }
+
+  /**
+   * @expectedException Exception
+   */
+  public  function  testSetIdInfZeroException(){
+    $evenement = $this->constructEvenementValid();
+    $evenement->setId(-2);
+  }
+
+  /**
+   * @expectedException Exception
+   */
+  public  function  testSetTitreSup20Exception(){
     $evenement = $this->constructEvenementValid();
     $evenement->setTitre('Anniversaire de franck'); //chaine de 21 caracteres
+  }
+
+  /**
+   * @expectedException Exception
+   */
+  public  function  testSetTitreNullException(){
+    $evenement = $this->constructEvenementValid();
+    $evenement->setTitre(null);
   }
 
   /**
@@ -85,7 +109,7 @@ class EvenementTest extends TestCase
   /**
    * @expectedException Exception
    */
-  public  function  testSetDateCException(){
+  public  function  testSetDateCMauvaiseException(){
     $evenement = $this->constructEvenementValid();
     $evenement->setDateC("2021-52-54"); //insertion d'une date non valid
   }
@@ -93,10 +117,27 @@ class EvenementTest extends TestCase
   /**
    * @expectedException Exception
    */
-  public  function  testSetDateTimeException(){
+  public  function  testSetDateCNullException(){
+    $evenement = $this->constructEvenementValid();
+    $evenement->setDateC(null); //insertion d'une date non valid
+  }
+
+  /**
+   * @expectedException Exception
+   */
+  public  function  testSetDateTimeMauvaisException(){
     $evenement = $this->constructEvenementValid();
     $evenement->setDateTime("2021-52-54 55:55:55");
   }
+
+  /**
+   * @expectedException Exception
+   */
+  public  function  testSetDateTimeNullException(){
+    $evenement = $this->constructEvenementValid();
+    $evenement->setDateTime(null);
+  }
+
   /**
    * @expectedException Exception
    */
@@ -106,9 +147,17 @@ class EvenementTest extends TestCase
   }
 
   /**
+   * @expectedException Exception
+   */
+  public  function  testSetArchiverNullException(){
+    $evenement = $this->constructEvenementValid();
+    $evenement->setArchiver(null);
+  }
+
+  /**
    * @expectedException Error
    */
-  public  function  testSetUtilisateurError(){
+  public  function  testSetUtilisateurIntError(){
     $evenement = $this->constructEvenementValid();
     $evenement->setUtilisateur(35);
   }
@@ -116,7 +165,15 @@ class EvenementTest extends TestCase
   /**
    * @expectedException Exception
    */
-  public  function  testSetEmoticonError(){
+  public  function  testSetUtilisateurMauvaisObjectException(){
+    $evenement = $this->constructEvenementValid();
+    $evenement->setEmoticon($evenement);
+  }
+
+  /**
+   * @expectedException Exception
+   */
+  public  function  testSetEmoticonChaineError(){
     $evenement = $this->constructEvenementValid();
     $evenement->setEmoticon("Chaine de caracteres");
   }
@@ -124,7 +181,7 @@ class EvenementTest extends TestCase
   /**
    * @expectedException Exception
    */
-  public  function  testSetEmoticonException(){
+  public  function  testSetEmoticonMauvaisObjectException(){
     $evenement = $this->constructEvenementValid();
     $evenement->setEmoticon($evenement);
   }
