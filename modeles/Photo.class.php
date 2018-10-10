@@ -4,7 +4,7 @@
 //-----------------------------------------------------
 
 //On inclut lles class en lien avec photo
-include_once('modeles/Outils.class.php');
+include_once ('Outils.class.php');
 
 class Photo
 {
@@ -68,54 +68,87 @@ class Photo
 
     //Setteurs
     public function setId($id){
-
       //Verif variable $id
-      if(is_int($id) && $id >= 0 ){
+      if(isset($id) && is_int($id) && $id >= 0 ){
         $this->_Id = $id;
+      }
+      else{
+        throw new Exception("L'attribut id doit être un integer non null > 0 ");
       }
     }
 
     public function setTitre($titre){
-
-        //Verif variable $titre
-        if(strlen($titre) < 20){
+      //Verif variable $titre
+      if(isset($titre) && is_string($titre) && strlen($titre) < 20){
           $this->_Titre = $titre;
       }
-
+      else{
+        throw new Exception("L'attribut titre doit être une chaine de caracteres non null < 20 ");
+      }
     }
 
     public function setChemin($chemin){
+      if(isset($chemin)){
         $this->_Chemin = $chemin;
+      }
+      else{
+        throw new Exception("L'attribut chemin ne doit pas être null");
+      }
     }
 
     public function setCompteur($compteur){
       //Verif variable $id
-      if(is_int($compteur) && $compteur >= 0 ){
+      if(isset($compteur) && is_int($compteur) && $compteur >= 0 ){
         $this->_Compteur = $compteur;
+      }
+      else{
+        throw new Exception("L'attribut compteur doit être un integer non null");
       }
     }
 
     public function setDate($date){
-      if(Outils::estUneDateValide($date)){
+      if(isset($date) && Outils::estUneDateValide($date)){
         $this->_Date = $date;
+      }
+      else{
+        throw new Exception("L'attribut date doit être non null et une date valide");
       }
     }
 
     public function setDateU($dateU){
-      if(Outils::estUneDateValide($dateU)){
+      if(isset($dateU) && Outils::estUneDateValide($dateU)){
         $this->_DateU = $dateU;
+      }
+      else{
+        throw new Exception("L'attribut dateU doit être non null et une date valide");
       }
     }
 
     public function setUtilisateur($utilisateur){
-      if(is_int($utilisateur) && $utilisateur > 0 && !is_null($utilisateur)){
-        $this->_Utilisateur = $utilisateur;
+      try{
+        if( isset($utilisateur) && get_class($utilisateur) == "Utilisateur" ){
+          $this->_Utilisateur = $utilisateur;
+        }
+        else{
+          throw new \Exception("L'utilisateur doit être une instance de la class Utilisateur et ne doit pas être null");
+        }
+      }
+      catch(Exception $e){
+        throw new Exception($e);
       }
     }
 
     public function setAlbum($album){
-      if(is_int($album) && $album > 0 && $album != null){
-        $this->_Album = $album;
+      try{
+        if( isset($album) && get_class($album) == "Album" ){
+          $this->_Album = $album;
+        }
+        else{
+          throw new \Exception("L'album doit être une instance de la class Album et ne doit pas être null");
+        }
+      }
+      catch(Exception $e){
+        throw new Exception($e);
       }
     }
 
@@ -127,8 +160,8 @@ class Photo
         $msg .= "chemin : ".$this->_Chemin."<br>";
         $msg .= "compteur : ".$this->_Compteur."<br>";
         $msg .= "date : ".$this->_Date."<br>";
-        $msg .= "utilisateur : ".$this->_Utilisateur."<br>";
-        $msg .= "album : ".$this->_Album."<br>";
+        $msg .= "utilisateur : ".$this->_Utilisateur->toString()."<br>";
+        $msg .= "album : ".$this->_Album->toString()."<br>";
 
         return $msg;
     }

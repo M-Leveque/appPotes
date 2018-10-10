@@ -8,7 +8,7 @@ include_once "../Evenement.class.php";
 
 class AlbumTest extends TestCase
 {
-  //Valid Emoticon
+  //Valid Album
   private $id = 1;
   private $nom = "2017-2018";
   private $priver = false;

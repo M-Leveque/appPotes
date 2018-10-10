@@ -4,7 +4,7 @@
 //-----------------------------------------------------
 
 //On inclut lles class en lien avec Cagnotte
-include_once('modeles/src/Outils.class.php');
+include_once('Outils.class.php');
 
 class Cagnotte
 {

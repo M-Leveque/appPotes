@@ -4,7 +4,7 @@
 //-----------------------------------------------------
 
 //On inclut la classe utilisateur
-include_once('../Outils.class.php');
+include_once('Outils.class.php');
 
 class Evenement
 {

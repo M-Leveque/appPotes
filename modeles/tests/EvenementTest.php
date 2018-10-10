@@ -15,15 +15,6 @@ class EvenementTest extends TestCase
   private $dateTime = "2018-08-11 21:02:03";
   private $archiver = false;
 
-  private function asserUtilisateur($utilisateur1, $utilisateur2){
-    $this->assertEquals($utilisateur1->getId(), $utilisateur2->getId());
-    $this->assertEquals($utilisateur1->getNiveau(), $utilisateur2->getNiveau());
-    $this->assertEquals($utilisateur1->getMail(), $utilisateur2->getMail());
-    $this->assertEquals($utilisateur1->getPseudo(), $utilisateur2->getPseudo());
-    $this->assertEquals($utilisateur1->getPhoto(), $utilisateur2->getPhoto());
-    $this->assertEquals($utilisateur1->getTmp(), $utilisateur2->getTmp());
-  }
-
   private function constructUtilisateurValid(){
     $utilisateur = new Utilisateur(1, 0, 'visiteur@visiteur.com', 'visiteur', 'Visiteur1', 'photo.png', false);
     return $utilisateur;
@@ -54,8 +45,6 @@ class EvenementTest extends TestCase
       $this->assertSame($evenement->getDateC(), $this->dateC);
       $this->assertSame($evenement->getDateTime(), $this->dateTime);
       $this->assertSame($evenement->getArchiver(), $this->archiver);
-      $this->asserUtilisateur($evenement->getUtilisateur(), $utilisateur);
-      $this->assertEquals($evenement->getEmoticon(), $emoticon);
   }
 
   /**
