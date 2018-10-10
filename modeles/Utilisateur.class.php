@@ -59,7 +59,7 @@ class Utilisateur
     public function setId($id){
 
       //Verif $id
-      if(is_int($id) && $id >= 0){
+      if(isset($id) && is_int($id) && $id >= 0){
         $this->_Id = $id;
       }
       else{
@@ -81,7 +81,7 @@ class Utilisateur
     public function setMail($mail){
 
       //Verif $mail
-      if (Outils::estUneAdrMailValide($mail)){
+      if (isset($mail) && Outils::estUneAdrMailValide($mail)){
         $this->_Mail = $mail;
       }
       else{
@@ -90,7 +90,7 @@ class Utilisateur
     }
 
   	public function setMdp($mdp){
-      if(strlen($mdp) < 50 ){
+      if(strlen($mdp) < 50 && $mdp){
         $this->_Mdp = password_hash($mdp, PASSWORD_DEFAULT);
       }
       else{
@@ -100,7 +100,7 @@ class Utilisateur
 
     public function setPseudo($pseudo){
       //verif $pseudo
-      if ( strlen($pseudo) <=  20){
+      if ( strlen($pseudo) <=  20 && $pseudo){
         $this->_Pseudo = $pseudo;
       }
       else{
@@ -109,29 +109,21 @@ class Utilisateur
     }
 
     public function setPhoto($photo){
+      //verif $pseudo
+      if ( isset($photo) ){
         $this->_Photo = $photo;
+      }
+      else{
+        throw new Exception("L'attribut photo doit être non null");
+      }
     }
 
     public function setTmp($tmp){
-      if(is_bool($tmp)){
+      if( is_bool($tmp) ){
         $this->_Tmp = $tmp;
       }
       else{
         throw new Exception("L'attribut Tmp doit être un boolean.");
-      }
-    }
-
-    //Cette methode compare tout les attributs d'un utilisateur
-    //pour verifier la validite global de l'utilisateur
-    public function isValidUtilisateur(){
-      if(is_null($this->_Id) || is_null($this->_Niveau) || is_null($this->_Mail) || is_null($this->_Mdp) || is_null($this->_Pseudo) ||
-          is_null($this->_Photo) || is_null($this->_Tmp) ){
-
-        return false;
-        throw new Exception("L'utilisateur ne doit pas avoir d'attribut null");
-      }
-      else{
-        return true;
       }
     }
 

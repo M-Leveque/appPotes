@@ -72,7 +72,7 @@ class Evenement
 
     public function setId($id){
       //Verif variable $id
-      if(is_int($id) && $id > 0 && isset($id)){
+      if( $id && is_int($id) && $id > 0){
         $this->_Id = $id;
       }
       else{
@@ -82,7 +82,7 @@ class Evenement
 
     public function setTitre($titre){
         //Verif variable $titre
-        if(strlen($titre) < 20 && isset($titre)){
+        if($titre && strlen($titre) < 20){
           $this->_Titre = $titre;
         }
         else{
@@ -100,7 +100,7 @@ class Evenement
     }
 
     public function setDateC($dateC){
-        if(Outils::estUneDateValide($dateC)){
+        if($dateC && Outils::estUneDateValide($dateC)){
           $this->_DateC = $dateC;
         }
         else{
@@ -109,7 +109,7 @@ class Evenement
     }
 
     public function setDateTime($dateTime){
-        if(Outils::estUnDateTimeValide($dateTime)){
+        if($dateTime &&  Outils::estUnDateTimeValide($dateTime)){
           $this->_DateTime = $dateTime;
         }
         else{
@@ -118,7 +118,7 @@ class Evenement
     }
 
     public function setArchiver($archiver){
-        if(is_bool($archiver)){
+        if(isset($archiver) && is_bool($archiver)){
           $this->_Archiver = $archiver;
         }
         else{
@@ -128,8 +128,12 @@ class Evenement
 
     public function setUtilisateur($utilisateur){
       try{
-        $utilisateur->isValidUtilisateur();
-        $this->_Utilisateur = $utilisateur;
+        if(get_class($utilisateur) == "Utilisateur"){
+            $this->_Utilisateur = $utilisateur;
+        }
+        else{
+          throw new Exception("L'attribut utilisateur n'est pas une instance de la class Utilisateur");
+        }
       }
       catch(Exception $e){
         throw new \Error($e);

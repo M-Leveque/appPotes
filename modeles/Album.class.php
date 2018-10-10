@@ -9,18 +9,18 @@ class Album
     private $_Nom;
     private $_Priver;
     private $_Visuel;
-    private $_IdE;
-    private $_IdU;
+    private $_Evenement;
+    private $_Utilisateur;
 
     //Constructeurs
-    public function __construct($id, $nom, $priver, $visuel, $idEvenement, $idUtilisateur){
+    public function __construct($id, $nom, $priver, $visuel, $evenement, $utilisateur){
 
       $this->setId($id);
       $this->setNom($nom);
       $this->setPriver($priver);
       $this->setvisuel($visuel);
-      $this->setIdEvenement($idEvenement);
-      $this->setIdUtilisateur($idUtilisateur);
+      $this->setEvenement($evenement);
+      $this->setUtilisateur($utilisateur);
     }
 
     //Getteurs
@@ -41,57 +41,82 @@ class Album
         return $this->_Visuel;
     }
 
-    public function getIdEvenement(){
-        return $this->_IdE;
+    public function getEvenement(){
+        return $this->_Evenement;
     }
 
-    public function getIdUtilisateur(){
-        return $this->_IdU;
+    public function getUtilisateur(){
+        return $this->_Utilisateur;
     }
 
     //Setteurs
 
     public function setId($id){
       //Verif variable $id
-      if(is_int($id) && $id >= 0 && $id){
+      if(isset($id) && is_int($id) && $id >= 0){
         $this->_Id = $id;
+      }
+      else{
+        throw new Exception("L'id doit être un integer > 0 non null");
       }
 
     }
 
     public function setNom($nom){
       //Verif variable $titre
-      if(strlen($nom) <= 50 && $nom){
+      if(is_string($nom) && strlen($nom) <= 50 && isset($nom)){
         $this->_Nom = $nom;
+      }
+      else{
+        throw new Exception("Le Nom doit être une chaine de caracteres > 50 non null");
       }
     }
 
     public function setPriver($priver){
       //Verif variable $titre
-      if(is_bool($priver)){
+      if(isset($priver) && is_bool($priver)){
         $this->_Priver = $priver;
+      }
+      else{
+        throw new Exception("L'attribut priver doit être un booléen");
       }
     }
 
     public function setvisuel($visuel){
       //Verif variable $titre
-      if(strlen($visuel) <= 255){
+      if(is_string($visuel) && strlen($visuel) <= 255){
         $this->_Visuel = $visuel;
       }
-    }
-
-    public function setIdEvenement($idEvenement){
-      //Verif variable $id
-      if(is_int($idEvenement) && $idEvenement >= 0 ){
-        $this->_IdE = $idEvenement;
+      else{
+        throw new Exception("L'id doit être un integer > 0 non null");
       }
-
     }
 
-    public function setIdUtilisateur($idU){
-      //Verif variable $id
-      if(is_int($idU) && $idU >= 0 && $idU){
-        $this->_IdU = $idU;
+    public function setEvenement($evenement){
+      try{
+        if(get_class($evenement) == "Evenement"){
+          $this->_Evenement = $evenement;
+        }
+        else{
+          throw new Exception("L'evenement doit être une instance de la class evenement");
+        }
+      }
+      catch(Exception $e){
+        throw new Exception($e);
+      }
+    }
+
+    public function setUtilisateur($utilisateur){
+      try{
+        if(get_class($utilisateur) == "Utilisateur"){
+          $this->_Utilisateur = $utilisateur;
+        }
+        else{
+          throw new Exception("L'utilisateur doit être une instance de la classe utilisateur");
+        }
+      }
+      catch(Error $e){
+        throw new Error($e);
       }
     }
 
@@ -105,8 +130,8 @@ class Album
         $msg .= "nom : ".$this->_Nom."<br>";
         $msg .= "priver : ".$this->_Priver."<br>";
         $msg .= "visuel : ".$this->_Visuel."<br>";
-        $msg .= "idE : ".$this->_IdEvenement."<br>";
-        $msg .= "idU : ".$this->_IdUtilisteur."<br>";
+        $msg .= "idE : ".$this->_Evenement."<br>";
+        $msg .= "idU : ".$this->_Utilisteur."<br>";
 
         return $msg;
     }

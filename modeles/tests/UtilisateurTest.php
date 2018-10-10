@@ -36,7 +36,7 @@ class UtilisateurTest extends TestCase
   /**
    * @expectedException Exception
    */
-  public  function  testSetIdException(){
+  public  function  testSetIdNonIntegerException(){
     $utilisateur = $this->constructUtilisateurValid();
     $utilisateur->setId('s');
   }
@@ -44,9 +44,25 @@ class UtilisateurTest extends TestCase
   /**
    * @expectedException Exception
    */
+  public function testSetIdNullException(){
+    $utilisateur = $this->constructUtilisateurValid();
+    $utilisateur->setId(null);
+  }
+
+  /**
+   * @expectedException Exception
+   */
+  public function testSetIdInfZeroException(){
+    $utilisateur = $this->constructUtilisateurValid();
+    $utilisateur->setId(-2);
+  }
+
+  /**
+   * @expectedException Exception
+   */
   public  function  testSetNiveauException(){
     $utilisateur = $this->constructUtilisateurValid();
-    $utilisateur->setNiveau('s');
+    $utilisateur->setNiveau(null);
   }
 
   /**
@@ -54,13 +70,13 @@ class UtilisateurTest extends TestCase
    */
   public  function  testSetMailException(){
     $utilisateur = $this->constructUtilisateurValid();
-    $utilisateur->setMail('sezfze');
+    $utilisateur->setMail(null);
   }
 
   /**
    * @expectedException Exception
    */
-  public  function  testSetMdpException(){
+  public  function  testSetMdpInf50Exception(){
     $utilisateur = $this->constructUtilisateurValid();
     $utilisateur->setMdp('sdfremdlfpeorjfkghvjcndbfhjgjefredfrtghrnfdkrjtkgf'); //Chaine de 51 caractères
   }
@@ -68,7 +84,15 @@ class UtilisateurTest extends TestCase
   /**
    * @expectedException Exception
    */
-  public  function  testSetPseudoException(){
+  public  function  testSetMdpNullException(){
+    $utilisateur = $this->constructUtilisateurValid();
+    $utilisateur->setMdp(null);
+  }
+
+  /**
+   * @expectedException Exception
+   */
+  public  function  testSetPseudoSup20Exception(){
     $utilisateur = $this->constructUtilisateurValid();
     $utilisateur->setPseudo('sjdkfleoritufhryetdgd'); //chaine de 21 caracteres
   }
@@ -76,23 +100,40 @@ class UtilisateurTest extends TestCase
   /**
    * @expectedException Exception
    */
-  public  function  testSetTmpException(){
+  public  function  testSetPseudoNullException(){
     $utilisateur = $this->constructUtilisateurValid();
-    $utilisateur->setTmp(2);
-  }
-
-  public function testIsValidUtilisateur(){
-    $utilisateur = $this->constructUtilisateurValid();
-    $this->assertSame(true, $utilisateur->isValidUtilisateur());
+    $utilisateur->setPseudo(null);
   }
 
   /**
    * @expectedException Exception
    */
-  public function testIsValidUtilisateurException(){
+  public  function  testSetPhotoException(){
     $utilisateur = $this->constructUtilisateurValid();
-    $utilisateur->setId(null);
-    $utilisateur->isValidUtilisateur();
+    $utilisateur->setPhoto(null);
+  }
 
+  /**
+   * @expectedException Exception
+   */
+  public  function  testSetTmpNullException(){
+    $utilisateur = $this->constructUtilisateurValid();
+    $utilisateur->setTmp(null);
+  }
+
+  /**
+   * @expectedException Exception
+   */
+  public  function  testSetTmp1Exception(){
+    $utilisateur = $this->constructUtilisateurValid();
+    $utilisateur->setTmp(1);
+  }
+
+  /**
+   * @expectedException Exception
+   */
+  public  function  testSetTmp0Exception(){
+    $utilisateur = $this->constructUtilisateurValid();
+    $utilisateur->setTmp(0);
   }
 }

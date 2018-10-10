@@ -30,7 +30,7 @@ class Emoticon
 
   //Setteurs
   public function setId($id){
-    if(is_int($id) && $id >= 0 && isset($id)){
+    if($id && is_int($id) && $id >= 0){
       $this->_Id = $id;
     }
     else{
@@ -39,7 +39,7 @@ class Emoticon
   }
 
   public function setTitre($titre){
-    if(strlen($titre) < 20 && isset($titre)){
+    if( $titre && strlen($titre) < 20){
       $this->_Titre = $titre;
     }
     else{
@@ -48,7 +48,7 @@ class Emoticon
   }
 
   public function setChemin($chemin){
-    if(strlen($chemin) < 255 && isset($chemin)){
+    if( $chemin && strlen($chemin) < 255 ){
       $this->_Chemin = $chemin;
     }
     else{
