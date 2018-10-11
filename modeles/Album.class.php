@@ -109,14 +109,14 @@ class Album
     public function setUtilisateur($utilisateur){
       try{
         if(get_class($utilisateur) == "Utilisateur"){
-          $this->_Utilisateur = $utilisateur;
+            $this->_Utilisateur = $utilisateur;
         }
         else{
-          throw new Exception("L'utilisateur doit être une instance de la classe utilisateur");
+          throw new Exception("L'attribut utilisateur n'est pas une instance de la class Utilisateur");
         }
       }
-      catch(Error $e){
-        throw new Error($e);
+      catch(Exception $e){
+        throw new Exception($e);
       }
     }
 

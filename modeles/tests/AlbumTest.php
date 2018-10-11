@@ -132,10 +132,10 @@ class AlbumTest extends TestCase
   }
 
   /**
-   * @expectedException Error
+   * @expectedException Exception
    */
   public  function  testSetUtilisateurException(){
-    $album = $this->constructEvenementValid();
+    $album = $this->constructAlbumValid();
     $album->setUtilisateur(35);
   }
 
