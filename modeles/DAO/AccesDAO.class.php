@@ -1,10 +1,11 @@
 <?php
-require_once('modeles/src/DAO/DAO.class.php');
-require_once('modeles/src/Acces.class.php');
+require_once ('DAO.class.php');
+require_once ('../Acces.class.php');
 
 //Class AccesDAO, elle permet de gerer le transfert de donnees entre la
 //bdd et l'application.
 class AccesDAO extends DAO{
+  
   public function __construct(){
     DAO::__construct();
   }

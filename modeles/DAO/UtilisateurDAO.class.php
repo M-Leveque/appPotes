@@ -1,6 +1,6 @@
 <?php
-require_once('modeles/DAO/DAO.class.php');
-require_once('modeles/Utilisateur.class.php');
+include_once "modeles/DAO/DAO.class.php";
+include_once "modeles/Utilisateur.class.php";
 
 class UtilisateurDAO extends DAO{
 
@@ -21,8 +21,6 @@ class UtilisateurDAO extends DAO{
       // Le mot de passe que l utilisateur a donne.
       if (password_verify($password, $ligne->Mdp_U)) {
           // Le mot de passe est correct!
-          // R�cup�re la cha�ne user-agent de l�utilisateur
-          $user_browser = $_SERVER['HTTP_USER_AGENT'];
 
           // Protection XSS car nous pourrions conserver cette valeur
           $ligne->Id_U = preg_replace("/[^0-9]+/", "", $ligne->Id_U);
@@ -32,7 +30,6 @@ class UtilisateurDAO extends DAO{
           // Protection XSS car nous pourrions conserver cette valeur
           $ligne->Pseudo_U = preg_replace("/[^a-zA-Z0-9_\-]+/","",$ligne->Pseudo_U);
           $_SESSION['username'] = $ligne->Pseudo_U;
-          $_SESSION['login_string'] = hash('sha512', $password . $user_browser);
 
           // Ouverture de session reussie.
           return true;
@@ -43,7 +40,9 @@ class UtilisateurDAO extends DAO{
           return false;
       }
     }
-    else{ return false; }
+    else{
+      throw new Exception("Aucun utilisateur trouvé");
+    }
   }
 
   //---------------------------------------------------------------------------------------------------------------------
@@ -52,8 +51,8 @@ class UtilisateurDAO extends DAO{
 
   public function get($id){
 
-      //On verifie si la donnees rentree est de type integer et si elle est superieur a 0
-      if(is_int($id) && $id > 0){
+      //On verifie si la donnees rentree est non null, de type integer et si elle est superieur a 0
+      if(isset($id) && is_int($id) && $id > 0){
 
         // Requete SQL
         $stmt = $this->cnx->prepare("SELECT * FROM Utilisateur WHERE Id_U = :id LIMIT 1");
@@ -68,11 +67,11 @@ class UtilisateurDAO extends DAO{
           return $utilisateur;
         }
         else{
-          return false;
+          throw new Exception("Aucun utilisateur trouvé");
         }
       }
       else{
-        return false;
+        throw new Exception("L'id de l'utilisateur doit être valide");
       }
   }
 
@@ -103,64 +102,91 @@ class UtilisateurDAO extends DAO{
   }
 
   public function set($utilisateur){
-
-    // Requete SQL
-    $stmt = $this->cnx->prepare("UPDATE Utilisateur SET Niveau_U = :Niveau, Mail_U = :Mail, Pseudo_U = :Pseudo, Photo_U = :Photo, Tmp = :Tmp WHERE Id_U = :id");
-    $stmt->bindValue(':id', intval($utilisateur->getId()), PDO::PARAM_INT);
-    $stmt->bindValue(':Niveau', $utilisateur->getNiveau(), PDO::PARAM_STR);
-    $stmt->bindValue(':Mail', $utilisateur->getMail(), PDO::PARAM_STR);
-    $stmt->bindValue(':Pseudo', $utilisateur->getPseudo(), PDO::PARAM_STR);
-    $stmt->bindValue(':Photo', $utilisateur->getPhoto(), PDO::PARAM_STR);
-    $stmt->bindValue(':Tmp', intval($utilisateur->getTmp()), PDO::PARAM_INT);
-    $stmt->execute();    // Ex�cute la d�claration
+    try{
+      if(isset($utilisateur) && get_class($utilisateur) == "Utilisateur"){
+        // Requete SQL
+        $stmt = $this->cnx->prepare("UPDATE Utilisateur SET Niveau_U = :Niveau, Mail_U = :Mail, Pseudo_U = :Pseudo, Photo_U = :Photo, Tmp = :Tmp WHERE Id_U = :id");
+        $stmt->bindValue(':id', intval($utilisateur->getId()), PDO::PARAM_INT);
+        $stmt->bindValue(':Niveau', $utilisateur->getNiveau(), PDO::PARAM_STR);
+        $stmt->bindValue(':Mail', $utilisateur->getMail(), PDO::PARAM_STR);
+        $stmt->bindValue(':Pseudo', $utilisateur->getPseudo(), PDO::PARAM_STR);
+        $stmt->bindValue(':Photo', $utilisateur->getPhoto(), PDO::PARAM_STR);
+        $stmt->bindValue(':Tmp', intval($utilisateur->getTmp()), PDO::PARAM_INT);
+        return $stmt->execute();    // Ex�cute la d�claration
+      }
+      else{
+        throw new \Exception("L'utilisateur doit être non null et une instance de la classe Utilisateur");
+      }
+    }
+    catch(Exception $e){
+      throw new Exception($e);
+    }
   }
 
   public function add($utilisateur){
+    try{
+      if(isset($utilisateur) && get_class($utilisateur) == "Utilisateur"){
+        $stmt = $this->cnx->prepare("INSERT INTO Utilisateur(Id_U, Niveau_U, Mail_U, Mdp_U, Pseudo_U, Photo_U, Tmp) VALUES (:id, :Niveau, :Mail, :Mdp, :Pseudo, :Photo, :Tmp)");
+        $stmt->bindValue(':id', intval($utilisateur->getId()), PDO::PARAM_INT);
+        $stmt->bindValue(':Niveau', $utilisateur->getNiveau(), PDO::PARAM_STR);
+        $stmt->bindValue(':Mail', $utilisateur->getMail(), PDO::PARAM_STR);
+        $stmt->bindValue(':Mdp', $utilisateur->getMdp(), PDO::PARAM_STR);
+        $stmt->bindValue(':Pseudo', $utilisateur->getPseudo(), PDO::PARAM_STR);
+        $stmt->bindValue(':Photo', $utilisateur->getPhoto(), PDO::PARAM_STR);
+        $stmt->bindValue(':Tmp', intval($utilisateur->getTmp()), PDO::PARAM_INT);
 
-      // Requete SQL
-      $stmt = $this->cnx->prepare("INSERT INTO Utilisateur(Id_U, Niveau_U, Mail_U, Mdp_U, Pseudo_U, Photo_U, Tmp) VALUES (:id, :Niveau, :Mail, :Mdp, :Pseudo, :Photo, :Tmp)");
-      $stmt->bindValue(':id', intval($utilisateur->getId()), PDO::PARAM_INT);
-      $stmt->bindValue(':Niveau', $utilisateur->getNiveau(), PDO::PARAM_STR);
-      $stmt->bindValue(':Mail', $utilisateur->getMail(), PDO::PARAM_STR);
-      $stmt->bindValue(':Mdp', $utilisateur->getMdp(), PDO::PARAM_STR);
-      $stmt->bindValue(':Pseudo', $utilisateur->getPseudo(), PDO::PARAM_STR);
-      $stmt->bindValue(':Photo', $utilisateur->getPhoto(), PDO::PARAM_STR);
-      $stmt->bindValue(':Tmp', intval($utilisateur->getTmp()), PDO::PARAM_INT);
-      $result = $stmt->execute();    // Exécute la déclaration
-
+        return $stmt->execute(); // Ex�cute la d�claration
+      }
+      else{
+        throw new \Exception("L'utilisateur doit être non null et une instance de la classe Utilisateur");
+      }
+    }
+    catch(Exception $e){
+      throw new Exception($e);
+    }
   }
 
   public function delete($id){
+    if (empty($id) || !is_int($id) || $id < 0)
+          throw new Exception("id non conforme");
+          
+    $stmt = $this->cnx->prepare("DELETE FROM Utilisateur WHERE Id_U = :id");
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    return $stmt->execute();
 
-      // Requete SQL
-      $stmt = $this->cnx->prepare("DELETE FROM Utilisateur WHERE Id_U = :id");
-      $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-      $stmt->execute();    // Execute la declaration
-  }
+    }
 
   public function setMdp($id, $oldMdp, $newMdp){
 
-      // L utilisation de declarations empeche les injections SQL
-      $stmt = $this->cnx->prepare("SELECT Pseudo_U, Mdp_U FROM Utilisateur WHERE Id_U = :id");
-      $stmt->bindValue(':id', $id, PDO::PARAM_INT);  // Lie "$id" aux param�tres.
-      $stmt->execute();    // Execute la declaration.
-      $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+    if(empty($oldMdp) || empty($newMdp) || !is_string($oldMdp) || !is_string($newMdp) || strlen($oldMdp) > 70 || strlen($newMdp) > 70)
+      throw new Exception("nouveau ou ancien mot de passe non conforme");
 
-      // V�rifie si les deux mots de passe sont les m�mes
-      // Le mot de passe que l�utilisateur a donn�.
-      if (password_verify($oldMdp, $ligne->Mdp_U)){
+    elseif (empty($id) || !is_int($id) || $id < 0)
+      throw new Exception("id non conforme");
 
-          // Requete SQL
-          $stmt = $this->cnx->prepare("UPDATE Utilisateur SET Mdp_U= :Mdp WHERE Id_U = :id");
-          $stmt->bindValue(':id', $id, PDO::PARAM_INT);  // Lie "$id" aux parametres.
-          $stmt->bindValue(':Mdp', password_hash($newMdp, PASSWORD_DEFAULT), PDO::PARAM_STR);
-          $result = $stmt->execute();    // Execute la declaration.
+    // L utilisation de declarations empeche les injections SQL
+    $stmt = $this->cnx->prepare("SELECT Pseudo_U, Mdp_U FROM Utilisateur WHERE Id_U = :id");
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);  // Lie "$id" aux param�tres.
 
-          return $result;
-      }
-      else{
-          return 'Erreur : mauvais mot de passe';
-      }
+    if(!$stmt->execute())
+         throw new Exception("Erreur de la requête");
+
+    $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+
+    // V�rifie si les deux mots de passe sont les m�mes
+    // Le mot de passe que l�utilisateur a donn�.
+    if (password_verify($oldMdp, $ligne->Mdp_U)){
+
+        // Requete SQL
+        $stmt = $this->cnx->prepare("UPDATE Utilisateur SET Mdp_U= :Mdp WHERE Id_U = :id");
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);  // Lie "$id" aux parametres.
+        $stmt->bindValue(':Mdp', password_hash($newMdp, PASSWORD_DEFAULT), PDO::PARAM_STR);
+
+        return $stmt->execute();
+    }
+    else{
+        throw new Exception('Erreur : mauvais mot de passe');
+    }
   }
 
 }

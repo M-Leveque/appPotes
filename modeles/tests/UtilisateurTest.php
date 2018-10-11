@@ -26,7 +26,7 @@ class UtilisateurTest extends TestCase
       $this->assertSame($utilisateur->getId(), $this->id);
       $this->assertSame($utilisateur->getNiveau(), $this->niveau);
       $this->assertSame($utilisateur->getMail(), $this->mail);
-      $this->assertSame(true, password_verify( $this->mdp, $utilisateur->getMdp() ) );
+      $this->assertSame($utilisateur->getMdp(), $this->mdp);
       $this->assertSame($utilisateur->getPseudo(), $this->pseudo);
       $this->assertSame($utilisateur->getPhoto(), $this->photo);
       $this->assertSame($utilisateur->getTmp(), $this->tmp);
@@ -76,9 +76,9 @@ class UtilisateurTest extends TestCase
   /**
    * @expectedException Exception
    */
-  public  function  testSetMdpInf50Exception(){
+  public  function  testSetMdpInf70Exception(){
     $utilisateur = $this->constructUtilisateurValid();
-    $utilisateur->setMdp('sdfremdlfpeorjfkghvjcndbfhjgjefredfrtghrnfdkrjtkgf'); //Chaine de 51 caractères
+    $utilisateur->setMdp('sdfremdlfpeorjfkghvjcndbfhjgjefredfrtghrnfdkrjtkgfsdfremdlfpeorjfkghvjcndbfhjgjefredfrtghrnfdkrjtkgf'); //Chaine de 102 caractères
   }
 
   /**

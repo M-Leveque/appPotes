@@ -90,8 +90,8 @@ class Utilisateur
     }
 
   	public function setMdp($mdp){
-      if(strlen($mdp) < 50 && $mdp){
-        $this->_Mdp = password_hash($mdp, PASSWORD_DEFAULT);
+      if(strlen($mdp) < 70 && isset($mdp)){
+        $this->_Mdp = $mdp;
       }
       else{
         throw new Exception("L'attribut mdp doit être < à 50.");
