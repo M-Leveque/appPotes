@@ -12,7 +12,7 @@
 			</div>
 		</a>
 
-		<a href="?action=Photos&Album=Commun">
+		<a href="?action=Photos&Album=1">
 			<div id="album-com" class="album">
 				<img src="ressources/img/vignettes/pic-1.jpg" alt="vignette de l'album commun">
 				<p>Album commun 📦</p>

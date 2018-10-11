@@ -1,7 +1,6 @@
 <?php
 include_once('modeles/DAO/DAO.class.php');
-include_once('modeles/EvenementDAO.class.php');
-include_once('modeles/UtilisateurDAO.class.php');
+include_once('modeles/DAO/EvenementDAO.class.php');
 include_once('modeles/Album.class.php');
 
 //Class Album, elle permet de gerer le transfert de donnees entre la

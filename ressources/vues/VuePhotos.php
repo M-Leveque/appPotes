@@ -1,9 +1,9 @@
 <main id="content-pic">
 	<section id="header-pic">
 		<div>
-			<p>Créé le <span><?php $dateCreation ?></span></p>
-			<h1><?php $titreAlbum ?></h1>
-			<p><?php $descriptionAlbum ?></p>
+			<p>Créé le <span><?php echo $dateCreation ?></span></p>
+			<h1><?php echo $titreAlbum ?></h1>
+			<!-- <p> Description ??</p> -->
 		</div>
 
 		<button>Joindre à un événement</button>
