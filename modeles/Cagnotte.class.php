@@ -19,7 +19,7 @@ class Cagnotte
       $this->setId($id);
       $this->setTitre($titre);
       $this->setDescription($description);
-      $this->setHeureDateFin($dateHeureFin);
+      $this->setDateHeureFin($dateHeureFin);
       $this->setArgentR($argentR);
       $this->setEvenement($evenement);
     }
@@ -59,8 +59,11 @@ class Cagnotte
     public function setId($id){
 
       //Verif variable $id
-      if(is_int($id) && $id >= 0 ){
+      if(isset($id) && is_int($id) && $id >= 0 ){
         $this->_Id = $id;
+      }
+      else{
+        throw new Exception("L'id doit être un integert non null > 0");
       }
     }
 
@@ -85,7 +88,7 @@ class Cagnotte
       }
     }
 
-    public function setHeureDateFin($dateHeureFin){
+    public function setDateHeureFin($dateHeureFin){
       if(isset($dateHeureFin) && Outils::estUnDateTimeValide($dateHeureFin)){
         $this->_DateHeureFin = $dateHeureFin;
       }
