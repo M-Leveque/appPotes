@@ -13,15 +13,15 @@ class Cagnotte
     private $_Description;
     private $_DateHeureFin;
     private $_ArgentR;
-    private $_IdE;
+    private $_Evenement;
 
-    public function __construct($id, $titre, $description, $dateHeureFin, $argentR, $idE){
+    public function __construct($id, $titre, $description, $dateHeureFin, $argentR, $evenement){
       $this->setId($id);
       $this->setTitre($titre);
       $this->setDescription($description);
       $this->setHeureDateFin($dateHeureFin);
       $this->setArgentR($argentR);
-      $this->setIdE($idE);
+      $this->setEvenement($evenement);
     }
 
     //-------------------------------
@@ -48,8 +48,8 @@ class Cagnotte
       return $this->_ArgentR;
     }
 
-    public function getIdE(){
-      return $this->_IdE;
+    public function getEvenement(){
+      return $this->_Evenement;
     }
 
     //-------------------------------
@@ -67,31 +67,53 @@ class Cagnotte
     public function setTitre($titre){
 
         //Verif variable $titre
-        if(strlen($titre) < 20){
+        if(isset($titre) && is_string($titre) && strlen($titre) < 20){
           $this->_Titre = $titre;
+        }
+        else{
+          throw new Exception("Le titre doit être une chaine de caracteres non null < 20 caracteres");
         }
     }
 
-
     public function setDescription($description){
+      if(isset($description)){
         $this->_Description = $description;
+      }
+      else{
+        throw new Exception("La description ne doit pas être null");
+
+      }
     }
 
     public function setHeureDateFin($dateHeureFin){
-      if(Outils::estUnDateTimeValide($dateHeureFin)){
+      if(isset($dateHeureFin) && Outils::estUnDateTimeValide($dateHeureFin)){
         $this->_DateHeureFin = $dateHeureFin;
+      }
+      else{
+        throw new Exception("La dateHeureFin doit être un dateTime valid non null");
       }
     }
 
     public function setArgentR($argentR){
-      if(is_int($argentR) && $argentR > 0){
+      if(isset($argentR) && is_int($argentR) && $argentR >= 0){
         $this->_ArgentR = $argentR;
+      }
+      else{
+        throw new Exception("L'argentR doit être un integer non null >= à 0");
       }
     }
 
-    public function setIdE($idE){
-      if(is_int($idE) && $idE > 0){
-        $this->_IdE = $idE;
+    public function setEvenement($evenement){
+      try{
+        if(isset($evenement) && get_class($evenement) == "Evenement"){
+          $this->_Evenement = $evenement;
+        }
+        else{
+          throw new Exception("L'evenement doit être non null et une intance de la classe evenement");
+        }
+      }
+      catch(Exception $e){
+        throw new Exception($e);
       }
     }
 
@@ -107,7 +129,7 @@ class Cagnotte
         $msg .= "description : ".$this->_Description."<br>";
         $msg .= "date et heure de fin : ".$this->_DateHeureFin."<br>";
         $msg .= "Argent récolté : ".$this->_ArgentR."<br>";
-        $msg .= "id Evenement : ".$this->_IdE."<br>";
+        $msg .= "Evenement : ".$this->_Evenement."<br>";
 
         return $msg;
     }
