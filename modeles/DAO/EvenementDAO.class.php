@@ -1,6 +1,8 @@
 <?php
-require_once('modeles/src/DAO/DAO.class.php');
-require_once('modeles/src/Evenement.class.php');
+include_once ('modeles/DAO/DAO.class.php');
+include_once ('modeles/DAO/UtilisateurDAO.class.php');
+include_once ('modeles/DAO/EmoticonDAO.class.php');
+include_once ('modeles/Evenement.class.php');
 
 //Class Evenement, elle permet de gerer le transfert de donnees entre la
 //bdd et l'application.
@@ -10,20 +12,44 @@ class EvenementDAO extends DAO{
   }
 
   public function get($id){
-
-    if($id == null || $id <0 || !is_int($id) ){
-        return false;
-    }
+    if(empty($id) || $id < 0 || !is_int($id) )
+        throw new Exception("L'id de l'evenement doit être valide");
 
     //Requete SQL
-    $stmt = $this->cnx->prepare("SELECT * FROM Evenement WHERE Id_E = :id");
+    $stmt = $this->cnx->prepare("SELECT * FROM Evenement WHERE Id_E = :id LIMIT 1");
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
     $ligne = $stmt->fetch(PDO::FETCH_OBJ);
     if($ligne){
-      return new Evenement(intval($ligne->Id_E), $ligne->Titre_E, $ligne->Description_E, $ligne->DateCreation_E, $ligne->DateHeureFin_E, intval($ligne->Archiver_E), intval($ligne->Id_U), intval($ligne->Id_Em));
+
+      //Recuperation de l'emoticon selon l'id enregistre dans la bdd
+      $emoticonDAO = new EmoticonDAO();
+      //On essaye de trouver l'emoticon sinon on transmet l'exception
+      try{
+        $emoticon = $emoticonDAO->get(intval($ligne->Id_Em));
+      }
+      catch(Exception $e){
+        throw new Exception($e);
+
+      }
+
+      //Recuperation de l'utilisateur selon l'id enregistre dans la bdd
+      $utilisateurDAO = new UtilisateurDAO();
+      //On essaye de trouver l'utilisateur sinon on transmet l'exception
+      try{
+        $utilisateur = $utilisateurDAO->get(intval($ligne->Id_U));
+      }
+      catch(Exception $e){
+        throw new Exception($e);
+
+      }
+
+      //Construction de l'evenement
+      return new Evenement(intval($ligne->Id_E), $ligne->Titre_E, $ligne->Description_E, $ligne->DateCreation_E, $ligne->DateHeureFin_E, boolval($ligne->Archiver_E), $utilisateur, $emoticon);
     }
-    else{return false;}
+    else{
+      throw new Exception("L'evenement n'a pas était trouvé");
+    }
   }
 
   public function getAll(){

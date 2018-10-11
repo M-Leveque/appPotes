@@ -1,6 +1,8 @@
 <?php
-require_once('modeles/src/DAO/DAO.class.php');
-require_once('modeles/src/Album.class.php');
+include_once('modeles/DAO/DAO.class.php');
+include_once('modeles/EvenementDAO.class.php');
+include_once('modeles/UtilisateurDAO.class.php');
+include_once('modeles/Album.class.php');
 
 //Class Album, elle permet de gerer le transfert de donnees entre la
 //bdd et l'application.
@@ -11,9 +13,8 @@ class AlbumDAO extends DAO{
 
   public function get($id){
 
-    if($id == null || $id <0 || !is_int($id) ){
-        return false;
-    }
+    if(empty($id) || $id < 0 || !is_int($id) )
+        throw new Exception("L'id de l'album doit être valide");
 
     //Requete SQL
     $stmt = $this->cnx->prepare("SELECT * FROM Album WHERE Id_A = :id");
@@ -21,9 +22,27 @@ class AlbumDAO extends DAO{
     $stmt->execute();
     $ligne = $stmt->fetch(PDO::FETCH_OBJ);
     if($ligne){
-      return new Album(intval($ligne->Id_A), $ligne->Nom_A, boolval($ligne->Priver_A), $ligne->Visuel_A, intval($ligne->Id_E), intval($ligne->Id_U) );
+      //Recuperation de l'Evenement
+      $evenementDAO = new EvenementDAO();
+
+      //On essaye de trouver l'emoticon sinon on transmet l'exception
+      $evenement = $evenementDAO->get(intval($ligne->Id_E));
+
+      //Recuperation de l'utilisateur
+      $utilisateurDAO = new UtilisateurDAO();
+      //On essaye de trouver l'emoticon sinon on transmet l'exception
+      try{
+        $utilisateur = $utilisateurDAO->get(intval($ligne->Id_U));
+      }
+      catch(Exception $e){
+        throw new Exception($e);
+      }
+
+      return new Album(intval($ligne->Id_A), $ligne->Nom_A, boolval($ligne->Priver_A), $ligne->Visuel_A, $evenement, $utilisateur);
     }
-    else{return false;}
+    else{
+      throw new Exception("L'album n'a pas était trouvé");
+    }
   }
 
   public function getAll(){

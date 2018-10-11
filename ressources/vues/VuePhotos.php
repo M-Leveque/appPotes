@@ -1,9 +1,9 @@
 <main id="content-pic">
 	<section id="header-pic">
 		<div>
-			<p>Créé le <span>00/00/00</span></p>
-			<h1>Titre Album</h1>
-			<p>Déscription de l'album</p>
+			<p>Créé le <span><?php $dateCreation ?></span></p>
+			<h1><?php $titreAlbum ?></h1>
+			<p><?php $descriptionAlbum ?></p>
 		</div>
 
 		<button>Joindre à un événement</button>
