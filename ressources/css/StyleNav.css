@@ -49,6 +49,7 @@ a .icon {
 }
 
 #btn-add {
+	margin-bottom: 10px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
