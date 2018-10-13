@@ -318,7 +318,7 @@ box-shadow: 0px 3px 10px 0px rgba(0,0,0,1);
 	width: 56.66vw;
 }
 
-.grid-even button {
+.grid-even button .even {
 	width: 25.37vw; height: 5.1vw;
 	border : none;
 	border-radius: 10px;

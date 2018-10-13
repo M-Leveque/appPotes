@@ -56,7 +56,7 @@
 		</a>
 		
 		<!-- AFFICHAGE ANCIEN EVENEMENT -->
-		<button><i><u>Afficher les événements passés</u></i></button>
+		<button class="even"><i><u>Afficher les événements passés</u></i></button>
 		
 		<a class="even" href="#">
 			<div class="content-even">
