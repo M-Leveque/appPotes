@@ -11,6 +11,8 @@ class AlbumTest extends TestCase
   //Valid Album
   private $id = 1;
   private $nom = "2017-2018";
+  private $description = "Photo des vancances";
+  private $dateCreation = "2015-05-02";
   private $priver = false;
   private $visuel = "/images/img.png";
 
@@ -36,7 +38,7 @@ class AlbumTest extends TestCase
     $evenement = $this->constructEvenementValid();
     $utilisateur = $this->constructUtilisateurValid();
 
-    $album = new Album($this->id, $this->nom, $this->priver, $this->visuel, $evenement, $utilisateur);
+    $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $evenement, $utilisateur);
     return $album;
   }
 
@@ -46,6 +48,8 @@ class AlbumTest extends TestCase
 
       $this->assertSame($album->getId(), $this->id);
       $this->assertSame($album->getNom(), $this->nom);
+      $this->assertSame($album->getDescription(), $this->description);
+      $this->assertSame($album->getDateCreation(), $this->dateCreation);
       $this->assertSame($album->getPriver(), $this->priver);
       $this->assertSame($album->getVisuel(), $this->visuel);
   }
@@ -98,6 +102,21 @@ class AlbumTest extends TestCase
     $album->setNom(null);
   }
 
+  /**
+  * @expectedException Exception
+  */
+  public function testSetDescriptionNullException(){
+    $album = $this->constructAlbumValid();
+    $album->setDescription(null);
+  }
+
+  /**
+  * @expectedException Exception
+  */
+  public function testSetDateNullException(){
+    $album = $this->constructAlbumValid();
+    $album->setDateCreation("2015-35-32");
+  }
   /**
    * @expectedException Exception
    */

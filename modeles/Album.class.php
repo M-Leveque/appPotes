@@ -40,11 +40,11 @@ class Album
     }
 
     public function getDescription(){
-      return $this->_Description;
+      return $this->_Desciption;
     }
 
     public function getDateCreation(){
-      return $this->_DateCreatio;
+      return $this->_DateCreation;
     }
 
     public function getPriver(){
