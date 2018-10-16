@@ -13,8 +13,8 @@ INSERT INTO Photo (Titre_P, Chemin_P, Compteur_P, Date_P, DateU_P, Id_User, Id_A
   VALUES("Photo1", "/ressources/images/photo1.jpg", 0, "2018-05-02", "2018-05-03", 1, 1);
 
 /* Insertion d'album OK*/
-INSERT INTO Album (Nom_A, Priver_A, Visuel_A, Id_E, Id_U)
-  VALUES("Vacance 2018", 0, "ressources/images/visuel/visuel1.png", 1, 1);
+INSERT INTO Album (Nom_A, Description_A, DateCreation_A, Priver_A, Visuel_A, Id_E, Id_U)
+  VALUES("Vacance 2018", "Album des vacances de 2018", "2018-05-02",0, "ressources/images/visuel/visuel1.png", 1, 1);
 
 /* Insertion Evenement OK */
 INSERT INTO Evenement (Titre_E, Description_E, DateCreation_E, DateHeureFin_E, Archiver_E, Id_U, Id_Em)

@@ -37,7 +37,7 @@ class AlbumDAO extends DAO{
         throw new Exception($e);
       }
 
-      return new Album(intval($ligne->Id_A), $ligne->Nom_A, boolval($ligne->Priver_A), $ligne->Visuel_A, $evenement, $utilisateur);
+      return new Album(intval($ligne->Id_A), $ligne->Nom_A, $ligne->Description_A, $ligne->DateCreation_A, boolval($ligne->Priver_A), $ligne->Visuel_A, $evenement, $utilisateur);
     }
     else{
       throw new Exception("L'album n'a pas était trouvé");
@@ -55,7 +55,7 @@ class AlbumDAO extends DAO{
     $ligne = $stmt->fetch(PDO::FETCH_OBJ);
     if($ligne){
         while($ligne){
-          $albums[$i] =  new Album(intval($ligne->Id_A), $ligne->Nom_A, boolval($ligne->Priver_A), $ligne->Visuel_A, intval($ligne->Id_E), intval($ligne->Id_U) );
+          $albums[$i] =  new Album(intval($ligne->Id_A), $ligne->Nom_A, $ligne->Description_A, $ligne->DateCreation_A, boolval($ligne->Priver_A), $ligne->Visuel_A, intval($ligne->Id_E), intval($ligne->Id_U) );
           $i++;
           $ligne = $stmt->fetch(PDO::FETCH_OBJ);
         }
@@ -72,8 +72,10 @@ class AlbumDAO extends DAO{
     }
 
     //requete SQL
-    $stmt = $this->cnx->prepare("UPDATE Album SET Nom_A= :nom, Priver_A= :priver, Visuel_A= :visuel, Id_E= :idE, Id_U= :idU WHERE Id_A = :id");
+    $stmt = $this->cnx->prepare("UPDATE Album SET Nom_A= :nom, Description_A = :description, DateCreation_A = :dateCreation, Priver_A= :priver, Visuel_A= :visuel, Id_E= :idE, Id_U= :idU WHERE Id_A = :id");
     $stmt->bindValue(':nom', $album->getNom(), PDO::PARAM_STR);
+    $stmt->bindValue(':description', $album->getDescription(), PDO::PARAM_STR);
+    $stmt->bindValue(':dateCreation', $album->getDateCreation(), PDO::PARAM_STR);
     $stmt->bindValue(':priver', $album->getPriver(), PDO::PARAM_INT);
     $stmt->bindValue(':visuel', $album->getVisuel(), PDO::PARAM_STR);
     $stmt->bindValue(':idE', intval($album->getIdEvenement()), PDO::PARAM_INT);
@@ -86,8 +88,10 @@ class AlbumDAO extends DAO{
     if($album != null && is_object($album)){
 
       //requete SQL
-      $stmt = $this->cnx->prepare("INSERT INTO Album (Id_A, Nom_A, Priver_A, Visuel_A, Id_E, Id_U) VALUES ( :id, :nom, :priver, :visuel, :idE, :idU)");
+      $stmt = $this->cnx->prepare("INSERT INTO Album (Id_A, Nom_A, Description_A, DateCreation_A, Priver_A, Visuel_A, Id_E, Id_U) VALUES ( :id, :nom, :description, :dateCreation, :priver, :visuel, :idE, :idU)");
       $stmt->bindValue(':nom', $album->getNom(), PDO::PARAM_STR);
+      $stmt->bindValue(':description', $album->getDescription(), PDO::PARAM_STR);
+      $stmt->bindValue(':dateCreation', $album->getDateCreation(), PDO::PARAM_STR);
       $stmt->bindValue(':priver', boolval($album->getPriver()), PDO::PARAM_INT);
       $stmt->bindValue(':visuel', $album->getVisuel(), PDO::PARAM_STR);
       $stmt->bindValue(':idE', intval($album->getIdEvenement()), PDO::PARAM_INT);
