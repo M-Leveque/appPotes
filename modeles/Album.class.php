@@ -3,7 +3,7 @@
 //-------------------| Class Album |-------------------
 //-----------------------------------------------------
 
-include "modeles/Outils.class.php";
+include_once "modeles/Outils.class.php";
 
 class Album
 {
