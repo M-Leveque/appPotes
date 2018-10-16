@@ -3,7 +3,7 @@
 		<div>
 			<p>Créé le <span><?php echo $dateCreation ?></span></p>
 			<h1><?php echo $titreAlbum ?></h1>
-			<p> Description </p>
+			<p><?php echo $descriptionAlbum ?></p>
 		</div>
 
 		<button>Joindre à un événement</button>
