@@ -21,24 +21,7 @@
 
 		<!-- GRID ALBUMS -->
 		<div class="grid-album">
-
-            <?php
-            //Affichage des albums
-
-            foreach($albums as $album){
-                if($album->getId() != 1){
-                    echo "
-                    <a href=\"?action=Photos&Album=".$album->getId()."\">
-                        <div class=\"album album-grid\">
-                        <img src=\"".$album->getVisuel()."\" alt=\"vignette de l'album\">
-                        <p>".$album->getNom()."</p>
-                    </div>
-                    </a>";
-                }
-            }
-
-            //---------------------
-            ?>
+            <?php echo $aff_albums ?>
 		</div>
 	</section>
 
@@ -53,73 +36,7 @@
 		</a>
 
 		<!-- GRID EVENEMENTS -->
-		<a class="even" href="#">
-			<div class="content-even">
-				<span>🎁</span>
-
-				<div class="desc-even">
-					<h6>Anniversaire Bastien</h6>
-					<p>Déscription événement Sp cum ducibus est civitas memoriam crudelitatem.</p>
-				</div>
-
-				<div class="date-even">
-					<p>VEN</p>
-					<span>14</span>
-					<p>JUIN</p>
-				</div>
-			</div>
-		</a>
-
-		<a class="even" href="#">
-			<div class="content-even">
-				<span>🎁</span>
-
-				<div class="desc-even">
-					<h6>Titre événement</h6>
-					<p>Déscription événement</p>
-				</div>
-
-				<div class="date-even">
-					<p>JOUR</p>
-					<span>00</span>
-					<p>MOIS</p>
-				</div>
-			</div>
-		</a>
-
-		<a class="even" href="#">
-			<div class="content-even">
-				<span>🎁</span>
-
-				<div class="desc-even">
-					<h6>Titre événement</h6>
-					<p>Déscription événement</p>
-				</div>
-
-				<div class="date-even">
-					<p>JOUR</p>
-					<span>00</span>
-					<p>MOIS</p>
-				</div>
-			</div>
-		</a>
-
-		<a class="even" href="#">
-			<div class="content-even">
-				<span>🎁</span>
-
-				<div class="desc-even">
-					<h6>Titre événement</h6>
-					<p>Déscription événement</p>
-				</div>
-
-				<div class="date-even">
-					<p>JOUR</p>
-					<span>00</span>
-					<p>MOIS</p>
-				</div>
-			</div>
-		</a>
+        <?php echo $aff_Evenements ?>
 	</section>
 
 	<!-- CAGNOTTES -->
