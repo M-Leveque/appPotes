@@ -3,20 +3,26 @@
 //-------------------| Class Album |-------------------
 //-----------------------------------------------------
 
+include_once "modeles/Outils.class.php";
+
 class Album
 {
     private $_Id;
     private $_Nom;
+    private $_Desciption;
+    private $_DateCreation;
     private $_Priver;
     private $_Visuel;
     private $_Evenement;
     private $_Utilisateur;
 
     //Constructeurs
-    public function __construct($id, $nom, $priver, $visuel, $evenement, $utilisateur){
+    public function __construct($id, $nom, $description, $dateCreation, $priver, $visuel, $evenement, $utilisateur){
 
       $this->setId($id);
       $this->setNom($nom);
+      $this->setDescription($description);
+      $this->setDateCreation($dateCreation);
       $this->setPriver($priver);
       $this->setvisuel($visuel);
       $this->setEvenement($evenement);
@@ -31,6 +37,14 @@ class Album
 
     public function getNom(){
         return $this->_Nom;
+    }
+
+    public function getDescription(){
+      return $this->_Desciption;
+    }
+
+    public function getDateCreation(){
+      return $this->_DateCreation;
     }
 
     public function getPriver(){
@@ -69,6 +83,24 @@ class Album
       }
       else{
         throw new Exception("Le Nom doit être une chaine de caracteres > 50 non null");
+      }
+    }
+
+    public function setDescription($description){
+      if(is_string($description) && strlen($description) <= 255 && isset($description)){
+        $this->_Desciption = $description;
+      }
+      else{
+        throw new Exception("La description n'est pas valid");
+      }
+    }
+
+    public function setDateCreation($dateCreation){
+      if(isset($dateCreation) && Outils::estUneDateValide($dateCreation)){
+        $this->_DateCreation = $dateCreation;
+      }
+      else{
+        throw new Exception("La date de creation doit être une date valide non null");
       }
     }
 

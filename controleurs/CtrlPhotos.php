@@ -10,8 +10,9 @@ if(isset($_GET["Album"])){
 	//On recupere l'album en question dans la bdd
    $albumDAO = new albumDAO();
    $album = $albumDAO->get(intval($_GET["Album"]));
-  $dateCreation= "00/00/0000"; //A implementer
+  $dateCreation=  Outils::convertirEnDateFR($album->getDateCreation()); //A implementer
   $titreAlbum = $album->getNom();
+  $descriptionAlbum = $album->getDescription();
 }
 
 include_once('ressources/vues/VuePhotos.php');
