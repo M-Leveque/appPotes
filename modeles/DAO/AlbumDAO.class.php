@@ -55,9 +55,15 @@ class AlbumDAO extends DAO{
     $ligne = $stmt->fetch(PDO::FETCH_OBJ);
     if($ligne){
         while($ligne){
-          $albums[$i] =  new Album(intval($ligne->Id_A), $ligne->Nom_A, $ligne->Description_A, $ligne->DateCreation_A, boolval($ligne->Priver_A), $ligne->Visuel_A, intval($ligne->Id_E), intval($ligne->Id_U) );
-          $i++;
-          $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+            $evenementDAO = new EvenementDAO();
+            $utilisateurDAO = new UtilisateurDAO();
+
+            $evenement = $evenementDAO->get(intval($ligne->Id_E));
+            $utilisateur = $utilisateurDAO->get(intval($ligne->Id_U));
+
+            $albums[$i] =  new Album(intval($ligne->Id_A), $ligne->Nom_A, $ligne->Description_A, $ligne->DateCreation_A, boolval($ligne->Priver_A), $ligne->Visuel_A, $evenement, $utilisateur);
+            $i++;
+            $ligne = $stmt->fetch(PDO::FETCH_OBJ);
         }
         return $albums;
     }

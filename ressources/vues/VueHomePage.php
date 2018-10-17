@@ -14,61 +14,31 @@
 
 		<a href="?action=Photos&Album=1">
 			<div id="album-com" class="album">
-				<img src="ressources/img/vignettes/pic-1.jpg" alt="vignette de l'album commun">
+				<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album commun">
 				<p>Album commun 📦</p>
 			</div>
 		</a>
 
 		<!-- GRID ALBUMS -->
 		<div class="grid-album">
-			<a href="#">
-				<div class="album album-grid">
-					<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
-					<p>Titre 🖕</p>
-				</div>
-			</a>
 
-			<a href="#">
-				<div class="album album-grid">
-					<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
-					<p>Titre 🖕</p>
-				</div>
-			</a>
+            <?php
+            //Affichage des albums
 
-			<a href="#">
-				<div class="album album-grid">
-					<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
-					<p>Titre 🖕</p>
-				</div>
-			</a>
+            foreach($albums as $album){
+                if($album->getId() != 1){
+                    echo "
+                    <a href=\"?action=Photos&Album=".$album->getId()."\">
+                        <div class=\"album album-grid\">
+                        <img src=\"".$album->getVisuel()."\" alt=\"vignette de l'album\">
+                        <p>".$album->getNom()."</p>
+                    </div>
+                    </a>";
+                }
+            }
 
-			<a href="#">
-				<div class="album album-grid">
-					<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
-					<p>Titre 🖕</p>
-				</div>
-			</a>
-
-			<a href="#">
-				<div class="album album-grid">
-					<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
-					<p>Titre 🖕</p>
-				</div>
-			</a>
-
-			<a href="#">
-				<div class="album album-grid">
-					<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
-					<p>Titre 🖕</p>
-				</div>
-			</a>
-
-			<a href="#">
-				<div class="album album-grid">
-					<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
-					<p>Titre 🖕</p>
-				</div>
-			</a>
+            //---------------------
+            ?>
 		</div>
 	</section>
 
