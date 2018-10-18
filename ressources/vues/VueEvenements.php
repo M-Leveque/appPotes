@@ -3,6 +3,7 @@
 		<h2>Événements</h2>
 	</div>
 	
+	<!-- GRID EVENEMENT -->
 	<section class="grid-gen grid-even">
 		<a class="even" href="#">
 			<div class="content-even">

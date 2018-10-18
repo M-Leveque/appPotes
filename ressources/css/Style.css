@@ -305,7 +305,7 @@ box-shadow: 0px 3px 10px 0px rgba(0,0,0,1);
 }
 
 /*---------------------------------------------------------------------------------------------------
-	PAGES EVENEMENTS / CAGNOTTES
+	PAGES ALBUMS / PAGES EVENEMENTS / PAGES CAGNOTTES
 ---------------------------------------------------------------------------------------------------*/
 .grid-gen {
 	display: flex;
@@ -314,6 +314,16 @@ box-shadow: 0px 3px 10px 0px rgba(0,0,0,1);
 	flex-wrap: wrap;
 }
 
+/* PAGE ALBUMS --------------------------------------*/
+#content-album { 
+	margin-right: 3.95vw;
+}
+
+#content-album .grid-album { 
+	justify-content: space-between;
+}
+
+/* PAGE EVENEMENT -----------------------------------*/
 .grid-even {
 	width: 56.66vw;
 }
@@ -348,4 +358,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', end
 .old-even .content-even {
 	color: #A3A3A3;
 	background-color: #121212;
+}
+
+/* PAGE CAGNOTTES -----------------------------------*/
+.grid-cagn {
+	width: 61.7vw;
+}
+
+#content-cagn .content-cagn {
+	margin-bottom: 3.64vw;
 }
