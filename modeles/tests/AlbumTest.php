@@ -1,10 +1,8 @@
 <?php
+ini_set('error_reporting', false);
 use PHPUnit\Framework\TestCase;
 
 include_once "../Album.class.php";
-include_once "../Utilisateur.class.php";
-include_once "../Emoticon.class.php";
-include_once "../Evenement.class.php";
 
 class AlbumTest extends TestCase
 {
@@ -15,36 +13,12 @@ class AlbumTest extends TestCase
   private $dateCreation = "2015-05-02";
   private $priver = false;
   private $visuel = "/images/img.png";
-
-  private function constructUtilisateurValid(){
-    $utilisateur = new Utilisateur(1, 0, 'visiteur@visiteur.com', 'visiteur', 'Visiteur1', 'photo.png', false);
-    return $utilisateur;
-  }
-
-  private function constructEmoticonValid(){
-    $emoticon = new Emoticon(1, "emoticonTest", "/images/img.php");
-    return $emoticon;
-  }
-
-  private function constructEvenementValid(){
-    $utilisateur = $this->constructUtilisateurValid();
-    $emoticon = $this->constructEmoticonValid();
-
-    $evenement = new Evenement(1, "Annivairsaire frank", "Fete pour l'annivairsaire de franck :)", "2018-07-11", "2018-08-11 21:03:03", false, $utilisateur, $emoticon);
-    return $evenement;
-  }
-
-  private function constructAlbumValid(){
-    $evenement = $this->constructEvenementValid();
-    $utilisateur = $this->constructUtilisateurValid();
-
-    $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $evenement, $utilisateur);
-    return $album;
-  }
+  private $idU = 1;
+  private $idE = 1;
 
   public function testConstruct()
   {
-      $album = $this->constructAlbumValid();
+      $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $this->idE, $this->idU);
 
       $this->assertSame($album->getId(), $this->id);
       $this->assertSame($album->getNom(), $this->nom);
@@ -52,6 +26,8 @@ class AlbumTest extends TestCase
       $this->assertSame($album->getDateCreation(), $this->dateCreation);
       $this->assertSame($album->getPriver(), $this->priver);
       $this->assertSame($album->getVisuel(), $this->visuel);
+      $this->assertSale($album->getIdE(), $this->idE);
+      $this->assertSale($album->getIdU(), $this->idU);
   }
 
   /**
@@ -150,35 +126,51 @@ class AlbumTest extends TestCase
     //chaine de 256 caracteres
   }
 
-  /**
-   * @expectedException Exception
-   */
-  public  function  testSetUtilisateurException(){
-    $album = $this->constructAlbumValid();
-    $album->setUtilisateur(35);
-  }
+    /**
+     * @expectedException Exception
+     */
+    public function testSetIdENonIntegerException(){
+        $album = $this->constructAlbumValid();
+        $album->setIdE('s');
+    }
 
-  /**
-   * @expectedException Exception
-   */
-  public function testSetUtilisateurObjectException(){
-    $album = $this->constructAlbumValid();
-    $album->setUtilisateur($album);
-  }
+    /**
+     * @expectedException Exception
+     */
+    public function testSetIdENullException(){
+        $album = $this->constructAlbumValid();
+        $album->setIdE(null);
+    }
 
-  /**
-   * @expectedException Exception
-   */
-  public  function  testSetEvenementException(){
-    $album = $this->constructAlbumValid();
-    $album->setEvenement("chaine de caracteres");
-  }
+    /**
+     * @expectedException Exception
+     */
+    public function testSetIdEInfZeroException(){
+        $album = $this->constructAlbumValid();
+        $album->setIdE(-2);
+    }
 
-  /**
-   * @expectedException Exception
-   */
-  public  function  testSetEvenementObjectException(){
-    $album = $this->constructAlbumValid();
-    $album->setEvenement($album);
-  }
+    /**
+     * @expectedException Exception
+     */
+    public function testSetIdUNonIntegerException(){
+        $album = $this->constructAlbumValid();
+        $album->setIdU('s');
+    }
+
+    /**
+     * @expectedException Exception
+     */
+    public function testSetIdUNullException(){
+        $album = $this->constructAlbumValid();
+        $album->setIdU(null);
+    }
+
+    /**
+     * @expectedException Exception
+     */
+    public function testSetIdUInfZeroException(){
+        $album = $this->constructAlbumValid();
+        $album->setIdU(-2);
+    }
 }

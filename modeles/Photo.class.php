@@ -14,10 +14,10 @@ class Photo
     private $_Compteur;
     private $_Date;
     private $_DateU;
-    private $_Utilisateur;
-    private $_Album;
+    private $_idU;
+    private $_idA;
 
-    public function __construct($id, $titre, $chemin, $compteur, $date, $dateU, $utilisateur, $album){
+    public function __construct($id, $titre, $chemin, $compteur, $date, $dateU, $idU, $idA){
 
         $this->setId($id);
         $this->setTitre($titre);
@@ -25,8 +25,8 @@ class Photo
         $this->setCompteur($compteur);
         $this->setDate($date);
         $this->setDateU($dateU);
-        $this->setUtilisateur($utilisateur);
-        $this->setAlbum($album);
+        $this->setIdU($idU);
+        $this->setIdA($idA);
     }
 
 
@@ -56,100 +56,84 @@ class Photo
     }
 
 
-    public function getUtilisateur(){
-        return $this->_Utilisateur;
+    public function getIdU(){
+        return $this->_idU;
     }
 
-    public function getAlbum(){
-        return $this->_Album;
+    public function getIdA(){
+        return $this->_idA;
     }
 
 
 
-    //Setteurs
     public function setId($id){
-      //Verif variable $id
-      if(isset($id) && is_int($id) && $id >= 0 ){
+
+      if(isset($id) && is_int($id) && $id >= 0 )
         $this->_Id = $id;
-      }
-      else{
+      else
         throw new Exception("L'attribut id doit être un integer non null > 0 ");
-      }
+
     }
 
     public function setTitre($titre){
-      //Verif variable $titre
-      if(isset($titre) && is_string($titre) && strlen($titre) < 20){
+
+      if(isset($titre) && is_string($titre) && strlen($titre) < 20)
           $this->_Titre = $titre;
-      }
-      else{
+      else
         throw new Exception("L'attribut titre doit être une chaine de caracteres non null < 20 ");
-      }
+
     }
 
     public function setChemin($chemin){
-      if(isset($chemin)){
+
+      if(isset($chemin))
         $this->_Chemin = $chemin;
-      }
-      else{
+      else
         throw new Exception("L'attribut chemin ne doit pas être null");
-      }
+
     }
 
     public function setCompteur($compteur){
-      //Verif variable $id
-      if(isset($compteur) && is_int($compteur) && $compteur >= 0 ){
+
+      if(isset($compteur) && is_int($compteur) && $compteur >= 0 )
         $this->_Compteur = $compteur;
-      }
-      else{
+      else
         throw new Exception("L'attribut compteur doit être un integer non null");
-      }
+
     }
 
     public function setDate($date){
-      if(isset($date) && Outils::estUneDateValide($date)){
+
+      if(isset($date) && Outils::estUneDateValide($date))
         $this->_Date = $date;
-      }
-      else{
+      else
         throw new Exception("L'attribut date doit être non null et une date valide");
-      }
+
     }
 
     public function setDateU($dateU){
-      if(isset($dateU) && Outils::estUneDateValide($dateU)){
+
+      if(isset($dateU) && Outils::estUneDateValide($dateU))
         $this->_DateU = $dateU;
-      }
-      else{
+      else
         throw new Exception("L'attribut dateU doit être non null et une date valide");
-      }
+
     }
 
-    public function setUtilisateur($utilisateur){
-      try{
-        if( isset($utilisateur) && get_class($utilisateur) == "Utilisateur" ){
-          $this->_Utilisateur = $utilisateur;
-        }
-        else{
-          throw new \Exception("L'utilisateur doit être une instance de la class Utilisateur et ne doit pas être null");
-        }
-      }
-      catch(Exception $e){
-        throw new Exception($e);
-      }
+    public function setIdU($idU){
+        if(is_int($idU) && $idU >= 0)
+          $this->$idU = $idU;
+        else
+          throw new Exception("L'id Utilisateur doit être un integer > 0");
     }
 
-    public function setAlbum($album){
-      try{
-        if( isset($album) && get_class($album) == "Album" ){
-          $this->_Album = $album;
-        }
-        else{
-          throw new \Exception("L'album doit être une instance de la class Album et ne doit pas être null");
-        }
-      }
-      catch(Exception $e){
-        throw new Exception($e);
-      }
+    public function setIdA($idA){
+
+        if( is_int($idA) && $idA >= 0 )
+          $this->_idA = $idA;
+        else
+          throw new Exception("L'id Album doit être un integer > 0");
+
     }
 
     //toString
@@ -160,8 +144,8 @@ class Photo
         $msg .= "chemin : ".$this->_Chemin."<br>";
         $msg .= "compteur : ".$this->_Compteur."<br>";
         $msg .= "date : ".$this->_Date."<br>";
-        $msg .= "utilisateur : ".$this->_Utilisateur->toString()."<br>";
-        $msg .= "album : ".$this->_Album->toString()."<br>";
+        $msg .= "id Utilisateur : ".$this->_idU."<br>";
+        $msg .= "id Album : ".$this->_idA."<br>";
 
         return $msg;
     }

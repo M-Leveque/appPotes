@@ -1,4 +1,5 @@
 <?php
+ini_set('error_reporting', false);
 use PHPUnit\Framework\TestCase;
 
 include_once "../Photo.class.php";

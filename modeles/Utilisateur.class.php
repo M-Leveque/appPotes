@@ -55,76 +55,67 @@ class Utilisateur
     }
 
 
-    //Setteurs -----
     public function setId($id){
 
-      //Verif $id
-      if(isset($id) && is_int($id) && $id >= 0){
+      if(isset($id) && is_int($id) && $id >= 0)
         $this->_Id = $id;
-      }
-      else{
+      else
         throw new Exception("L'attribut id doit être un entier > ou = à 0.");
-      }
+
     }
 
     public function setNiveau($niveau){
 
-      //Verif $niveau
-      if ( $niveau === 0 ||  $niveau === 1 ||  $niveau === 2 ){
+      if ( $niveau === 0 ||  $niveau === 1 ||  $niveau === 2 )
          $this->_Niveau = $niveau;
-      }
-      else{
+      else
         throw new Exception("L'attribut niveau doit être = à 0, 1 ou 2.");
-      }
+
     }
 
     public function setMail($mail){
 
-      //Verif $mail
-      if (isset($mail) && Outils::estUneAdrMailValide($mail)){
+      if (isset($mail) && Outils::estUneAdrMailValide($mail))
         $this->_Mail = $mail;
-      }
-      else{
+      else
         throw new Exception("L'attribut mail doi être une addresse mail valide");
-      }
+
     }
 
   	public function setMdp($mdp){
-      if(strlen($mdp) < 70 && isset($mdp)){
+
+      if(strlen($mdp) < 70 && isset($mdp))
         $this->_Mdp = $mdp;
-      }
-      else{
+      else
         throw new Exception("L'attribut mdp doit être < à 50.");
-      }
+
     }
 
     public function setPseudo($pseudo){
-      //verif $pseudo
-      if ( strlen($pseudo) <=  20 && $pseudo){
+
+      if ( strlen($pseudo) <=  20 && $pseudo)
         $this->_Pseudo = $pseudo;
-      }
-      else{
+      else
         throw new Exception("L'attribut pseudo doit être < ou = à 20.");
-      }
+
     }
 
     public function setPhoto($photo){
-      //verif $pseudo
-      if ( isset($photo) ){
+
+      if ( isset($photo) )
         $this->_Photo = $photo;
-      }
-      else{
+      else
         throw new Exception("L'attribut photo doit être non null");
-      }
+
     }
 
     public function setTmp($tmp){
-      if( is_bool($tmp) ){
+
+      if( is_bool($tmp) )
         $this->_Tmp = $tmp;
-      }
-      else{
+      else
         throw new Exception("L'attribut Tmp doit être un boolean.");
-      }
+
     }
 
     //toString

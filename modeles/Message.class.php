@@ -3,14 +3,14 @@ class Message
 {
     private $_Id;
     private $_Contenu;
-    private $_Evenement;
-    private $_Utilisateur;
+    private $_idE;
+    private $_idU;
 
-    public function __construct($id, $contenu, $evenement, $utilisateur){
+    public function __construct($id, $contenu, $idE, $idU){
         $this->setId($id);
         $this->setContenu($contenu);
-        $this->setEvenement($evenement);
-        $this->setUtilisateur($utilisateur);
+        $this->setIdE($idE);
+        $this->setIdU($idU);
     }
 
     //-------------------------------
@@ -25,12 +25,12 @@ class Message
         return $this->_Contenu;
     }
 
-    public function getEvenement(){
-        return $this->_Evenement;
+    public function getIdE(){
+        return $this->_idE;
     }
 
-    public function getUtilisateur(){
-        return $this->_Utilisateur;
+    public function getIdU(){
+        return $this->_idU;
     }
 
     //-------------------------------
@@ -38,49 +38,35 @@ class Message
     //-------------------------------
 
     public function setId($id){
-      //Verif variable $id
-      if(isset($id) && is_int($id) && $id >= 0 ){
+      if(isset($id) && is_int($id) && $id >= 0 )
         $this->_Id = $id;
-      }
-      else{
+      else
         throw new Exception("L'id doit être un integer non null > 0");
-      }
     }
 
 
     public function setContenu($contenu){
-      if(isset($contenu))
-        $this->_Contenu = $contenu;
-      else
-        throw new Exception("Le contenu ne peux pas être null");
+        if(isset($contenu))
+            $this->_Contenu = $contenu;
+        else
+            throw new Exception("Le contenu ne peux pas être null");
     }
 
-    public function setEvenement($evenement){
-      try {
-        if(get_class($evenement) == "Evenement"){
-            $this->_Evenement = $evenement;
-        }
-        else{
-          throw new Exception("L'evenement doit être une instance de la class Evenement");
+    public function setIdE($idE){
 
-        }
-      } catch (Exception $e) {
-        throw new Exception($e);
-      }
+        if(is_int($idE) && $idE >=0)
+            $this->_idE = $idE;
+        else
+          throw new Exception("L'evenement doit être une instance de la class Evenement");
     }
 
     public function setUtilisateur($utilisateur){
-      try {
-        if(get_class($utilisateur) == "Utilisateur"){
+
+        if(get_class($utilisateur) == "Utilisateur")
             $this->_Utilisateur = $utilisateur;
-        }
-        else{
+        else
           throw new Exception("L'utilisateur doit être une instance de la class Utilisateur");
 
-        }
-      } catch (Exception $e) {
-        throw new Exception($e);
-      }
     }
 
 
@@ -92,8 +78,8 @@ class Message
         $msg = "Album :<br>";
         $msg .= "id : ".$this->_Id."<br>";
         $msg .= "contenu : ".$this->_Contenu."<br><br>";
-        $msg .= "evenement : ".$this->_Evenement->toString()."<br><br>";
-        $msg .= "utilisateur : ".$this->_Utilisateur->toString()."<br>";
+        $msg .= "id Evenement : ".$this->_idE."<br><br>";
+        $msg .= "utilisateur : ".$this->_idU."<br>";
 
         return $msg;
     }

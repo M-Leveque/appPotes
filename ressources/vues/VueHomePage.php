@@ -21,7 +21,12 @@
 
 		<!-- GRID ALBUMS -->
 		<div class="grid-album">
-            <?php echo $aff_albums ?>
+            <a href="#">
+                <div class="album album-grid">
+                    <img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
+                    <p>Titre 🖕</p>
+                </div>
+            </a>
 		</div>
 	</section>
 
@@ -36,7 +41,22 @@
 		</a>
 
 		<!-- GRID EVENEMENTS -->
-        <?php echo $aff_Evenements ?>
+        <a class="even" href="#">
+            <div class="content-even">
+                <span>🎁</span>
+
+                <div class="desc-even">
+                    <h6>Vacance 2018</h6>
+                    <p>Randonnées dans les alpes</p>
+                </div>
+
+                <div class="date-even">
+                    <p>JOUR</p>
+                    <span>00</span>
+                    <p>MOIS</p>
+                </div>
+            </div>
+        </a>
 	</section>
 
 	<!-- CAGNOTTES -->

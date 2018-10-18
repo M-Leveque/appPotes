@@ -16,8 +16,9 @@ class EvenementDAO extends DAO{
         throw new Exception("L'id de l'evenement doit être valide");
 
     //Requete SQL
-    $stmt = $this->cnx->prepare("SELECT * FROM Evenement WHERE Id_E = :id LIMIT 1");
-    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt = $this->cnx->prepare("SELECT * FROM Evenement, Acces WHERE Evenement.id_E = Acces.id_E AND Acces.id_U = :idU AND Id_E = :idE");
+    $stmt->bindValue(':idU', $id, PDO::PARAM_INT);
+    $stmt->bindValue(':idE', $_SESSION['user_id'], PDO::PARAM_INT);
     $stmt->execute();
     $ligne = $stmt->fetch(PDO::FETCH_OBJ);
     if($ligne){
@@ -58,7 +59,8 @@ class EvenementDAO extends DAO{
     $i = 0;
 
     //Requete SQL
-    $stmt = $this->cnx->prepare("SELECT * FROM Evenement");
+    $stmt = $this->cnx->prepare("SELECT * FROM Evenement, Acces WHERE Evenement.id_E = Acces.id_E AND Acces.id_U = :idU");
+    $stmt->bindValue(':idU', $_SESSION['user_id'], PDO::PARAM_INT);
     $stmt->execute();
     $ligne = $stmt->fetch(PDO::FETCH_OBJ);
 

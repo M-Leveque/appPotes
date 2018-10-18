@@ -14,10 +14,9 @@ class Evenement
     private $_DateC;
     private $_DateTime;
     private $_Archiver;
-    private $_Utilisateur;
-    private $_Emoticon;
+    private $_idU;
 
-    public function __construct($id, $titre, $description, $dateC, $dateTime, $archiver, $utilisateur, $emoticon){
+    public function __construct($id, $titre, $description, $dateC, $dateTime, $archiver, $idU){
 
         $this->setId($id);
         $this->setTitre($titre);
@@ -25,8 +24,7 @@ class Evenement
         $this->setDateC($dateC);
         $this->setDateTime($dateTime);
         $this->setArchiver($archiver);
-        $this->setUtilisateur($utilisateur);
-        $this->setEmoticon($emoticon);
+        $this->setIdU($idU);
 
     }
 
@@ -58,12 +56,8 @@ class Evenement
         return $this->_Archiver;
     }
 
-    public function getUtilisateur(){
-        return $this->_Utilisateur;
-    }
-
-    public function getEmoticon(){
-        return $this->_Emoticon;
+    public function getIdU(){
+        return $this->_idU;
     }
 
     //-------------------------------
@@ -126,34 +120,13 @@ class Evenement
         }
     }
 
-    public function setUtilisateur($utilisateur){
-      try{
-        if(get_class($utilisateur) == "Utilisateur"){
-            $this->_Utilisateur = $utilisateur;
+    public function setIdU($idU){
+        if(is_int($idU) && $idU >= 0){
+            $this->_idU = $idU;
         }
         else{
-          throw new Exception("L'attribut utilisateur n'est pas une instance de la class Utilisateur");
+          throw new Exception("L'id Utilisateur doit être > 0");
         }
-      }
-      catch(Exception $e){
-        throw new \Error($e);
-      }
-
-    }
-
-    public function setEmoticon($emoticon){
-      try{
-        if(get_class($emoticon) == "Emoticon"){
-          $this->_Emoticon = $emoticon;
-        }
-        else{
-          throw new Exception("L'attribut emoticon n'est pas une instance de la class emoticon");
-        }
-      }
-      catch(Exception $e){
-        throw new Exception($e);
-      }
-
     }
 
     //------------------------------
@@ -168,8 +141,7 @@ class Evenement
         $msg .= "date : ".$this->_DateTime."<br>";
         $msg .= "date creation : ".$this->_DateC."<br>";
         $msg .= "Archiver : ".$this->_Archiver."<br>";
-        $msg .= "utilisateur : ".$this->_Utilisateur->toString()."<br>";
-        $msg .= "emoticon : ".$this->_Emoticon->toString()."<br>";
+        $msg .= "id Utilisateur : ".$this->_idU."<br>";
 
         return $msg;
     }

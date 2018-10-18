@@ -10,6 +10,7 @@ class AlbumDAO extends DAO{
     DAO::__construct();
   }
 
+  //------------------------------------------- Reception BDD ----------------------------------------------------------
   public function get($id){
 
     if(empty($id) || $id < 0 || !is_int($id) )
@@ -70,6 +71,7 @@ class AlbumDAO extends DAO{
     else{return false;}
   }
 
+  //-------------------------------------------- Envoi BDD -------------------------------------------------------------
   //La function set permet de modifier la BDD
   public function set($album){
     //Verif de la variable $album
