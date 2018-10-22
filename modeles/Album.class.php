@@ -13,8 +13,8 @@ class Album
     private $_DateCreation;
     private $_Priver;
     private $_Visuel;
-    private $_idE;
-    private $_idU;
+    private $_IdE;
+    private $_IdU;
 
     //Constructeurs
     public function __construct($id, $nom, $description, $dateCreation, $priver, $visuel, $idE, $idU){
@@ -56,11 +56,11 @@ class Album
     }
 
     public function getIdE(){
-        return $this->_idE;
+        return $this->_IdE;
     }
 
     public function getIdU(){
-        return $this->_idU;
+        return $this->_IdU;
     }
 
     //Setteurs
@@ -122,7 +122,7 @@ class Album
     public function setIdE($idE){
 
         if(is_int($idE) && $idE >= 0)
-          $this->_idE = $idE;
+          $this->_IdE = $idE;
         else
             throw new Exception("L'id Evenement doit être un integer > 0");
 
@@ -131,7 +131,7 @@ class Album
     public function setIdU($idU){
 
         if(is_int($idU) && $idU >= 0)
-            $this->_idU = $idU;
+            $this->_IdU = $idU;
         else
           throw new Exception("L'id Utilisateur doit être un integer > 0");
     }
@@ -146,8 +146,8 @@ class Album
         $msg .= "nom : ".$this->_Nom."<br>";
         $msg .= "priver : ".$this->_Priver."<br>";
         $msg .= "visuel : ".$this->_Visuel."<br>";
-        $msg .= "idE : ".$this->_idE."<br>";
-        $msg .= "idU : ".$this->_idU."<br>";
+        $msg .= "idE : ".$this->_IdE."<br>";
+        $msg .= "idU : ".$this->_IdU."<br>";
 
         return $msg;
     }

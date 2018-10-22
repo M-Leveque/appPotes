@@ -1,8 +1,11 @@
 <?php
 ini_set('error_reporting', false);
+
 use PHPUnit\Framework\TestCase;
 
 include_once "../Album.class.php";
+include_once "../Outils.class.php";
+
 
 class AlbumTest extends TestCase
 {
@@ -26,23 +29,23 @@ class AlbumTest extends TestCase
       $this->assertSame($album->getDateCreation(), $this->dateCreation);
       $this->assertSame($album->getPriver(), $this->priver);
       $this->assertSame($album->getVisuel(), $this->visuel);
-      $this->assertSale($album->getIdE(), $this->idE);
-      $this->assertSale($album->getIdU(), $this->idU);
+      $this->assertSame($album->getIdE(), $this->idE);
+      $this->assertSame($album->getIdU(), $this->idU);
   }
 
   /**
    * @expectedException Exception
    */
   public function testSetIdNonIntegerException(){
-    $album = $this->constructAlbumValid();
-    $album->setId('s');
+      $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $this->idE, $this->idU);
+      $album->setId('s');
   }
 
   /**
    * @expectedException Exception
    */
   public function testSetIdNullException(){
-    $album = $this->constructAlbumValid();
+    $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $this->idE, $this->idU);
     $album->setId(null);
   }
 
@@ -50,7 +53,7 @@ class AlbumTest extends TestCase
    * @expectedException Exception
    */
   public function testSetIdInfZeroException(){
-    $album = $this->constructAlbumValid();
+    $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $this->idE, $this->idU);
     $album->setId(-2);
   }
 
@@ -58,7 +61,7 @@ class AlbumTest extends TestCase
   * @expectedException Exception
   */
   public function testSetNomSup50Exception(){
-    $album = $this->constructAlbumValid();
+    $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $this->idE, $this->idU);
     $album->setNom('msldkfjghvjfhgjfhgjrutyturifjghryeidkfjgkeiruthfjcf'); //chaine > 50
   }
 
@@ -66,7 +69,7 @@ class AlbumTest extends TestCase
   * @expectedException Exception
   */
   public function testSetNomNonStringException(){
-    $album = $this->constructAlbumValid();
+    $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $this->idE, $this->idU);
     $album->setNom(2);
   }
 
@@ -74,7 +77,7 @@ class AlbumTest extends TestCase
   * @expectedException Exception
   */
   public function testSetNomNullException(){
-    $album = $this->constructAlbumValid();
+    $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $this->idE, $this->idU);
     $album->setNom(null);
   }
 
@@ -82,7 +85,7 @@ class AlbumTest extends TestCase
   * @expectedException Exception
   */
   public function testSetDescriptionNullException(){
-    $album = $this->constructAlbumValid();
+    $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $this->idE, $this->idU);
     $album->setDescription(null);
   }
 
@@ -90,14 +93,14 @@ class AlbumTest extends TestCase
   * @expectedException Exception
   */
   public function testSetDateNullException(){
-    $album = $this->constructAlbumValid();
+    $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $this->idE, $this->idU);
     $album->setDateCreation("2015-35-32");
   }
   /**
    * @expectedException Exception
    */
   public function testSetPriverIntException(){
-    $album = $this->constructAlbumValid();
+    $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $this->idE, $this->idU);
     $album->setPriver(2);
   }
 
@@ -105,7 +108,7 @@ class AlbumTest extends TestCase
    * @expectedException Exception
    */
   public function testSetPriverNullException(){
-    $album = $this->constructAlbumValid();
+    $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $this->idE, $this->idU);
     $album->setPriver(null);
   }
 
@@ -113,7 +116,7 @@ class AlbumTest extends TestCase
    * @expectedException Exception
    */
   public function testSetVisuelNonStringException(){
-    $album = $this->constructAlbumValid();
+    $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $this->idE, $this->idU);
     $album->setVisuel(2);
   }
 
@@ -121,7 +124,7 @@ class AlbumTest extends TestCase
    * @expectedException Exception
    */
   public function testSetVisuelSup255Exception(){
-    $album = $this->constructAlbumValid();
+    $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $this->idE, $this->idU);
     $album->setVisuel("mlkjhgdteyfurifhdjeymlkjhgdteyfurifhdjeymlkjhgdteyfurifhdjeymlkjhgdteyfurifhdjeymlkjhgdteyfurifhdjeymlkjhgdteyfurifhdjeymlkjhgdteyfurifhdjeymlkjhgdteyfurifhdjeymlkjhgdteyfurifhdjeymlkjhgdteyfurifhdjeymlkjhgdteyfurifhdjeymlkjhgdteyfurifhdjeyhdjfhrytueidjfhr");
     //chaine de 256 caracteres
   }
@@ -130,7 +133,7 @@ class AlbumTest extends TestCase
      * @expectedException Exception
      */
     public function testSetIdENonIntegerException(){
-        $album = $this->constructAlbumValid();
+        $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $this->idE, $this->idU);
         $album->setIdE('s');
     }
 
@@ -138,7 +141,7 @@ class AlbumTest extends TestCase
      * @expectedException Exception
      */
     public function testSetIdENullException(){
-        $album = $this->constructAlbumValid();
+        $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $this->idE, $this->idU);
         $album->setIdE(null);
     }
 
@@ -146,7 +149,7 @@ class AlbumTest extends TestCase
      * @expectedException Exception
      */
     public function testSetIdEInfZeroException(){
-        $album = $this->constructAlbumValid();
+        $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $this->idE, $this->idU);
         $album->setIdE(-2);
     }
 
@@ -154,7 +157,7 @@ class AlbumTest extends TestCase
      * @expectedException Exception
      */
     public function testSetIdUNonIntegerException(){
-        $album = $this->constructAlbumValid();
+        $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $this->idE, $this->idU);
         $album->setIdU('s');
     }
 
@@ -162,7 +165,7 @@ class AlbumTest extends TestCase
      * @expectedException Exception
      */
     public function testSetIdUNullException(){
-        $album = $this->constructAlbumValid();
+        $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $this->idE, $this->idU);
         $album->setIdU(null);
     }
 
@@ -170,7 +173,7 @@ class AlbumTest extends TestCase
      * @expectedException Exception
      */
     public function testSetIdUInfZeroException(){
-        $album = $this->constructAlbumValid();
+        $album = new Album($this->id, $this->nom, $this->description, $this->dateCreation, $this->priver, $this->visuel, $this->idE, $this->idU);
         $album->setIdU(-2);
     }
 }

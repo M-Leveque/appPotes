@@ -13,7 +13,7 @@ class Cagnotte
     private $_Description;
     private $_DateHeureFin;
     private $_ArgentR;
-    private $_idE;
+    private $_IdE;
 
     public function __construct($id, $titre, $description, $dateHeureFin, $argentR, $idE){
       $this->setId($id);
@@ -108,7 +108,7 @@ class Cagnotte
 
     public function setIdE($idE){
         if(is_int($idE) && $idE >= 0){
-          $this->_idE = $idE;
+          $this->_IdE = $idE;
         }
         else{
           throw new Exception("L'id Evenement doit être un integer > 0");
@@ -127,7 +127,7 @@ class Cagnotte
         $msg .= "description : ".$this->_Description."<br>";
         $msg .= "date et heure de fin : ".$this->_DateHeureFin."<br>";
         $msg .= "Argent récolté : ".$this->_ArgentR."<br>";
-        $msg .= "Evenement : ".$this->_idE."<br>";
+        $msg .= "Evenement : ".$this->_IdE."<br>";
 
         return $msg;
     }

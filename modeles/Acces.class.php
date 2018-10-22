@@ -5,8 +5,8 @@
 
 class Acces
 {
-  private $_idU;
-  private $_idE;
+  private $_IdU;
+  private $_IdE;
 
   public function __construct($idU, $idE){
     $this->setIdU($idU);
@@ -14,17 +14,17 @@ class Acces
   }
 
   public function getIdU(){
-    return $this->_idU;
+    return $this->_IdU;
   }
 
   public function getIdE(){
-    return $this->_idE;
+    return $this->_IdE;
   }
 
   public function setIdU($idU){
 
       if(is_int($idU) && $idU >= 0)
-        $this->_idU = $idU;
+        $this->_IdU = $idU;
       else
           throw new Exception("L'id Utilisateur doit être un integer > 0");
 
@@ -33,7 +33,7 @@ class Acces
   public function setIdE($idE){
 
       if(is_int($idE) && $idE >= 0)
-        $this->_idE = $idE;
+        $this->_IdE = $idE;
       else
           throw new Exception("L'id Evenement doit être un integer > 0");
 
@@ -41,8 +41,8 @@ class Acces
 
   public function toString(){
     $msg = "Acces :<br>";
-    $msg .= "Utilisateur : ".$this->_idU."<br>";
-    $msg .= "Evenement : ".$this->_idE."<br>";
+    $msg .= "Utilisateur : ".$this->_IdU."<br>";
+    $msg .= "Evenement : ".$this->_IdE."<br>";
 
     return $msg;
   }

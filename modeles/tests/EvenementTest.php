@@ -15,30 +15,19 @@ class EvenementTest extends TestCase
   private $dateC = "2018-07-11";
   private $dateTime = "2018-08-11 21:02:03";
   private $archiver = false;
+  private $idU = 2;
+  private $idE = 1;
 
-  private function constructUtilisateurValid(){
-    $utilisateur = new Utilisateur(1, 0, 'visiteur@visiteur.com', 'visiteur', 'Visiteur1', 'photo.png', false);
-    return $utilisateur;
-  }
-
-  private function constructEmoticonValid(){
-    $emoticon = new Emoticon(1, "emoticonTest", "/images/img.php");
-    return $emoticon;
-  }
 
   private function constructEvenementValid(){
-    $utilisateur = $this->constructUtilisateurValid();
-    $emoticon = $this->constructEmoticonValid();
 
-    $evenement = new Evenement($this->id, $this->titre, $this->description, $this->dateC, $this->dateTime, $this->archiver, $utilisateur, $emoticon);
+    $evenement = new Evenement($this->id, $this->titre, $this->description, $this->dateC, $this->dateTime, $this->archiver, $this->idU);
     return $evenement;
   }
 
   public function testConstruct()
   {
       $evenement = $this->constructEvenementValid();
-      $utilisateur = $this->constructUtilisateurValid();
-      $emoticon = $this->constructEmoticonValid();
 
       $this->assertSame($evenement->getId(), $this->id);
       $this->assertSame($evenement->getTitre(), $this->titre);
@@ -46,6 +35,7 @@ class EvenementTest extends TestCase
       $this->assertSame($evenement->getDateC(), $this->dateC);
       $this->assertSame($evenement->getDateTime(), $this->dateTime);
       $this->assertSame($evenement->getArchiver(), $this->archiver);
+      $this->assertSame($evenement->getIdU(), $this->idU);
   }
 
   /**
@@ -145,35 +135,18 @@ class EvenementTest extends TestCase
   }
 
   /**
-   * @expectedException Error
+   * @expectedException Exception
    */
-  public  function  testSetUtilisateurIntError(){
+  public  function  testSetUtilisateurNonInt(){
     $evenement = $this->constructEvenementValid();
-    $evenement->setUtilisateur(35);
+    $evenement->setIdU("qe");
   }
 
   /**
    * @expectedException Exception
    */
-  public  function  testSetUtilisateurMauvaisObjectException(){
+  public  function  testSetUtilisateurInfZeroException(){
     $evenement = $this->constructEvenementValid();
-    $evenement->setEmoticon($evenement);
+    $evenement->setIdU(-25);
   }
-
-  /**
-   * @expectedException Exception
-   */
-  public  function  testSetEmoticonChaineError(){
-    $evenement = $this->constructEvenementValid();
-    $evenement->setEmoticon("Chaine de caracteres");
-  }
-
-  /**
-   * @expectedException Exception
-   */
-  public  function  testSetEmoticonMauvaisObjectException(){
-    $evenement = $this->constructEvenementValid();
-    $evenement->setEmoticon($evenement);
-  }
-
 }

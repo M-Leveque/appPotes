@@ -3,8 +3,8 @@ class Message
 {
     private $_Id;
     private $_Contenu;
-    private $_idE;
-    private $_idU;
+    private $_IdE;
+    private $_IdU;
 
     public function __construct($id, $contenu, $idE, $idU){
         $this->setId($id);
@@ -26,11 +26,11 @@ class Message
     }
 
     public function getIdE(){
-        return $this->_idE;
+        return $this->_IdE;
     }
 
     public function getIdU(){
-        return $this->_idU;
+        return $this->_IdU;
     }
 
     //-------------------------------
@@ -38,10 +38,10 @@ class Message
     //-------------------------------
 
     public function setId($id){
-      if(isset($id) && is_int($id) && $id >= 0 )
-        $this->_Id = $id;
-      else
-        throw new Exception("L'id doit être un integer non null > 0");
+        if(isset($id) && is_int($id) && $id >= 0 )
+            $this->_Id = $id;
+        else
+            throw new Exception("L'id doit être un integer non null > 0");
     }
 
 
@@ -55,17 +55,17 @@ class Message
     public function setIdE($idE){
 
         if(is_int($idE) && $idE >=0)
-            $this->_idE = $idE;
+            $this->_IdE = $idE;
         else
-          throw new Exception("L'evenement doit être une instance de la class Evenement");
+            throw new Exception("L'id evenement doit être un integer > 0 non null");
     }
 
-    public function setUtilisateur($utilisateur){
+    public function setIdU($idU){
 
-        if(get_class($utilisateur) == "Utilisateur")
-            $this->_Utilisateur = $utilisateur;
+        if(is_int($idU) && $idU >=0)
+            $this->_IdU = $idU;
         else
-          throw new Exception("L'utilisateur doit être une instance de la class Utilisateur");
+            throw new Exception("L'id utilisateur doit être un integer > 0 non null");
 
     }
 
@@ -78,8 +78,8 @@ class Message
         $msg = "Album :<br>";
         $msg .= "id : ".$this->_Id."<br>";
         $msg .= "contenu : ".$this->_Contenu."<br><br>";
-        $msg .= "id Evenement : ".$this->_idE."<br><br>";
-        $msg .= "utilisateur : ".$this->_idU."<br>";
+        $msg .= "id Evenement : ".$this->_IdE."<br><br>";
+        $msg .= "id Utilisateur : ".$this->_IdU."<br>";
 
         return $msg;
     }

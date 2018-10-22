@@ -14,8 +14,8 @@ class Photo
     private $_Compteur;
     private $_Date;
     private $_DateU;
-    private $_idU;
-    private $_idA;
+    private $_IdU;
+    private $_IdA;
 
     public function __construct($id, $titre, $chemin, $compteur, $date, $dateU, $idU, $idA){
 
@@ -57,11 +57,11 @@ class Photo
 
 
     public function getIdU(){
-        return $this->_idU;
+        return $this->_IdU;
     }
 
     public function getIdA(){
-        return $this->_idA;
+        return $this->_IdA;
     }
 
 
@@ -122,7 +122,7 @@ class Photo
 
     public function setIdU($idU){
         if(is_int($idU) && $idU >= 0)
-          $this->$idU = $idU;
+          $this->_IdU = $idU;
         else
           throw new Exception("L'id Utilisateur doit être un integer > 0");
     }
@@ -130,7 +130,7 @@ class Photo
     public function setIdA($idA){
 
         if( is_int($idA) && $idA >= 0 )
-          $this->_idA = $idA;
+          $this->_IdA = $idA;
         else
           throw new Exception("L'id Album doit être un integer > 0");
 
@@ -144,8 +144,8 @@ class Photo
         $msg .= "chemin : ".$this->_Chemin."<br>";
         $msg .= "compteur : ".$this->_Compteur."<br>";
         $msg .= "date : ".$this->_Date."<br>";
-        $msg .= "id Utilisateur : ".$this->_idU."<br>";
-        $msg .= "id Album : ".$this->_idA."<br>";
+        $msg .= "id Utilisateur : ".$this->_IdU."<br>";
+        $msg .= "id Album : ".$this->_IdA."<br>";
 
         return $msg;
     }

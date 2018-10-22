@@ -14,29 +14,11 @@ class CagnotteTest extends TestCase
   private $description = "Acheter un cadeau";
   private $dateHeureFin = "2018-05-02 22:05:02";
   private $argentR = 100;
-
-  private function constructUtilisateurValid(){
-    $utilisateur = new Utilisateur(1, 0, 'visiteur@visiteur.com', 'visiteur', 'Visiteur1', 'photo.png', false);
-    return $utilisateur;
-  }
-
-  private function constructEmoticonValid(){
-    $emoticon = new Emoticon(1, "emoticonTest", "/images/img.php");
-    return $emoticon;
-  }
-
-  private function constructEvenementValid(){
-    $utilisateur = $this->constructUtilisateurValid();
-    $emoticon = $this->constructEmoticonValid();
-
-    $evenement = new Evenement(1, "Annivairsaire frank", "Fete pour l'annivairsaire de franck :)", "2018-07-11", "2018-08-11 21:03:03", false, $utilisateur, $emoticon);
-    return $evenement;
-  }
+  private $idE = 1;
 
   private function constructCagnotteValid(){
-    $evenement = $this->constructEvenementValid();
 
-    $cagnotte = new Cagnotte($this->id, $this->titre, $this->description, $this->dateHeureFin, $this->argentR, $evenement);
+    $cagnotte = new Cagnotte($this->id, $this->titre, $this->description, $this->dateHeureFin, $this->argentR, $this->idE);
     return $cagnotte;
   }
 
@@ -126,16 +108,16 @@ class CagnotteTest extends TestCase
   /**
   * @expectedException Exception
   */
-  public function testSetEvenementNonObjectException(){
+  public function testSetIdENonIntException(){
     $cagnotte = $this->constructCagnotteValid();
-    $cagnotte->setEvenement("d");
+    $cagnotte->setIdE("d");
   }
 
   /**
   * @expectedException Exception
   */
-  public function testSetEvenementMauvaisObjectException(){
+  public function testSetIdEInfZeroObjectException(){
     $cagnotte = $this->constructCagnotteValid();
-    $cagnotte->setEvenement($cagnotte);
+    $cagnotte->setIdE(-25);
   }
 }

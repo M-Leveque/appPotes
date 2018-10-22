@@ -14,7 +14,7 @@ class Evenement
     private $_DateC;
     private $_DateTime;
     private $_Archiver;
-    private $_idU;
+    private $_IdU;
 
     public function __construct($id, $titre, $description, $dateC, $dateTime, $archiver, $idU){
 
@@ -57,7 +57,7 @@ class Evenement
     }
 
     public function getIdU(){
-        return $this->_idU;
+        return $this->_IdU;
     }
 
     //-------------------------------
@@ -122,7 +122,7 @@ class Evenement
 
     public function setIdU($idU){
         if(is_int($idU) && $idU >= 0){
-            $this->_idU = $idU;
+            $this->_IdU = $idU;
         }
         else{
           throw new Exception("L'id Utilisateur doit être > 0");
@@ -141,7 +141,7 @@ class Evenement
         $msg .= "date : ".$this->_DateTime."<br>";
         $msg .= "date creation : ".$this->_DateC."<br>";
         $msg .= "Archiver : ".$this->_Archiver."<br>";
-        $msg .= "id Utilisateur : ".$this->_idU."<br>";
+        $msg .= "id Utilisateurr : ".$this->_IdU."<br>";
 
         return $msg;
     }

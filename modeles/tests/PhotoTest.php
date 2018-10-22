@@ -3,10 +3,6 @@ ini_set('error_reporting', false);
 use PHPUnit\Framework\TestCase;
 
 include_once "../Photo.class.php";
-include_once "../Utilisateur.class.php";
-include_once "../Emoticon.class.php";
-include_once "../Evenement.class.php";
-include_once "../Album.class.php";
 
 class PhotoTest extends TestCase
 {
@@ -17,38 +13,14 @@ class PhotoTest extends TestCase
   private $compteur = 0;
   private $date = '2018-05-04';
   private $dateU = '2018-06-04';
-
-  private function constructUtilisateurValid(){
-    $utilisateur = new Utilisateur(1, 0, 'visiteur@visiteur.com', 'visiteur', 'Visiteur1', 'photo.png', false);
-    return $utilisateur;
-  }
-
-  private function constructEmoticonValid(){
-    $emoticon = new Emoticon(1, "emoticonTest", "/images/img.php");
-    return $emoticon;
-  }
-
-  private function constructEvenementValid(){
-    $utilisateur = $this->constructUtilisateurValid();
-    $emoticon = $this->constructEmoticonValid();
-
-    $evenement = new Evenement(1, "Annivairsaire frank", "Fete pour l'annivairsaire de franck :)", "2018-07-11", "2018-08-11 21:03:03", false, $utilisateur, $emoticon);
-    return $evenement;
-  }
-
-  private function constructAlbumValid(){
-    $evenement = $this->constructEvenementValid();
-    $utilisateur = $this->constructUtilisateurValid();
-
-    $album = new Album(1, "2017-2018", false, "/images/img.png", $evenement, $utilisateur);
-    return $album;
-  }
+  private $idU = 1;
+  private $idA = 1;
 
   private function constructPhotoValid(){
-    $utilisateur = $this->constructUtilisateurValid();
-    $album = $this->constructAlbumValid();
-    $photo = new Photo($this->id, $this->titre, $this->chemin, $this->compteur, $this->date, $this->dateU, $utilisateur, $album);
+
+    $photo = new Photo($this->id, $this->titre, $this->chemin, $this->compteur, $this->date, $this->dateU, $this->idU, $this->idA);
     return $photo;
+
   }
 
   public function testConstruct()
@@ -61,6 +33,8 @@ class PhotoTest extends TestCase
     $this->assertSame($photo->getCompteur(), $this->compteur);
     $this->assertSame($photo->getDate(), $this->date);
     $this->assertSame($photo->getDateU(), $this->dateU);
+    $this->assertSame($photo->getIdU(), $this->idU);
+    $this->assertSame($photo->getIdA(), $this->idA);
   }
 
   /**
@@ -178,33 +152,33 @@ class PhotoTest extends TestCase
   /**
    * @expectedException Exception
    */
-  public function testUtilisateurNullException(){
+  public function testSetIdUNullException(){
     $photo = $this->constructPhotoValid();
-    $photo->setUtilisateur(null); //chaine de 21 caracteres
+    $photo->setIdU(null); //chaine de 21 caracteres
   }
 
   /**
    * @expectedException Exception
    */
-  public function testUtilisateurMauvaisObjectException(){
+  public function testSetIdUNonIntException(){
     $photo = $this->constructPhotoValid();
-    $photo->setUtilisateur($photo); //chaine de 21 caracteres
+    $photo->setIdU("qfe"); //chaine de 21 caracteres
   }
 
   /**
    * @expectedException Exception
    */
-  public function testAlbumNullException(){
+  public function testSetIdANullExeption(){
     $photo = $this->constructPhotoValid();
-    $photo->setAlbum(null); //chaine de 21 caracteres
+    $photo->setIdA(null); //chaine de 21 caracteres
   }
 
   /**
    * @expectedException Exception
    */
-  public function testAlbumMauvaisObjectException(){
+  public function testSetIdAInfZeroExeption(){
     $photo = $this->constructPhotoValid();
-    $photo->setAlbum($photo); //chaine de 21 caracteres
+    $photo->setIdA(-65); //chaine de 21 caracteres
   }
 
 }
