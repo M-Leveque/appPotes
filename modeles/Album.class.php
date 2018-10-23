@@ -133,7 +133,7 @@ class Album
         if(is_int($idU) && $idU >= 0)
             $this->_IdU = $idU;
         else
-          throw new Exception("L'id Utilisateur doit être un integer > 0");
+            throw new Exception("L'id Utilisateur doit être un integer > 0");
     }
 
     //------------------------------
