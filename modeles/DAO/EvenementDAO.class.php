@@ -16,8 +16,9 @@ class EvenementDAO extends DAO{
         throw new Exception("L'id de l'evenement doit être valide");
 
     //Requete SQL
-    $stmt = $this->cnx->prepare("SELECT * FROM Evenement WHERE Id_E = :id LIMIT 1");
-    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt = $this->cnx->prepare("SELECT * FROM Evenement, Acces WHERE Evenement.id_E = Acces.id_E AND Acces.id_U = :idU AND Id_E = :idE");
+    $stmt->bindValue(':idU', $id, PDO::PARAM_INT);
+    $stmt->bindValue(':idE', $_SESSION['user_id'], PDO::PARAM_INT);
     $stmt->execute();
     $ligne = $stmt->fetch(PDO::FETCH_OBJ);
     if($ligne){
@@ -58,14 +59,22 @@ class EvenementDAO extends DAO{
     $i = 0;
 
     //Requete SQL
-    $stmt = $this->cnx->prepare("SELECT * FROM Evenement");
+    $stmt = $this->cnx->prepare("SELECT * FROM Evenement, Acces WHERE Evenement.id_E = Acces.id_E AND Acces.id_U = :idU");
+    $stmt->bindValue(':idU', $_SESSION['user_id'], PDO::PARAM_INT);
     $stmt->execute();
     $ligne = $stmt->fetch(PDO::FETCH_OBJ);
 
     while($ligne){
-      $evenements[$i] =  new Evenement(intval($ligne->Id_E), $ligne->Titre_E, $ligne->Description_E, $ligne->DateCreation_E, $ligne->DateHeureFin_E, intval($ligne->Archiver_E), intval($ligne->Id_U), intval($ligne->Id_Em));
-      $i++;
-      $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+
+        $emoticonDAO = new EmoticonDAO();
+        $utilisateurDAO = new UtilisateurDAO();
+
+        $utilisateur = $utilisateurDAO->get(intval($ligne->Id_U));
+        $emoticon = $emoticonDAO->get(intval($ligne->Id_Em));
+
+        $evenements[$i] =  new Evenement(intval($ligne->Id_E), $ligne->Titre_E, $ligne->Description_E, $ligne->DateCreation_E, $ligne->DateHeureFin_E, boolval($ligne->Archiver_E), $utilisateur, $emoticon);
+        $i++;
+        $ligne = $stmt->fetch(PDO::FETCH_OBJ);
     }
 
     return $evenements;

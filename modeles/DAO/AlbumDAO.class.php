@@ -1,6 +1,5 @@
 <?php
 include_once('modeles/DAO/DAO.class.php');
-include_once('modeles/DAO/EvenementDAO.class.php');
 include_once('modeles/Album.class.php');
 
 //Class Album, elle permet de gerer le transfert de donnees entre la
@@ -10,6 +9,7 @@ class AlbumDAO extends DAO{
     DAO::__construct();
   }
 
+  //------------------------------------------- Reception BDD ----------------------------------------------------------
   public function get($id){
 
     if(empty($id) || $id < 0 || !is_int($id) )
@@ -21,23 +21,8 @@ class AlbumDAO extends DAO{
     $stmt->execute();
     $ligne = $stmt->fetch(PDO::FETCH_OBJ);
     if($ligne){
-      //Recuperation de l'Evenement
-      $evenementDAO = new EvenementDAO();
 
-      //On essaye de trouver l'emoticon sinon on transmet l'exception
-      $evenement = $evenementDAO->get(intval($ligne->Id_E));
-
-      //Recuperation de l'utilisateur
-      $utilisateurDAO = new UtilisateurDAO();
-      //On essaye de trouver l'emoticon sinon on transmet l'exception
-      try{
-        $utilisateur = $utilisateurDAO->get(intval($ligne->Id_U));
-      }
-      catch(Exception $e){
-        throw new Exception($e);
-      }
-
-      return new Album(intval($ligne->Id_A), $ligne->Nom_A, $ligne->Description_A, $ligne->DateCreation_A, boolval($ligne->Priver_A), $ligne->Visuel_A, $evenement, $utilisateur);
+      return new Album(intval($ligne->Id_A), $ligne->Nom_A, $ligne->Description_A, $ligne->DateCreation_A, boolval($ligne->Priver_A), $ligne->Visuel_A, intval($ligne->Id_E), intval($ligne->Id_U));
     }
     else{
       throw new Exception("L'album n'a pas était trouvé");
@@ -55,37 +40,43 @@ class AlbumDAO extends DAO{
     $ligne = $stmt->fetch(PDO::FETCH_OBJ);
     if($ligne){
         while($ligne){
-          $albums[$i] =  new Album(intval($ligne->Id_A), $ligne->Nom_A, $ligne->Description_A, $ligne->DateCreation_A, boolval($ligne->Priver_A), $ligne->Visuel_A, intval($ligne->Id_E), intval($ligne->Id_U) );
-          $i++;
-          $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+
+            $albums[$i] =  new Album(intval($ligne->Id_A), $ligne->Nom_A, $ligne->Description_A, $ligne->DateCreation_A, boolval($ligne->Priver_A), $ligne->Visuel_A, $ligne->Id_E, $ligne->Id_U);
+            $i++;
+            $ligne = $stmt->fetch(PDO::FETCH_OBJ);
         }
         return $albums;
     }
     else{return false;}
   }
 
+  //-------------------------------------------- Envoi BDD -------------------------------------------------------------
   //La function set permet de modifier la BDD
   public function set($album){
-    //Verif de la variable $album
-    if($album == null || !is_object($album)){
-      return false;
-    }
 
-    //requete SQL
-    $stmt = $this->cnx->prepare("UPDATE Album SET Nom_A= :nom, Description_A = :description, DateCreation_A = :dateCreation, Priver_A= :priver, Visuel_A= :visuel, Id_E= :idE, Id_U= :idU WHERE Id_A = :id");
-    $stmt->bindValue(':nom', $album->getNom(), PDO::PARAM_STR);
-    $stmt->bindValue(':description', $album->getDescription(), PDO::PARAM_STR);
-    $stmt->bindValue(':dateCreation', $album->getDateCreation(), PDO::PARAM_STR);
-    $stmt->bindValue(':priver', $album->getPriver(), PDO::PARAM_INT);
-    $stmt->bindValue(':visuel', $album->getVisuel(), PDO::PARAM_STR);
-    $stmt->bindValue(':idE', intval($album->getIdEvenement()), PDO::PARAM_INT);
-    $stmt->bindValue(':idU', intval($album->getIdUtilisateur()), PDO::PARAM_INT);
-    $stmt->bindValue(':id', intval($album->getId()), PDO::PARAM_INT);
-    $stmt->execute();
+      if($album == null || get_class($album) != "Album")
+          return false;
+
+
+      //requete SQL
+      $stmt = $this->cnx->prepare("UPDATE Album SET Nom_A= :nom, Description_A = :description, DateCreation_A = :dateCreation, Priver_A= :priver, Visuel_A= :visuel, Id_E= :idE, Id_U= :idU WHERE Id_A = :id");
+      $stmt->bindValue(':nom', $album->getNom(), PDO::PARAM_STR);
+      $stmt->bindValue(':description', $album->getDescription(), PDO::PARAM_STR);
+      $stmt->bindValue(':dateCreation', $album->getDateCreation(), PDO::PARAM_STR);
+      $stmt->bindValue(':priver', $album->getPriver(), PDO::PARAM_INT);
+      $stmt->bindValue(':visuel', $album->getVisuel(), PDO::PARAM_STR);
+      $stmt->bindValue(':idE', intval($album->getIdE()), PDO::PARAM_INT);
+      $stmt->bindValue(':idU', intval($album->getIdU()), PDO::PARAM_INT);
+      $stmt->bindValue(':id', intval($album->getId()), PDO::PARAM_INT);
+      return $stmt->execute();
+
   }
 
   public function add($album){
-    if($album != null && is_object($album)){
+
+      if($album == null || get_class($album) != "Album")
+          return false;
+
 
       //requete SQL
       $stmt = $this->cnx->prepare("INSERT INTO Album (Id_A, Nom_A, Description_A, DateCreation_A, Priver_A, Visuel_A, Id_E, Id_U) VALUES ( :id, :nom, :description, :dateCreation, :priver, :visuel, :idE, :idU)");
@@ -94,11 +85,10 @@ class AlbumDAO extends DAO{
       $stmt->bindValue(':dateCreation', $album->getDateCreation(), PDO::PARAM_STR);
       $stmt->bindValue(':priver', boolval($album->getPriver()), PDO::PARAM_INT);
       $stmt->bindValue(':visuel', $album->getVisuel(), PDO::PARAM_STR);
-      $stmt->bindValue(':idE', intval($album->getIdEvenement()), PDO::PARAM_INT);
-      $stmt->bindValue(':idU', intval($album->getIdUtilisateur()), PDO::PARAM_INT);
+      $stmt->bindValue(':idE', intval($album->getIdE()), PDO::PARAM_INT);
+      $stmt->bindValue(':idU', intval($album->getIdU()), PDO::PARAM_INT);
       $stmt->bindValue(':id', intval($album->getId()), PDO::PARAM_INT);
-      $stmt->execute();
-    }
+      return $stmt->execute();
   }
 
   public function delete($id){

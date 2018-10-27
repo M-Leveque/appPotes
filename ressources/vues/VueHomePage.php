@@ -14,61 +14,19 @@
 
 		<a href="?action=Photos&Album=1">
 			<div id="album-com" class="album">
-				<img src="ressources/img/vignettes/pic-1.jpg" alt="vignette de l'album commun">
+				<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album commun">
 				<p>Album commun 📦</p>
 			</div>
 		</a>
 
 		<!-- GRID ALBUMS -->
 		<div class="grid-album">
-			<a href="#">
-				<div class="album album-grid">
-					<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
-					<p>Titre 🖕</p>
-				</div>
-			</a>
-
-			<a href="#">
-				<div class="album album-grid">
-					<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
-					<p>Titre 🖕</p>
-				</div>
-			</a>
-
-			<a href="#">
-				<div class="album album-grid">
-					<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
-					<p>Titre 🖕</p>
-				</div>
-			</a>
-
-			<a href="#">
-				<div class="album album-grid">
-					<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
-					<p>Titre 🖕</p>
-				</div>
-			</a>
-
-			<a href="#">
-				<div class="album album-grid">
-					<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
-					<p>Titre 🖕</p>
-				</div>
-			</a>
-
-			<a href="#">
-				<div class="album album-grid">
-					<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
-					<p>Titre 🖕</p>
-				</div>
-			</a>
-
-			<a href="#">
-				<div class="album album-grid">
-					<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
-					<p>Titre 🖕</p>
-				</div>
-			</a>
+            <a href="#">
+                <div class="album album-grid">
+                    <img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
+                    <p>Titre 🖕</p>
+                </div>
+            </a>
 		</div>
 	</section>
 
@@ -83,73 +41,22 @@
 		</a>
 
 		<!-- GRID EVENEMENTS -->
-		<a class="even" href="#">
-			<div class="content-even">
-				<span>🎁</span>
+        <a class="even" href="#">
+            <div class="content-even">
+                <span>🎁</span>
 
-				<div class="desc-even">
-					<h6>Anniversaire Bastien</h6>
-					<p>Déscription événement Sp cum ducibus est civitas memoriam crudelitatem.</p>
-				</div>
+                <div class="desc-even">
+                    <h6>Vacance 2018</h6>
+                    <p>Randonnées dans les alpes</p>
+                </div>
 
-				<div class="date-even">
-					<p>VEN</p>
-					<span>14</span>
-					<p>JUIN</p>
-				</div>
-			</div>
-		</a>
-
-		<a class="even" href="#">
-			<div class="content-even">
-				<span>🎁</span>
-
-				<div class="desc-even">
-					<h6>Titre événement</h6>
-					<p>Déscription événement</p>
-				</div>
-
-				<div class="date-even">
-					<p>JOUR</p>
-					<span>00</span>
-					<p>MOIS</p>
-				</div>
-			</div>
-		</a>
-
-		<a class="even" href="#">
-			<div class="content-even">
-				<span>🎁</span>
-
-				<div class="desc-even">
-					<h6>Titre événement</h6>
-					<p>Déscription événement</p>
-				</div>
-
-				<div class="date-even">
-					<p>JOUR</p>
-					<span>00</span>
-					<p>MOIS</p>
-				</div>
-			</div>
-		</a>
-
-		<a class="even" href="#">
-			<div class="content-even">
-				<span>🎁</span>
-
-				<div class="desc-even">
-					<h6>Titre événement</h6>
-					<p>Déscription événement</p>
-				</div>
-
-				<div class="date-even">
-					<p>JOUR</p>
-					<span>00</span>
-					<p>MOIS</p>
-				</div>
-			</div>
-		</a>
+                <div class="date-even">
+                    <p>JOUR</p>
+                    <span>00</span>
+                    <p>MOIS</p>
+                </div>
+            </div>
+        </a>
 	</section>
 
 	<!-- CAGNOTTES -->

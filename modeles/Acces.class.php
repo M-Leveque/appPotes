@@ -5,54 +5,44 @@
 
 class Acces
 {
-  private $_Utilisateur;
-  private $_Evenement;
+  private $_IdU;
+  private $_IdE;
 
-  public function __construct($utilisateur, $evenement){
-    $this->setUtilisateur($utilisateur);
-    $this->setEvenement($evenement);
+  public function __construct($idU, $idE){
+    $this->setIdU($idU);
+    $this->setIdE($idE);
   }
 
-  public function getUtilisateur(){
-    return $this->_Utilisateur;
+  public function getIdU(){
+    return $this->_IdU;
   }
 
-  public function getEvenement(){
-    return $this->_Evenement;
+  public function getIdE(){
+    return $this->_IdE;
   }
 
-  public function setUtilisateur($utilisateur){
-    try{
-      if(get_Class($utilisateur) == "Utilisateur"){
-        $this->_Utilisateur = $utilisateur;
-      }
-      else{
-        throw new Exception("L'object doit être une instance de la class Utilisateur");
-      }
-    }
-    catch(Exception $e){
-      throw new Exception("Vous devez passer un objet en parametre");
-    }
+  public function setIdU($idU){
+
+      if(is_int($idU) && $idU >= 0)
+        $this->_IdU = $idU;
+      else
+          throw new Exception("L'id Utilisateur doit être un integer > 0");
+
   }
 
-  public function setEvenement($evenement){
-    try{
-      if(get_Class($evenement) == "Evenement"){
-        $this->_Evenement = $evenement;
-      }
-      else{
-        throw new Exception("L'object doit être une instance de la class Evenement");
-      }
-    }
-    catch(Exception $e){
-      throw new Exception("Vous devez passer un objet en parametre");
-    }
+  public function setIdE($idE){
+
+      if(is_int($idE) && $idE >= 0)
+        $this->_IdE = $idE;
+      else
+          throw new Exception("L'id Evenement doit être un integer > 0");
+
   }
 
   public function toString(){
     $msg = "Acces :<br>";
-    $msg .= "Utilisateur : ".$this->_Utilisateur."<br>";
-    $msg .= "Evenement : ".$this->_Evenement."<br>";
+    $msg .= "Utilisateur : ".$this->_IdU."<br>";
+    $msg .= "Evenement : ".$this->_IdE."<br>";
 
     return $msg;
   }

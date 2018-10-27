@@ -13,11 +13,11 @@ class Album
     private $_DateCreation;
     private $_Priver;
     private $_Visuel;
-    private $_Evenement;
-    private $_Utilisateur;
+    private $_IdE;
+    private $_IdU;
 
     //Constructeurs
-    public function __construct($id, $nom, $description, $dateCreation, $priver, $visuel, $evenement, $utilisateur){
+    public function __construct($id, $nom, $description, $dateCreation, $priver, $visuel, $idE, $idU){
 
       $this->setId($id);
       $this->setNom($nom);
@@ -25,8 +25,8 @@ class Album
       $this->setDateCreation($dateCreation);
       $this->setPriver($priver);
       $this->setvisuel($visuel);
-      $this->setEvenement($evenement);
-      $this->setUtilisateur($utilisateur);
+      $this->setidE($idE);
+      $this->setIdU($idU);
     }
 
     //Getteurs
@@ -55,101 +55,85 @@ class Album
         return $this->_Visuel;
     }
 
-    public function getEvenement(){
-        return $this->_Evenement;
+    public function getIdE(){
+        return $this->_IdE;
     }
 
-    public function getUtilisateur(){
-        return $this->_Utilisateur;
+    public function getIdU(){
+        return $this->_IdU;
     }
 
     //Setteurs
 
     public function setId($id){
-      //Verif variable $id
-      if(isset($id) && is_int($id) && $id >= 0){
+
+      if(isset($id) && is_int($id) && $id >= 0)
         $this->_Id = $id;
-      }
-      else{
+      else
         throw new Exception("L'id doit être un integer > 0 non null");
-      }
 
     }
 
     public function setNom($nom){
-      //Verif variable $titre
-      if(is_string($nom) && strlen($nom) <= 50 && isset($nom)){
+
+      if(is_string($nom) && strlen($nom) <= 50 && isset($nom))
         $this->_Nom = $nom;
-      }
-      else{
+      else
         throw new Exception("Le Nom doit être une chaine de caracteres > 50 non null");
-      }
+
     }
 
     public function setDescription($description){
-      if(is_string($description) && strlen($description) <= 255 && isset($description)){
+
+      if(is_string($description) && strlen($description) <= 255 && isset($description))
         $this->_Desciption = $description;
-      }
-      else{
+      else
         throw new Exception("La description n'est pas valid");
-      }
+
     }
 
     public function setDateCreation($dateCreation){
-      if(isset($dateCreation) && Outils::estUneDateValide($dateCreation)){
+
+      if(isset($dateCreation) && Outils::estUneDateValide($dateCreation))
         $this->_DateCreation = $dateCreation;
-      }
-      else{
+      else
         throw new Exception("La date de creation doit être une date valide non null");
-      }
+
     }
 
     public function setPriver($priver){
-      //Verif variable $titre
-      if(isset($priver) && is_bool($priver)){
+
+      if(isset($priver) && is_bool($priver))
         $this->_Priver = $priver;
-      }
-      else{
+      else
         throw new Exception("L'attribut priver doit être un booléen");
-      }
+
     }
 
     public function setvisuel($visuel){
-      //Verif variable $titre
-      if(is_string($visuel) && strlen($visuel) <= 255){
+
+      if(is_string($visuel) && strlen($visuel) <= 255)
         $this->_Visuel = $visuel;
-      }
-      else{
+      else
         throw new Exception("L'id doit être un integer > 0 non null");
-      }
+
     }
 
-    public function setEvenement($evenement){
-      try{
-        if(get_class($evenement) == "Evenement"){
-          $this->_Evenement = $evenement;
-        }
-        else{
-          throw new Exception("L'evenement doit être une instance de la class evenement");
-        }
-      }
-      catch(Exception $e){
-        throw new Exception($e);
-      }
+    public function setIdE($idE){
+
+        if(is_int($idE) && $idE >= 0)
+          $this->_IdE = $idE;
+        else
+            throw new Exception("L'id Evenement doit être un integer > 0");
+
     }
 
-    public function setUtilisateur($utilisateur){
-      try{
-        if(get_class($utilisateur) == "Utilisateur"){
-            $this->_Utilisateur = $utilisateur;
-        }
-        else{
-          throw new Exception("L'attribut utilisateur n'est pas une instance de la class Utilisateur");
-        }
-      }
-      catch(Exception $e){
-        throw new Exception($e);
-      }
+    public function setIdU($idU){
+
+        if(is_int($idU) && $idU >= 0)
+            $this->_IdU = $idU;
+        else
+            throw new Exception("L'id Utilisateur doit être un integer > 0");
     }
 
     //------------------------------
@@ -162,8 +146,8 @@ class Album
         $msg .= "nom : ".$this->_Nom."<br>";
         $msg .= "priver : ".$this->_Priver."<br>";
         $msg .= "visuel : ".$this->_Visuel."<br>";
-        $msg .= "idE : ".$this->_Evenement."<br>";
-        $msg .= "idU : ".$this->_Utilisteur."<br>";
+        $msg .= "idE : ".$this->_IdE."<br>";
+        $msg .= "idU : ".$this->_IdU."<br>";
 
         return $msg;
     }

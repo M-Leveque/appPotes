@@ -1,6 +1,8 @@
 <?php
-require_once ('DAO.class.php');
-require_once ('../Acces.class.php');
+include_once ('modeles/DAO/DAO.class.php');
+include_once ('modeles/Acces.class.php');
+include_once ('modeles/DAO/UtilisateurDAO.class.php');
+include_once ('modeles/DAO/EvenementDAO.class.php');
 
 //Class AccesDAO, elle permet de gerer le transfert de donnees entre la
 //bdd et l'application.
@@ -23,8 +25,14 @@ class AccesDAO extends DAO{
       $stmt->execute();
       $result = $stmt->fetch(PDO::FETCH_OBJ);
 
+      $utilisateurDAO = new UtilisateurDAO();
+      $evenementDAO = new EvenemenentDAO();
+
+      $evenement = $evenementDAO->get(intVal($result->Id_E));
+      $utilisateur = $utilisateurDAO->get(intVal($result->Id_U));
+
       while($result){
-        $acces[$i] =  new Acces(intVal($result->Id_U), intVal($result->Id_E));
+        $acces[$i] =  new Acces($utilisateur, $evenement);
         $i++;
         $result = $stmt->fetch(PDO::FETCH_OBJ);
       }
@@ -34,12 +42,18 @@ class AccesDAO extends DAO{
   }
 
   //Defini un acces a un evenement
-  public function add($idU, $idE){
-    if($idU != null && $idU > 0 && is_int($idU) && $idE != null && $idE > 0 && is_int($idE) ){
+  public function add($utilisateur, $evenement){
+
+      if($utilisateur == null || get_class($utilisateur) != "Utilisateur"){
+          throw new Exception("Utilisateur invalid");
+      }
+      elseif($evenement == null || get_class($evenement) != "Evenement"){
+          throw new Exception("Evenement invalid");
+      }
 
       $stmt = $this->cnx->prepare(" INSERT INTO Acces(Id_U, Id_E) VALUES (:idU, :idE) ");
-      $stmt->bindValue(":idU", $idU, PDO::PARAM_INT);
-      $stmt->bindValue(":idE", $idE, PDO::PARAM_INT);
+      $stmt->bindValue(":idU", $utilisateur->getId(), PDO::PARAM_INT);
+      $stmt->bindValue(":idE", $evenement->getId(), PDO::PARAM_INT);
 
       if ($stmt->execute()){
         return true;

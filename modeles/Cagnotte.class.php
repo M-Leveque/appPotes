@@ -13,15 +13,15 @@ class Cagnotte
     private $_Description;
     private $_DateHeureFin;
     private $_ArgentR;
-    private $_Evenement;
+    private $_IdE;
 
-    public function __construct($id, $titre, $description, $dateHeureFin, $argentR, $evenement){
+    public function __construct($id, $titre, $description, $dateHeureFin, $argentR, $idE){
       $this->setId($id);
       $this->setTitre($titre);
       $this->setDescription($description);
       $this->setDateHeureFin($dateHeureFin);
       $this->setArgentR($argentR);
-      $this->setEvenement($evenement);
+      $this->setIdE($idE);
     }
 
     //-------------------------------
@@ -48,8 +48,8 @@ class Cagnotte
       return $this->_ArgentR;
     }
 
-    public function getEvenement(){
-      return $this->_Evenement;
+    public function getIdE(){
+      return $this->_IdE;
     }
 
     //-------------------------------
@@ -106,18 +106,13 @@ class Cagnotte
       }
     }
 
-    public function setEvenement($evenement){
-      try{
-        if(isset($evenement) && get_class($evenement) == "Evenement"){
-          $this->_Evenement = $evenement;
+    public function setIdE($idE){
+        if(is_int($idE) && $idE >= 0){
+          $this->_IdE = $idE;
         }
         else{
-          throw new Exception("L'evenement doit être non null et une intance de la classe evenement");
+          throw new Exception("L'id Evenement doit être un integer > 0");
         }
-      }
-      catch(Exception $e){
-        throw new Exception($e);
-      }
     }
 
 
@@ -132,7 +127,7 @@ class Cagnotte
         $msg .= "description : ".$this->_Description."<br>";
         $msg .= "date et heure de fin : ".$this->_DateHeureFin."<br>";
         $msg .= "Argent récolté : ".$this->_ArgentR."<br>";
-        $msg .= "Evenement : ".$this->_Evenement."<br>";
+        $msg .= "Evenement : ".$this->_IdE."<br>";
 
         return $msg;
     }
