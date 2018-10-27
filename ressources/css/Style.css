@@ -3,13 +3,9 @@
 /*-----------------------
 	GENERAL STYLE
 ------------------------*/
-body {
-	background-color: #191919;
-}
+body {background-color: #191919;}
 
-main {
-	margin-left: 14.11vw;
-}
+main {margin-left: 14.11vw;}
 
 a {
 	color: white;
@@ -368,3 +364,31 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', end
 #content-cagn .content-cagn {
 	margin-bottom: 3.64vw;
 }
+
+/*-----------------------
+	COMPTE STYLE
+------------------------*/
+#content-compte {
+	display: flex;
+	align-items: center;
+}
+
+.profil-pic {
+	width: 6vw; height: 6vw;
+	margin-right: 3.75VW;
+	padding: 1px;
+}
+
+.profil-pic img {
+	width: 6vw; height: 6vw;
+	object-fit: cover;
+	border-radius: 100%;
+}
+
+.profil-opt {
+	display: flex;
+	flex-direction: column;
+}
+
+.icon-down::before {content: "\ea0e"}
+.icon-sitting::before {content: "\ea1a";}
