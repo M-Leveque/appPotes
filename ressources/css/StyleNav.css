@@ -43,7 +43,7 @@ nav span:hover {
 	text-decoration: underline;
 }
 
-a .icon {
+a .icon, .icon-btn {
 	margin-right: 13px;
 	font-size: 2vw;
 }
@@ -79,7 +79,7 @@ a .icon {
 	MENU AJOUT
 ------------------------*/
 #add-menu {
-	z-index: 1;
+	z-index: 999;
 	width: 19.16vw; height: 100vh;
 	margin-left: 10.15vw;
 	position: fixed;
@@ -138,7 +138,7 @@ box-shadow: 3px 0px 10px 0px rgba(0,0,0,1);
 box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
 }
 
-#add-menu .icon {
+#add-menu .icon, .icon-btn {
 	width: 6vw; height: 6vw;
 	margin: 0 auto;
 	display: flex;
@@ -158,7 +158,6 @@ box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
 	RESPONSIVE
 -----------------------------------------------*/
 @media screen and (max-width: 1200px) {
-
 
 	nav ul span {
 		display: none;
