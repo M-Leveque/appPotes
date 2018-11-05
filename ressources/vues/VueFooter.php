@@ -12,4 +12,6 @@
 <script src="ressources/js/toggle.js"></script>
 <script src="ressources/js/anim-icon.js"></script>
 <!-- GALERIE PHOTOS -->
+<!-- TAB -->
+<script src="ressources/js/tab.js"></script>
 </html>
