@@ -1,6 +1,6 @@
 <?php
-require_once('modeles/src/DAO/DAO.class.php');
-require_once('modeles/src/Cagnotte.class.php');
+require_once('modeles/DAO/DAO.class.php');
+require_once('modeles/Cagnotte.class.php');
 
 //Class Cagnotte, elle permet de gerer le transfert de donnees entre la
 //bdd et l'application.

@@ -16,7 +16,7 @@ class AlbumDAOTest extends TestCase
         $albumDAO = new AlbumDAO();
         $album = $albumDAO->get(1);
         try{
-            $albumAttendu = new Album(1, "Album Commun", "Photos communs", "2018-05-02", false, "ressources/img/vignettes/pic-2.jpg", 1, 1);
+            $albumAttendu = new Album(1, "Vacance 2018", "Album des vacances de 2018", "2018-05-02", false, "ressources/img/vignettes/pic-2.jpg", 1, 1);
         }
         catch(Exception $e){
             echo "Erreur lors de la création de l'album : ".$e;
@@ -55,5 +55,18 @@ class AlbumDAOTest extends TestCase
     public function testGetInf0Exception(){
         $albumDAO = new AlbumDAO();
         $albumDAO->get(-25);
+    }
+
+    public function testGetInfosBase(){
+        $albumDAO = new AlbumDAO();
+        $infos = $albumDAO->getInfosBase();
+        $infosAttendu = array(array(1, "Vacance 2018", "ressources/img/vignettes/pic-2.jpg"), array(2, "Soirée anniversaire", "ressources/img/vignettes/pic-1.jpg"));
+
+        $this->assertSame($infosAttendu[0][0], $infos[0][0]);
+        $this->assertSame($infosAttendu[0][1], $infos[0][1]);
+        $this->assertSame($infosAttendu[0][2], $infos[0][2]);
+        $this->assertSame($infosAttendu[1][0], $infos[1][0]);
+        $this->assertSame($infosAttendu[1][1], $infos[1][1]);
+        $this->assertSame($infosAttendu[1][2], $infos[1][2]);
     }
 }

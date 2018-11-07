@@ -10,6 +10,33 @@ class AlbumDAO extends DAO{
   }
 
   //------------------------------------------- Reception BDD ----------------------------------------------------------
+
+  //Return le nom et l'image des albums
+  public function getInfosBase(){
+
+      //initialisation compteur
+
+      $infos = [];
+
+      //Requete SQL
+      $stmt = $this->cnx->prepare("SELECT Id_A, Nom_A, Visuel_A FROM Album");
+      $stmt->execute();
+      $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+
+      if($ligne){
+          $i = 0;
+
+          while($ligne){
+
+              $infos[$i] = array(intval($ligne->Id_A), $ligne->Nom_A, $ligne->Visuel_A);
+              $i++;
+              $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+          }
+          return $infos;
+      }
+      else{return false;}
+  }
+
   public function get($id){
 
     if(empty($id) || $id < 0 || !is_int($id) )

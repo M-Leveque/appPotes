@@ -12,22 +12,12 @@
 			</div>
 		</a>
 
-		<a href="?action=Photos&Album=1">
-			<div id="album-com" class="album">
-				<img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album commun">
-				<p>Album commun 📦</p>
-			</div>
-		</a>
+        <?php echo $albumCommun ?>
 
 		<!-- GRID ALBUMS -->
-		<div class="grid-album">
-            <a href="#">
-                <div class="album album-grid">
-                    <img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
-                    <p>Titre 🖕</p>
-                </div>
-            </a>
-		</div>
+        <div class="grid-album">
+            <?php echo $albums ?>
+        </div>
 	</section>
 
 	<!-- EVENEMENTS -->
