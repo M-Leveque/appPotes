@@ -39,6 +39,9 @@ if($niveauUtilisateur === 1 || $niveauUtilisateur === 2){
 		case 'Compte': {
 				include_once ('controleurs/CtrlCompte.php'); break;
 		}
+        case 'OptionCompte' :{
+            include_once ('controleurs/CtrlOptionCompte.php'); break;
+        }
 		case 'Connexion': {
 				include_once ('controleurs/CtrlConnexion.php'); break;
 		}

@@ -1,5 +1,4 @@
 /* CSS Document */
-
 /*-----------------------
 	GENERAL STYLE
 ------------------------*/
@@ -14,6 +13,10 @@ a {
 
 p {
 	margin: 0px;
+}
+
+button {
+	cursor: pointer;
 }
 
 /* EFFECT */
@@ -376,6 +379,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', end
 
 .info-compte {
 	height: 179px;
+	margin-bottom: 9.32vw;
 	display: flex;
 	align-items: center;
 }
@@ -404,6 +408,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', end
 /* Catégorie compte */
 .cat-compte {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 }
 
@@ -414,8 +419,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', end
 }
 
 .content-cat {
+	width: 95%;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 }
 
 .tab button {
@@ -427,4 +434,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', end
 
 .tabcontent {
 	display: none;
+	background-color: ;
 }
+
+/*-----------------------
+	OPTION PROFIL STYLE
+------------------------*/
+#content-optprofil {
+	display: flex;
+	flex-direction: column;
+}
+
+/* commit */
