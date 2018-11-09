@@ -19,6 +19,7 @@ foreach ($albumsInfos as $albumInfo){
     }
 }
 
+//Evenement -> Jour (lundi,mardi..), 00 (05), mois (janvier, ... ,decembre)
 
 include_once('ressources/vues/VueHeader.php');
 include_once('ressources/vues/VueNav.php');
