@@ -1,7 +1,6 @@
 <?php
 include_once ('modeles/DAO/DAO.class.php');
 include_once ('modeles/DAO/UtilisateurDAO.class.php');
-include_once ('modeles/DAO/EmoticonDAO.class.php');
 include_once ('modeles/Evenement.class.php');
 
 //Class Evenement, elle permet de gerer le transfert de donnees entre la

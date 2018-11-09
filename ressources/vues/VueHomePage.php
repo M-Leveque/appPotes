@@ -5,7 +5,7 @@
 	<!-- DERNIERS ALBUMS -->
 	<section>
 		<!-- title -->
-		<a href="#">
+		<a href="?action=Albums">
 			<div class=" title">
 				<h2>Derniers<br>Albums</h2>
 				<span class="icon icon-arrow-26"></span>
@@ -31,7 +31,7 @@
 		</a>
 
 		<!-- GRID EVENEMENTS -->
-        <a class="even" href="#">
+        <a class="even" href="?action=Evenements">
             <div class="content-even">
                 <span>🎁</span>
 
@@ -52,7 +52,7 @@
 	<!-- CAGNOTTES -->
 	<section>
 		<!-- title -->
-		<a href="#">
+		<a href="?action=Cagnottes">
 			<div class="title title-section">
 				<h2>Cagnottes</h2>
 				<span class="icon icon-arrow-26"></span>

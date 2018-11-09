@@ -39,7 +39,7 @@
 				</div>
 			</div>
 
-			<div id="Tokyo" id="profil-cagn" class="tabcontent">
+			<div id="Paris" id="profil-cagn" class="tabcontent">
                 <a class="tab-btn" href="#"><i>Test 3</i></a>
 
 				<div>
