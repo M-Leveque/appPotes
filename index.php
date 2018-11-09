@@ -11,7 +11,9 @@ if ( isset ($_SESSION['user_type'])) $niveauUtilisateur = $_SESSION['user_type']
 // lors d'une premiere connexion, ou apres une deconnexion, on initialise a vide les variables de session
 
 if ($action == 'Deconnecter')
-{	unset ($_SESSION['id']);
+{	unset ($_SESSION['user_id']);
+    unset ($_SESSION['user_type']);
+    unset ($_SESSION['username']);
 	header("Location: index.php");
 }
 

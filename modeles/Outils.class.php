@@ -181,7 +181,7 @@ class Outils
 	}
 
 	// fournit true si $laDateAvalider est une date valide (format aaaa-mm-jj), false sinon
-	public static function estUneDateValide ($laDateAvalider)
+	public static function estUneDateValide($laDateAvalider)
 	{
 		// on retourne false si la date est vide :
 		if ( $laDateAvalider == "" ) return false;

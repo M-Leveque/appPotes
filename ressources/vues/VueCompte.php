@@ -10,7 +10,7 @@
 		</div>
 
 		<div class="profil-opt">
-			<a class="icon icon-down" href="#"></a>
+			<a class="icon icon-down" href="?action=Deconnecter"></a>
 			<a class="icon icon-sitting" href="?action=OptionCompte"></a>
 		</div>
 	</section>
