@@ -56,6 +56,11 @@
 	max-width: 60.88vw;
 }
 
+/* ombres textes */
+#header-pic span, #header-pic h1, #header-pic p {
+	text-shadow: 0px 3px 6px rgba(0,0,0,0.45);
+}
+
 #header-pic button {
 	width: 14.11vw; height: 3.69vw;
 	margin-right: 5.05vw;
