@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 // NOM BOUTON AJOUT //
 $(document).ready(function(){
-$("button").click(function() {
+$("#menu").click(function() {
   $(".btn-add").toggle();
 	});
 });

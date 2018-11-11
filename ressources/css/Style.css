@@ -2,7 +2,10 @@
 /*-----------------------
 	GENERAL STYLE
 ------------------------*/
-body {background-color: #191919;}
+body {
+	color: #FFFFFF;
+	background-color: #191919;
+}
 
 main {margin-left: 14.11vw;}
 
@@ -11,12 +14,33 @@ a {
 	text-decoration: none;
 }
 
-p {
-	margin: 0px;
+p {margin: 0px;}
+
+input {
+	font-size: 1.04vw;
+	font-family: 'Trueno';
+	font-weight: 300;
+	font-style: italic;
+	color: #FFFFFF;
+	border-bottom: solid 1px #FFFFFF;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	background: none;
+	outline: none;
+
 }
 
 button {
 	cursor: pointer;
+	background: none;
+	border: none;
+}
+
+/* CLASS */
+.btn-page {
+	width: 11.145vw; height: 2.65vw;
+	color: #FFFFFF;
 }
 
 /* EFFECT */
@@ -24,7 +48,8 @@ button {
 .album,
 .even,
 .content-cagn button,
-#header-pic button {
+#header-pic button,
+.btn-page {
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
@@ -40,7 +65,8 @@ button {
 .album:hover, .album:focus, .album:active,
 .even:hover, .even:focus, .even:active,
 .content-cagn button:hover, .content-cagn button:focus , .content-cagn button:active,
-#header-pic button:hover, #header-pic button:focus, #header-pic button:active {
+#header-pic button:hover, #header-pic button:focus, #header-pic button:active,
+.btn-page:hover, .button:focus, .button:active {
 	-webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
@@ -58,9 +84,9 @@ button {
   -moz-osx-font-smoothing: grayscale;
 	color: white;
 }
-/*--------------------------------------------------------------------
+/*---------------------------------------------------------------------------------------------------
 	HOMEPAGE
-------------------------*/
+---------------------------------------------------------------------------------------------------*/
 #content-home {
 	display: flex;
 	flex-direction: row;
@@ -136,17 +162,23 @@ box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
 }
 
 #album-com {
-	width: 25.26vw; height: 10.26vw; 
+	width: 25.26vw; height: 10.26vw;
 }
 
 .grid-album {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	flex-wrap: wrap;
 	align-items: center;
 }
 
-.album-grid { width: 11.14vw; height: 11.14vw; }
+.grid-album a {
+	margin-right: 35px;
+}
+
+.album-grid {
+	width: 11.14vw; height: 11.14vw;
+}
 
 /*-----------------------
 	SECTION EVENEMENTS
@@ -368,6 +400,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', end
 	margin-bottom: 3.64vw;
 }
 
+/*---------------------------------------------------------------------------------------------------
+	PAGES COMPTE / PAGES OPTION-COMPTE / POPUP MOT DE PASSE
+---------------------------------------------------------------------------------------------------*/
 /*-----------------------
 	COMPTE STYLE
 ------------------------*/
@@ -405,8 +440,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', end
 .icon-down::before {content: "\ea0e"; color: #A3A3A3;}
 .icon-sitting::before {content: "\ea1a"; color: #A3A3A3;}
 
-/* Catégorie compte */
-.cat-compte {
+/* Table Compte */
+.tab-compte {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -414,34 +449,140 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', end
 
 .tab {
 	width: 100%;
+	height: 40px;
 	display: flex;
 	justify-content: space-around;
 }
 
-.content-cat {
+.content-tab {
 	width: 95%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
 
-.tab button {
-	cursor: pointer;
-	border: none;
+.tablinks {
+	padding: 10px;
 	color: #FFFFFF;
-	background: none;
+}
+
+.tablinks.active {
+	border-bottom: solid 2px #FFFFFF;
+}
+
+.tablinks:hover {
+	border-bottom: solid 2px #FFFFFF;
 }
 
 .tabcontent {
 	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.btn-tab {
+	width: 19.16vw; height: 3.9vw;
+	margin: 50px 0 100px 0;
+	display: inline-block;
+	text-align: center;
+	text-decoration: underline;
+	border-radius: 10px;
+	background-color: #1D1D1D;
 }
 
 /*-----------------------
-	OPTION PROFIL STYLE
+	OPTION COMPTE STYLE
 ------------------------*/
-#content-optprofil {
+#content-optcompte {
+	width: 26.3vw; height: 100%;
+	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
 }
 
-/* commit */
+#content-optcompte .profil-pic {
+	text-align: center;
+}
+
+#content-optcompte .profil-pic img {
+	width: 10VW; height: 10vw;
+}
+
+#content-optcompte .profil-pic button {
+	margin-top: 10px;
+	color: #FFFFFF;
+	font-size: 0.78vw;
+	font-family: 'Trueno';
+	font-weight: 600;
+	font-style: normal;
+}
+
+#content-optcompte span {
+	margin-bottom: 20px;
+	font-size: 1.3vw;
+	font-family: 'Trueno';
+	font-weight: 600;
+	font-style: normal;
+}
+
+#content-optcompte form {
+	width: 100%; height: auto;
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+}
+
+#content-optcompte input {
+	margin-bottom: 5.2vw;
+}
+
+#btn-mp {
+	width: 21.25VW; height: 3.38vw;
+	border: solid 1px #FFFFFF;
+	border-radius: 5px;
+	color: #FFFFFF;
+	font-family: 'Trueno';
+	font-weight: 300;
+	font-style: normal;
+}
+
+/* MODAL CHANGEMENT MOT DE PASSE */
+.modal-mask {
+	position: fixed;
+	z-index: 9998;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .5);
+	display: table;
+	transition: opacity .3s ease;
+}
+
+.modal-container {
+	width: 300px;
+	margin: 0px auto;
+	padding: 20px 30px;
+	background-color: #fff;
+	border-radius: 2px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+	transition: all .3s ease;
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-enter {
+	opacity: 0;
+}
+
+.modal-leave-active {
+	opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}

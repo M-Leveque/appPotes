@@ -1,5 +1,4 @@
 </body>
-
 <!-------------------------------------
 	SCRIPT
 --------------------------------------->
@@ -14,4 +13,6 @@
 <!-- GALERIE PHOTOS -->
 <!-- TAB -->
 <script src="ressources/js/tab.js"></script>
+<!-- MODAL MP -->
+<script src="ressources/js/modal-mp.js"></script>
 </html>
