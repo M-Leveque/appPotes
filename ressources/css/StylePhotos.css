@@ -129,13 +129,13 @@ box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
 .demo-gallery > ul > li a > img {
 	height: 25vw;
 	width: 25vw;
+	object-fit: contain;
 	-webkit-transition: -webkit-transform 0.15s ease 0s;
 	-moz-transition: -moz-transform 0.15s ease 0s;
 	-o-transition: -o-transform 0.15s ease 0s;
 	transition: transform 0.15s ease 0s;
 	-webkit-transform: scale3d(1, 1, 1);
 	transform: scale3d(1, 1, 1);
-	object-fit: contain;
 }
 .demo-gallery > ul > li a:hover > img {
 	-webkit-transform: scale3d(1.1, 1.1, 1.1);
@@ -228,8 +228,13 @@ box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
 /* bouton partage */
 #lg-share {display: none;}
 /* Thumbails */
-.lg .lg-thumb-item {
+.lg-outer .lg-thumb-item {
 	border: none;
 	border-radius: 0px;
+}
+
+.lg-outer .lg-thumb-item.active,
+.lg-outer .lg-thumb-item:hover {
+	border-color: #FFFFFF;
 }
 
