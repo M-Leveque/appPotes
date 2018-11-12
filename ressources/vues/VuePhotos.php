@@ -2,7 +2,7 @@
 	<!-- HEADER ALBUM -->
 	<section id="header-pic">
 		<!-- Vignette album -->
-		<img src="ressources/img/vignettes/pic-2.jpg" alt="photo de l'album">
+		<img src="ressources/img/album/7.jpg" alt="photo de l'album">
 		
 		<!-- Infos album -->
         <div>
