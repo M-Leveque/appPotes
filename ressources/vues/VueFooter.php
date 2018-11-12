@@ -11,6 +11,15 @@
 <script src="ressources/js/toggle.js"></script>
 <script src="ressources/js/anim-icon.js"></script>
 <!-- GALERIE PHOTOS -->
+<script src="ressources/js/gallery/lightgallery.min.js"></script>
+<script src="ressources/js/gallery/lg-fullscreen.min.js"></script>
+<script src="ressources/js/gallery/lg-hash.min.js"></script>
+<script src="ressources/js/gallery/lg-pager.min.js"></script>
+<script src="ressources/js/gallery/lg-zoom.min.js"></script>
+<script src="ressources/js/gallery/lg-thumbnail.min.js"></script>
+<script src="ressources/js/gallery/lg-autoplay.min.js"></script>
+<script src="ressources/js/gallery/lg-gestion.js"></script>
+<script src="ressources/js/gallery/lg-share.min.js"></script>
 <!-- TAB -->
 <script src="ressources/js/tab.js"></script>
 <!-- MODAL MP -->

@@ -17,6 +17,7 @@
 	<!-- Style Photos -->
 <link href="ressources/css/StylePhotos.css" rel="stylesheet" type="text/css">
 	<!-- Style Galerie Photos -->
+<link href="ressources/js/gallery/lightgallery.min.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>

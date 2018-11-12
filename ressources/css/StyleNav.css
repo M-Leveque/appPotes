@@ -1,6 +1,6 @@
 /* CSS Document */
 header {
-	z-index: 9999;
+	z-index: 999;
 	width: 10.15vw; height: 100vh;
 	position: fixed;
 	display: flex;
@@ -79,7 +79,7 @@ a .icon, .icon-btn {
 	MENU AJOUT
 ------------------------*/
 #add-menu {
-	z-index: 999;
+	z-index: 99;
 	width: 19.16vw; height: 100vh;
 	margin-left: 10.15vw;
 	position: fixed;
