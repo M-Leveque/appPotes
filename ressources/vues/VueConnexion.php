@@ -24,21 +24,7 @@
 	</section>
 	
 	<!-- TOGGLE -->
-	<section id="toggle">
+	<section id="toggle-co">
 		<p>test</p>
 	</section>
 </main>
-
-<!-- 
-	SCRIPT
--->
-<!-- toggle -->
-<script src="//code.jquery.com/jquery-1.12.4.js"></script>
-<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
-$(document).ready(function(){
-	$("#open-toggle").click(function() {
-		$("#toggle").toggle("slide");
-	});
-});
-</script>
