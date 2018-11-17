@@ -1,13 +1,13 @@
 @font-face {
-  font-family: 'app_potes';
-  src: url('../fonts/APP_POTES.eot');
-  src: url('../fonts/APP_POTES.eot') format('embedded-opentype'),
-	  url('../fonts/APP_POTES.woff2') format('woff2'),
-	  url('../fonts/APP_POTES.woff') format('woff'),
-	  url('../fonts/APP_POTES.ttf') format('truetype'),
-	  url('../fonts/APP_POTES.svg') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'app_potes';
+    src: url('../fonts/app_potes.eot');
+    src: url('../fonts/app_potes.eot') format('embedded-opentype'),
+    url('../fonts/app_potes.woff2') format('woff2'),
+    url('../fonts/app_potes.woff') format('woff'),
+    url('../fonts/app_potes.ttf') format('truetype'),
+    url('../fonts/app_potes.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 @font-face {

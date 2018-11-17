@@ -1,7 +1,7 @@
 // JavaScript Document
 // INFO CONNEXION //
 $(document).ready(function(){
-    $("#open-toggle").click(function() {
+    $(".open-toggle").click(function() {
         $("#toggle-co").toggle("slide");
     });
 });
@@ -15,7 +15,7 @@ $(document).ready(function(){
 
 // TEXTE BOUTON AJOUT //
 $(document).ready(function(){
-$("#menu").click(function() {
-  $(".btn-add").toggle();
+    $("#menu").click(function() {
+        $(".btn-add").toggle();
 	});
 });

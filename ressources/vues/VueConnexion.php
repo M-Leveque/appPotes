@@ -8,14 +8,14 @@
 			<h1>Bienvenue !</h1>
 			
 			<!-- formulaire connexion -->
-			<form action="index.php?action=Connexion" method="post">
-				<input type="mail" name="ident" placeholder="Adresse mail ">
-				<input type="password" name="mdp" placeholder="Mot de passe ">
-				<input id="btn-form" type="Submit" value="CONNEXION">
+			<form id="form-co" action="index.php?action=Connexion" method="post">
+				<input class="champ-form-co" type="mail" name="ident" placeholder="Adresse mail ">
+				<input class="champ-form-co" type="password" name="mdp" placeholder="Mot de passe ">
+				<input id="btn-form-co" type="Submit" value="CONNEXION">
 			</form>
 			
 			<!-- Open Toggle -->
-			<button id="open-toggle"><u>En savoir plus</u></button>
+			<button class="open-toggle"><u>En savoir plus</u></button>
 		</div>
 	
 		<!-- LEFT LOGIN -->
@@ -25,6 +25,38 @@
 	
 	<!-- TOGGLE -->
 	<section id="toggle-co">
-		<p>test</p>
+		<button class="open-toggle icon-close-two">fermer</button>
+        <!-- article gauche  -->
+        <article>
+            <h2>La web app</h2>
+            <p>Batnae municipium in Anthemusia conditum Macedonum manu priscorum ab Euphrate flumine brevi spatio disparatur, refertum mercatoribus opulentis, ubi annua sollemnitate prope Septembris initium mensis ad nundinas magna promiscuae fortunae convenit multitudo ad commercanda quae Indi mittunt et Seres aliaque plurima vehi terra marique consueta.</p>
+        </article>
+
+        <!-- article droite -->
+        <article>
+            <h2>Réalisation</h2>
+            <div>
+                <span>Le Vagueresse Corantin</span>
+
+                <ul>
+                    <li>Web Designer</li>
+                    <li>Infographiste</li>
+                    <li>Motion Designer</li>
+                </ul>
+            </div>
+
+            <div>
+                <span>Lévêque Melvin</span>
+
+                <ul>
+                    <li>Developpeur Web</li>
+                    <li>Developpeur Application</li>
+                    <li>Developpeur Logiciel</li>
+                    <li>Sécurité informatique</li>
+                </ul>
+            </div>
+        </article>
+
+        <p>Propriété de Le Vagueresse Corantin & Lévêque Melvin. 2018</p>
 	</section>
 </main>

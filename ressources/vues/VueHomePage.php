@@ -23,7 +23,7 @@
 	<!-- EVENEMENTS -->
 	<section>
 		<!-- title -->
-		<a href="#">
+		<a href="?action=Evenements">
 			<div class="title title-section">
 				<h2>Événements</h2>
 				<span class="icon icon-arrow-26"></span>
@@ -31,7 +31,7 @@
 		</a>
 
 		<!-- GRID EVENEMENTS -->
-        <a class="even" href="?action=Evenements">
+        <a class="even" href="?action=InterEvenement">
             <div class="content-even">
                 <span>🎁</span>
 

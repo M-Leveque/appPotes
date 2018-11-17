@@ -1,7 +1,9 @@
 <main id="content-optcompte" id="app">
     <div class="profil-pic">
-        <img src="ressources/img/profile/pic-3.jpg" alt="Votre photo profile">
-        <button><u>modifier</u></button>
+        <a href="#">
+            <img src="ressources/img/profile/pic-3.jpg" alt="Votre photo profile">
+        </a>
+        <button>modifier</button>
     </div>
 
     <form>
@@ -29,8 +31,8 @@
             <modal v-if="showModal" @close="showModal = false">
             </modal>
 
-    <section>
-        <button class="btn-page">Annuler</button>
-        <button class="btn-page">Valider</button>
+    <section class="content-btn-page">
+        <a class="btn-page" href="#"><span>Annuler</span></a>
+        <a class="btn-page" href="#"><span>Valider</span></a>
     </section>
 </main>
