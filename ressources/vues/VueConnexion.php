@@ -9,8 +9,8 @@
 			
 			<!-- formulaire connexion -->
 			<form id="form-co" action="index.php?action=Connexion" method="post">
-				<input class="champ-form-co" type="mail" name="ident" placeholder="Adresse mail ">
-				<input class="champ-form-co" type="password" name="mdp" placeholder="Mot de passe ">
+				<input class="champ-form-co" type="mail" name="ident" placeholder="Adresse mail">
+				<input class="champ-form-co" type="password" name="mdp" placeholder="Mot de passe">
 				<input id="btn-form-co" type="Submit" value="CONNEXION">
 			</form>
 			

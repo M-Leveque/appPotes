@@ -1131,26 +1131,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', end
 	PAGES AJOUT ALBUM / PAGE AJOUT EVENEMENT / PAGE AJOUT CAGNOTTE
 ---------------------------------------------------------------------------------------------------*/
 /*-----------------------
-	PAGE AJOUT ALBUM
+	STYLE GENERAL
 ------------------------*/
-#content-add-album {
-	display: flex;
-	justify-content: space-between;
-}
-
-.content-add-album {
+.content-add {
 	width: 30%; height: 95vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
 
-.content-add-album .title h2 {
+.content-add .title h2 {
 	margin-bottom: 0px;
 }
 
-.add-vignette {
-	width: 11.14vw; height: 11.14vw;
+.add-visuel {
 	margin-bottom: 25px;
 	display: flex;
 	flex-direction: column;
@@ -1168,10 +1162,39 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', end
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ec5fc', endColorstr='#e0c3fc', GradientType=1 );
 }
 
-.add-vignette input {
-	width: 11.14vw; height: 11.14vw;
+.add-visuel label {
+	position: relative;
 	border-radius: 5px;
+	text-align: center;
+	font-family: 'Trueno';
+	font-weight: 200;
+	font-style: normal;
+	font-size: 0.78vw;
 	background: #191919;
+	cursor: pointer;
+}
+
+.add-visuel label img {
+	width: 100%; height: 100%;
+	top: 0;
+	left: 0;
+	position: absolute;
+	border-radius: 5px;
+	object-fit: cover;
+}
+
+#add-visuel {display: none;}
+
+.icon-add {
+	content: "\ea08";
+	color: #FFFFFF;
+	font-size: 0.78vw;
+}
+
+.add-vignette .icon:hover, .add-vignette .icon:active, .add-vignette .icon:focus,
+.icon-add:hover, .icon-add:active, .icon-add:focus {
+	-webkit-transform: none;
+	transform: none;
 }
 
 .content-form-add {
@@ -1180,7 +1203,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', end
 	justify-content: space-between;
 }
 
-.content-form-add span {
+.content-form-add label {
 	margin-bottom: 20px;
 	font-size: 1.3vw;
 	font-family: 'Trueno';
@@ -1192,9 +1215,45 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', end
 	margin-bottom: 5.2vw;
 	border-bottom: solid 2px #FFFFFF;
 	font-family: 'Trueno';
-	font-weight: 200;
+	font-weight: normal;
 	font-style: normal;
+	font-size: 1.5vw;
+}
+
+.content-form-add textarea {
+	background: none;
+	border: none;
+	border-bottom: solid 2px #FFFFFF;
+	font-family: 'Trueno';
+	font-weight: 300;
+	font-style: normal;
+	font-size: 1vw;
+	color: #FFFFFF;
+	outline: none;
+}
+
+.content-form-add input::placeholder,
+.content-form-add textarea::placeholder{
+	font-family: 'Trueno';
+	font-weight: 200;
+	font-style: italic;
 	font-size: 0.78vw;
+}
+
+/*-----------------------
+	PAGE AJOUT ALBUM
+------------------------*/
+#content-add-album {
+	display: flex;
+	justify-content: space-between;
+}
+
+.add-visuel {
+	width: 11.14vw; height: 11.14vw;
+}
+
+.add-visuel label {
+	width: 11.14vw; height: 11.14vw;
 }
 
 .content-grid-add {

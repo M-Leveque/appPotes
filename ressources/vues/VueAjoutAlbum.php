@@ -1,20 +1,20 @@
 <main id="content-add-album">
     <!-- FORMULAIRE AJOUT -->
-    <section class="content-add-album">
+    <section class="content-add">
         <div class="title">
-            <h2>Ajout<br>Album</h2>
+            <h2>Ajout<br>album</h2>
         </div>
 
-        <div class="add-vignette">
-            <input type="file" value="Ajouter une vignette">
+        <div class="add-visuel">
+            <label for="add-visuel">Ajouter une vignette<span class="icon icon-add"><img style="display: none" src="ressources/img/album/1.jpg" alt="vignette album"></span></label>
+            <input id="add-visuel" type="file">
         </div>
 
         <form class="content-form-add">
-            <span>Titre de l'album :</span>
-            <input type="name" value="(max 00 caractères)">
-            <span>Déscriptif de l’album :</span>
-            <input type="text" value="(max 00 caractères)">
-            </form>
+            <label>Titre de l'album :</label>
+            <input type="name" placeholder="(max 00 caractères)">
+            <label>Déscriptif de l’album :</label>
+            <textarea placeholder="(max 00 caractères)" cols="30" rows="1"></textarea>
         </form>
 
         <div class="content-btn-page">
@@ -77,7 +77,7 @@
             </ul>
         </div><!-- #GALLERY -->
 
-        <a href="#"><span class="icon-btn icon icon-add-pic></span></a>
+        <a href="#"><span class="icon-btn icon icon-add-pic"></span></a>
 
     </section>
 </main>
