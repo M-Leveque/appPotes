@@ -30,7 +30,6 @@ input {
 	border-right: none;
 	background: none;
 	outline: none;
-
 }
 
 button {
@@ -847,23 +846,62 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', end
 /*---------------------------------------------------------------------------------------------------
 	PAGE INTER EVENEMENT / CHAT
 ---------------------------------------------------------------------------------------------------*/
+/*---------------------------
+	SECTION INFOS EVENEMENT
+-----------------------------*/
 #content-inter-even section {
 	width: 50%;
 }
 
 .content-info-even .title {
+	padding-top: 2vw;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
 }
 
+.content-info-even .title p {
+	font-family: 'Trueno';
+	font-weight: 300;
+	font-style: normal;
+	font-size: 0.625vw;
+}
+
+.content-info-even .title span {
+	font-family: 'Trueno';
+	font-weight: normal;
+	font-style: normal;
+}
+
+.content-info-even .title h2 {
+	margin-top: 0px;
+}
+
 .info-even {
 	width: 34.375vw;
+	line-height: 1.3vw;
 	font-family: 'Trueno';
 	font-weight: 200;
 	font-style: normal;
 	font-size: 1vw;
 }
+
+.content-cagn-even {
+	width: 25.26vw;
+	margin-top: 50px;
+}
+
+.content-cagn-even h2 {
+	margin-bottom: 20px;
+}
+
+.content-cagn-even .content-cagn {
+	border-top: solid 0.15vw #FFFFFF;
+	padding-top: 1.4vw;
+}
+/*---------------------------
+	SECTION CHAT EVENEMENT
+----------------------------*/
 /*---------------------------------------------------------------------------------------------------
 	PAGES COMPTE / PAGES OPTION-COMPTE / POPUP MOT DE PASSE
 ---------------------------------------------------------------------------------------------------*/
@@ -1079,16 +1117,90 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', end
 	font-family: Helvetica, Arial, sans-serif;
 }
 
-.modal-enter {
-	opacity: 0;
-}
+.modal-enter {opacity: 0;}
 
-.modal-leave-active {
-	opacity: 0;
-}
+.modal-leave-active {opacity: 0;}
 
 .modal-enter .modal-container,
 .modal-leave-active .modal-container {
 	-webkit-transform: scale(1.1);
 	transform: scale(1.1);
+}
+
+/*---------------------------------------------------------------------------------------------------
+	PAGES AJOUT ALBUM / PAGE AJOUT EVENEMENT / PAGE AJOUT CAGNOTTE
+---------------------------------------------------------------------------------------------------*/
+/*-----------------------
+	PAGE AJOUT ALBUM
+------------------------*/
+#content-add-album {
+	display: flex;
+	justify-content: space-between;
+}
+
+.content-add-album {
+	width: 30%; height: 95vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.content-add-album .title h2 {
+	margin-bottom: 0px;
+}
+
+.add-vignette {
+	width: 11.14vw; height: 11.14vw;
+	margin-bottom: 25px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-content: center;
+	padding: 1px;
+	border-radius: 5px;
+	background: rgba(142,197,252,1);
+	background: -moz-linear-gradient(-45deg, rgba(142,197,252,1) 0%, rgba(224,195,252,1) 100%);
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(142,197,252,1)), color-stop(100%, rgba(224,195,252,1)));
+	background: -webkit-linear-gradient(-45deg, rgba(142,197,252,1) 0%, rgba(224,195,252,1) 100%);
+	background: -o-linear-gradient(-45deg, rgba(142,197,252,1) 0%, rgba(224,195,252,1) 100%);
+	background: -ms-linear-gradient(-45deg, rgba(142,197,252,1) 0%, rgba(224,195,252,1) 100%);
+	background: linear-gradient(135deg, rgba(142,197,252,1) 0%, rgba(224,195,252,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ec5fc', endColorstr='#e0c3fc', GradientType=1 );
+}
+
+.add-vignette input {
+	width: 11.14vw; height: 11.14vw;
+	border-radius: 5px;
+	background: #191919;
+}
+
+.content-form-add {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.content-form-add span {
+	margin-bottom: 20px;
+	font-size: 1.3vw;
+	font-family: 'Trueno';
+	font-weight: 600;
+	font-style: normal;
+}
+
+.content-form-add input {
+	margin-bottom: 5.2vw;
+	border-bottom: solid 2px #FFFFFF;
+	font-family: 'Trueno';
+	font-weight: 200;
+	font-style: normal;
+	font-size: 0.78vw;
+}
+
+.content-grid-add {
+	width: 60%;
+}
+
+.content-grid-add .demo-gallery > ul > li a > img {
+	width: 18.22vw; height: 18.22vw;
 }

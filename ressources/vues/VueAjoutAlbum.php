@@ -1,23 +1,30 @@
-<main id="content-pic">
-	<!-- HEADER ALBUM -->
-	<section id="header-pic">
-		<!-- Vignette album -->
-		<img src="ressources/img/album/7.jpg" alt="photo de l'album">
-		
-		<!-- Infos album -->
-        <div>
-            <p>Créé le <span><?php echo $dateCreation ?></span></p>
-            <h1><?php echo $titre ?></h1>
-            <p><?php echo $description ?></p>
+<main id="content-add-album">
+    <!-- FORMULAIRE AJOUT -->
+    <section class="content-add-album">
+        <div class="title">
+            <h2>Ajout<br>Album</h2>
         </div>
-		
-		<!-- Bouton joindre -->
-		<button>Joindre à un événement</button>
-	</section>
 
-	<section id="grid-pic">
-		<a class="reveal" href="#"><div class="icon-btn icon icon-add-pic"></div>Ajouter<br>vos photos</a>
+        <div class="add-vignette">
+            <input type="file" value="Ajouter une vignette">
+        </div>
 
+        <form class="content-form-add">
+            <span>Titre de l'album :</span>
+            <input type="name" value="(max 00 caractères)">
+            <span>Déscriptif de l’album :</span>
+            <input type="text" value="(max 00 caractères)">
+            </form>
+        </form>
+
+        <div class="content-btn-page">
+            <a class="btn-page" href="#"><span>Annuler</span></a>
+            <a class="btn-page" href="#"><span>Valider</span></a>
+        </div>
+    </section>
+
+    <!-- GRID AJOUT PHOTOS -->
+    <section class="content-grid-add">
         <!-- GALLERY -->
         <div class="demo-gallery">
             <ul id="lightgallery" class="list-unstyled row">
@@ -68,9 +75,9 @@
                     </a>
                 </li>
             </ul>
-        </div>
-        <!-- #GALLERY -->
+        </div><!-- #GALLERY -->
 
-	</section>
+        <a href="#"><span class="icon-btn icon icon-add-pic></span></a>
+
+    </section>
 </main>
-

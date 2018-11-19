@@ -47,6 +47,9 @@ if($niveauUtilisateur === 1 || $niveauUtilisateur === 2){
         case 'OptionCompte' :{
             include_once ('controleurs/CtrlOptionCompte.php'); break;
         }
+        case 'AjoutAlbum' :{
+            include_once ('controleurs/CtrlAjoutAlbum.php'); break;
+        }
 		case 'Connexion': {
 				include_once ('controleurs/CtrlConnexion.php'); break;
 		}
