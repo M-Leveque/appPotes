@@ -88,7 +88,8 @@ button {
 .even,
 .content-cagn button,
 #header-pic button,
-.btn-page {
+.btn-page,
+.btn-add a {
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
@@ -101,12 +102,12 @@ button {
 
 #btn-form-co:hover, #btn-form-co:focus, #btn-form-co:active,
 #add-menu a:hover, #add-menu a:focus, #add-menu a:active,
-.icon:hover, .icon:focus, .icon:active,
 .album:hover, .album:focus, .album:active,
 .even:hover, .even:focus, .even:active,
 .content-cagn button:hover, .content-cagn button:focus , .content-cagn button:active,
 #header-pic button:hover, #header-pic button:focus, #header-pic button:active,
-.btn-page:hover, .button:focus, .button:active {
+.btn-page:hover, .button:focus, .button:active,
+.btn-add a:hover, .btn-add a:focus, .btn-add a:active {
 	-webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
@@ -1239,6 +1240,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', end
 	font-style: italic;
 	font-size: 0.78vw;
 }
+
 /* SECTION DROITE */
 .btn-add {
 	width: 60%;
@@ -1320,7 +1322,4 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', end
 	align-items: center;
 }
 
-.icon-add-people-no::before {
-	content: "\ea05";
-	color: #FFFFFF;
-}
+.icon-add-people-no::before {content: "\ea05";}
