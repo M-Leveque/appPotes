@@ -15,15 +15,17 @@ class CagnotteDAO extends DAO{
         return false;
     }
 
-    //Requete SQL
-    $stmt = $this->cnx->prepare("SELECT * FROM Cagnotte WHERE Id_C = :id");
-    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt = $this->cnx->prepare("SELECT Id_C, Titre_C, Description_C, ArgentR_C, Cagnotte.Id_E FROM Cagnotte, Evenement, Acces WHERE Cagnotte.id_E = Evenement.id_E AND Evenement.id_E = Acces.id_E AND Acces.id_U = :idUAND Cagnotte.id_C = :idC");
+    $stmt->bindValue(':idC', $id, PDO::PARAM_INT);
+    $stmt->bindValue(':idU', $_SESSION['user_id'], PDO::PARAM_INT);
     $stmt->execute();
     $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+
     if($ligne){
-      return new Cagnotte(intval($ligne->Id_C), $ligne->Titre_C, $ligne->Description_C, $ligne->DateHeureFin_C, intval($ligne->ArgentR_C), intval($ligne->Id_E) );
+      return new Cagnotte(intval($ligne->Id_C), $ligne->Titre_C, $ligne->Description_C, $ligne->DateHeureFin_C, floatval($ligne->ArgentR_C), intval($ligne->Id_E) );
     }
     else{return false;}
+
   }
 
   public function getAll(){
@@ -32,18 +34,20 @@ class CagnotteDAO extends DAO{
     $i = 0;
 
     //Requete SQL
-    $stmt = $this->cnx->prepare("SELECT * FROM Cagnotte");
+    $stmt = $this->cnx->prepare("SELECT Id_C, Titre_C, Description_C, DateHeureFin_C, ArgentR_C, Cagnotte.Id_E FROM Cagnotte, Evenement, Acces WHERE Cagnotte.id_E = Evenement.id_E AND Evenement.id_E = Acces.id_E AND Acces.id_U = :idU");
+    $stmt->bindValue(':idU', $_SESSION['user_id'], PDO::PARAM_INT);
     $stmt->execute();
     $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+
     if($ligne){
         while($ligne){
-          $cagnottes[$i] =  new Cagnotte(intval($ligne->Id_C), $ligne->Titre_C, $ligne->Description_C, $ligne->DateHeureFin_C, intVal($ligne->ArgentR_C), intval($ligne->Id_E));
+          $cagnottes[$i] =  new Cagnotte(intval($ligne->Id_C), $ligne->Titre_C, $ligne->Description_C, $ligne->DateHeureFin_C, floatval($ligne->ArgentR_C), intval($ligne->Id_E));
           $i++;
           $ligne = $stmt->fetch(PDO::FETCH_OBJ);
         }
-        return true;
+        return $cagnottes;
     }
-    else{return false;}
+    else{throw new Exception("Aucune ligne trouvé");}
   }
 
   //La function set permet de modifier la BDD

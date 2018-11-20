@@ -141,9 +141,25 @@ class Evenement
         $msg .= "date : ".$this->_DateTime."<br>";
         $msg .= "date creation : ".$this->_DateC."<br>";
         $msg .= "Archiver : ".$this->_Archiver."<br>";
-        $msg .= "id Utilisateurr : ".$this->_IdU."<br>";
+        $msg .= "id Utilisateur : ".$this->_IdU."<br>";
 
         return $msg;
+    }
+
+    public static function toHTML($id, $titre, $description, $dateTime){
+
+        $dateTime = new DateTime($dateTime);
+
+        $html  = "<a class=\"even\" href=\"?action=InterEvenement&id=$id\">";
+        $html .= "<div class=\"content-even\">";
+        $html .= "<span>🎁</span>";
+        $html .= "<div class=\"desc-even\"><h6>$titre</h6><p>$description</p></div>";
+        $html .= "<div class=\"date-even\"><p>".strtoupper(date_format($dateTime, 'D')).".</p>";
+        $html .= "<span>".date_format($dateTime, 'd')."</span><p>".strtoupper(date_format($dateTime, 'M'))."</p></div>";
+        $html .= "</div>";
+        $html .= "</a>";
+
+        return $html;
     }
 }
 ?>

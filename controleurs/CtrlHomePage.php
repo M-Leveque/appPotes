@@ -4,10 +4,11 @@ include_once('modeles/DAO/EvenementDAO.class.php');
 include_once('modeles/DAO/CagnotteDAO.class.php');
 include_once('modeles/DAO/UtilisateurDAO.class.php');
 
+//Albums
+
 $albumDAO = new AlbumDAO();
 $albumsInfos = $albumDAO->getInfosBase();
 $albums = "";
-
 
 foreach ($albumsInfos as $albumInfo){
 
@@ -19,7 +20,38 @@ foreach ($albumsInfos as $albumInfo){
     }
 }
 
-//Evenement -> Jour (lundi,mardi..), 00 (05), mois (janvier, ... ,decembre)
+
+//Evenements
+
+$evenementDAO = new EvenementDAO();
+$evenementsInfos = $evenementDAO->getAll();
+$evenements = "";
+
+foreach ($evenementsInfos as $evenementInfo){
+
+    $evenements .= Evenement::toHTML($evenementInfo->getId(), $evenementInfo->getTitre(),$evenementInfo->getDescription(),$evenementInfo->getDateTime());
+}
+
+
+//Cagnottes
+
+$cagnotteDAO = new CagnotteDAO();
+
+try{
+    $cagnottesInfos = $cagnotteDAO->getAll();
+    $cagnottes = "";
+
+    foreach ($cagnottesInfos as $cagnotteInfo){
+        $cagnottes .= Cagnotte::toHTML($cagnotteInfo->getId(), $cagnotteInfo->getTitre(), $cagnotteInfo->getDescription(), $cagnotteInfo->getArgentR(), $cagnotteInfo->getDateHeureFin());
+    }
+}
+catch (Exception $e){
+    echo $e->getMessage();
+}
+
+
+
+
 
 include_once('ressources/vues/VueHeader.php');
 include_once('ressources/vues/VueNav.php');

@@ -98,7 +98,7 @@ class Cagnotte
     }
 
     public function setArgentR($argentR){
-      if(isset($argentR) && is_int($argentR) && $argentR >= 0){
+      if(isset($argentR) && is_float($argentR) && $argentR >= 0){
         $this->_ArgentR = $argentR;
       }
       else{
@@ -130,6 +130,22 @@ class Cagnotte
         $msg .= "Evenement : ".$this->_IdE."<br>";
 
         return $msg;
+    }
+
+    public static function toHTML($id, $titre, $description, $prix, $dateHeure){
+
+        $dateHeure = new DateTime($dateHeure);
+
+        $html  = "<div class=\"content-cagn\">";
+        $html .= "    <div class=\"desc-cagn\">";
+        $html .= "        <h5>$titre</h5>";
+        $html .= "        <p>$description</p>";
+        $html .= "        <button>Participer</button>";
+        $html .= "    </div>";
+        $html .= "    <div class=\"prix-cagn\"><span>$prix €</span><p>Fin le <span>".date_format($dateHeure, 'd/m/y')."</span></p></div>";
+        $html .= "</div>";
+
+        return $html;
     }
 }
 ?>

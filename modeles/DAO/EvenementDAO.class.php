@@ -64,14 +64,7 @@ class EvenementDAO extends DAO{
     $ligne = $stmt->fetch(PDO::FETCH_OBJ);
 
     while($ligne){
-
-        $emoticonDAO = new EmoticonDAO();
-        $utilisateurDAO = new UtilisateurDAO();
-
-        $utilisateur = $utilisateurDAO->get(intval($ligne->Id_U));
-        $emoticon = $emoticonDAO->get(intval($ligne->Id_Em));
-
-        $evenements[$i] =  new Evenement(intval($ligne->Id_E), $ligne->Titre_E, $ligne->Description_E, $ligne->DateCreation_E, $ligne->DateHeureFin_E, boolval($ligne->Archiver_E), $utilisateur, $emoticon);
+        $evenements[$i] =  new Evenement(intval($ligne->Id_E), $ligne->Titre_E, $ligne->Description_E, $ligne->DateCreation_E, $ligne->DateHeureFin_E, boolval($ligne->Archiver_E), intval($ligne->Id_U));
         $i++;
         $ligne = $stmt->fetch(PDO::FETCH_OBJ);
     }
@@ -87,7 +80,9 @@ class EvenementDAO extends DAO{
     }
 
     //requete SQL
-    $stmt = $this->cnx->prepare("UPDATE Evenement SET Titre_E= :titre, Description_E= :description, DateCreation_E= :dateC, DateHeureFin_E=:dateTime, Archiver_E= :archiver, Id_U= :idU, Id_Em= :idEm WHERE Id_E = :id");
+    $stmt = $this->cnx->prepare("UPDATE Evenement 
+                                SET Titre_E= :titre, Description_E= :description, DateCreation_E= :dateC, DateHeureFin_E=:dateTime, Archiver_E= :archiver, Id_U= :idU, Id_Em= :idEm 
+                                WHERE Id_E = :id");
     $stmt->bindValue(':titre', $evenement->getTitre(), PDO::PARAM_STR);
     $stmt->bindValue(':description', $evenement->getDescription(), PDO::PARAM_STR);
     $stmt->bindValue(':dateC', $evenement->getDateC(), PDO::PARAM_STR);
