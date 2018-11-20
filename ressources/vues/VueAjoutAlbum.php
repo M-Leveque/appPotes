@@ -77,7 +77,9 @@
             </ul>
         </div><!-- #GALLERY -->
 
-        <a href="#"><span class="icon-btn icon icon-add-pic"></span></a>
-
+        <!-- button add -->
+        <ul class="btn-add">
+            <a href="#"><li><div class="icon icon-add-pic"></div></li>Ajouter<br>vos photos</a>
+        </ul>
     </section>
 </main>

@@ -1134,7 +1134,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', end
 	STYLE GENERAL
 ------------------------*/
 .content-add {
-	width: 30%; height: 95vh;
+	min-width: 30%; height: 95vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -1239,6 +1239,48 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', end
 	font-style: italic;
 	font-size: 0.78vw;
 }
+/* SECTION DROITE */
+.btn-add {
+	width: 60%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.btn-add a {
+	width: 5.93vw; height: 5.93vw;
+	padding: 2px;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	font-family: 'Trueno';
+	font-weight: 200;
+	font-style: normal;
+	font-size: 0.78vw;
+	border-radius: 100px;
+	background: rgba(142,197,252,1);
+	background: -moz-linear-gradient(-45deg, rgba(142,197,252,1) 0%, rgba(224,195,252,1) 100%);
+	background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(142,197,252,1)), color-stop(100%, rgba(224,195,252,1)));
+	background: -webkit-linear-gradient(-45deg, rgba(142,197,252,1) 0%, rgba(224,195,252,1) 100%);
+	background: -o-linear-gradient(-45deg, rgba(142,197,252,1) 0%, rgba(224,195,252,1) 100%);
+	background: -ms-linear-gradient(-45deg, rgba(142,197,252,1) 0%, rgba(224,195,252,1) 100%);
+	background: linear-gradient(135deg, rgba(142,197,252,1) 0%, rgba(224,195,252,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ec5fc', endColorstr='#e0c3fc', GradientType=1 );
+	-webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
+	-moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
+	box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
+}
+
+.btn-add .icon {font-size: 2.55vw;}
+
+.btn-add li {
+	width: 5.93vw; height: 5.93vw;
+	margin-bottom: 10px;
+	list-style: none;
+	border-radius: 100px;
+	background-color: #191919;
+}
 
 /*-----------------------
 	PAGE AJOUT ALBUM
@@ -1262,4 +1304,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', end
 
 .content-grid-add .demo-gallery > ul > li a > img {
 	width: 18.22vw; height: 18.22vw;
+}
+
+/*-----------------------
+	PAGE AJOUT EVENEMENT
+------------------------*/
+#content-add-even {
+	display: flex;
+}
+
+.content-opt-even {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.icon-add-people-no::before {
+	content: "\ea05";
+	color: #FFFFFF;
 }

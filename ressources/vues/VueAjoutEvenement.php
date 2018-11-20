@@ -24,9 +24,12 @@
     </section><!-- #FORMULAIRE AJOUT -->
 
     <!-- ELEMENTS EVENEMENT -->
-    <section>
+    <section class="content-opt-even">
         <!-- button add -->
-        <div>
-        </div>
+        <ul class="btn-add">
+            <a class="reveal" href="#"><li><div class="icon-btn icon icon-add-cash"></div></li>Ajouter<br>une cagnotte</a>
+            <a class="reveal" href="#"><li><div class="icon-btn icon icon-add-pic"></div></li>Ajouter<br>un album</a>
+            <a class="reveal" href="#"><li><div class="icon-btn icon icon-add-people-no"></div></li>Exclure<br>une personne</a>
+        </ul>
     </section><!-- #ELEMENTS EVENEMENT -->
 </main>
