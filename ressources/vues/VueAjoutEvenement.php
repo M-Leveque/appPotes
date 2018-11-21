@@ -25,7 +25,42 @@
 
     <!-- ELEMENTS EVENEMENT -->
     <section class="content-opt-even">
-        <!-- button add -->
+        <!-- Cagnotte evenement -->
+        <div class="content-even-cagn">
+            <p class="label-add">Cagnotte ajoutée :</p>
+
+            <div class="content-cagn">
+                <div class="desc-cagn">
+                    <h5>Cadeau Bastien</h5>
+                    <p>DÃ©scription cagnottes Et eodem impetu Domitianum praecipitem per scalas itidem funibus constrinxerunt, eosque coniunctos per ampla spatia civitatis acri</p>
+                    <button>Participer</button>
+                </div>
+
+                <div class="prix-cagn">
+                    <span>51,00 â‚¬</span>
+                    <p>Fin le<span> 00/00/00</span></p>
+                </div>
+            </div>
+        </div><!-- #cagnotte evenement -->
+
+        <!-- Album evenement -->
+        <div class="content-alb">
+            <p class="label-add">Album ajouté :</p>
+
+            <a href="#">
+                <div class="album album-grid">
+                    <img src="ressources/img/vignettes/pic-2.jpg" alt="vignette de l'album">
+                    <p>Titre ðŸ–•</p>
+                </div>
+            </a>
+        </div><!-- #Exclusion evenement -->
+
+        <!-- Album evenement -->
+        <div class="content-excl">
+
+        </div><!-- #Exclusion evenement -->
+
+        <!-- Button add -->
         <ul class="btn-add">
             <a class="reveal" href="#"><li><div class="icon-btn icon icon-add-cash"></div></li>Ajouter<br>une cagnotte</a>
             <a class="reveal" href="#"><li><div class="icon-btn icon icon-add-pic"></div></li>Ajouter<br>un album</a>
