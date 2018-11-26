@@ -1,6 +1,6 @@
 <?php
-require_once('modeles/src/DAO/DAO.class.php');
-require_once('modeles/src/Photo.class.php');
+require_once('modeles/DAO/DAO.class.php');
+require_once('modeles/Photo.class.php');
 
 //Class PhotoDAO, elle permet de gerer le transfert de donnees entre la
 //bdd et l'application.
@@ -27,7 +27,7 @@ class PhotoDAO extends DAO{
 
     if($ligne){
       //On return un objet photo a partir des resultats
-      return new Photo(intval($ligne->Id_P), $ligne->Titre_P, $ligne->Chemin_P, $ligne->Compteur_P,
+      return new Photo(intval($ligne->Id_P), $ligne->Titre_P, $ligne->Chemin_P, intval($ligne->Compteur_P),
                           $ligne->Date_P, $ligne->DateU_P, intval($ligne->Id_User), intval($ligne->Id_Album));
     }
     else{
@@ -60,6 +60,34 @@ class PhotoDAO extends DAO{
     }
     else{return false;}
   }
+
+    //Methode getAll()
+    public function getByAlbum($idAlbum){
+
+        //requete SQL
+        $stmt = $this->cnx->prepare("SELECT * FROM Photo WHERE id_Album = :idA");
+        $stmt->bindValue(':idA', $idAlbum, PDO::PARAM_INT);
+        $stmt->execute();
+        $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+
+        //Si aucune ligne n'est retourne alors on retourne false
+        if($ligne){
+
+            //On creer un compteur pour assigner les photos au sein du tableau
+            $i = 0;
+
+            //On return un tableau de photo
+            while($ligne){
+                $photos[$i] = new Photo(intval($ligne->Id_P), $ligne->Titre_P, $ligne->Chemin_P, intval($ligne->Compteur_P), $ligne->Date_P, $ligne->DateU_P, intval($ligne->Id_User), intval($ligne->Id_Album));
+                $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+            }
+
+            //On retourne le tableau
+            return $photos;
+        }
+        else{return false;}
+    }
+
 
   //Methode set
   public function set($photo){

@@ -12,7 +12,7 @@ class AlbumDAO extends DAO{
   //------------------------------------------- Reception BDD ----------------------------------------------------------
 
   //Return le nom et l'image des albums
-  public function getInfosBase(){
+  public function getInfos(){
 
       //initialisation compteur
 

@@ -57,9 +57,9 @@ class AlbumDAOTest extends TestCase
         $albumDAO->get(-25);
     }
 
-    public function testGetInfosBase(){
+    public function testGetInfos(){
         $albumDAO = new AlbumDAO();
-        $infos = $albumDAO->getInfosBase();
+        $infos = $albumDAO->getInfos();
         $infosAttendu = array(array(1, "Vacance 2018", "ressources/img/vignettes/pic-2.jpg"), array(2, "Soirée anniversaire", "ressources/img/vignettes/pic-1.jpg"));
 
         $this->assertSame($infosAttendu[0][0], $infos[0][0]);

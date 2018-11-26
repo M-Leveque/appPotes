@@ -156,10 +156,10 @@ class Album
         $html = "<a href=\"?action=Photos&Album=" . $id . "\">";
 
         if($type === 1){
-            $html .= " <div id=\"album-com\" class=\"album\" > ";
+            $html .= "<div id=\"album-com\" class=\"album\" >";
         }
         else{
-            $html .= " <div class=\"album album-grid\"> ";
+            $html .= "<div class=\"album album-grid\">";
         }
 
         $html .= "<img src=\"".$chemin."\" alt=\"vignette de l'album commun\"> <p>".$titre." </p> </div> </a>";
