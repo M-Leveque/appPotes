@@ -21,7 +21,7 @@
         <!-- GALLERY -->
         <div class="demo-gallery">
             <ul id="lightgallery" class="list-unstyled row">
-                <?php $htmlPhoto ?>
+                <?php echo $htmlPhotos ?>
             </ul>
         </div>
         <!-- #GALLERY -->

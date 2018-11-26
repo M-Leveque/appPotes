@@ -22,7 +22,6 @@ elseif(isset($album)){
         $titre = $album->getNom();
         $description = $album->getDescription();
 
-        var_dump($photos);
         foreach ($photos as $photo){
             $htmlPhotos = $photo->toHtml();
         }
