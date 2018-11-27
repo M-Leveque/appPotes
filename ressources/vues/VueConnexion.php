@@ -20,12 +20,17 @@
 	
 		<!-- LEFT LOGIN -->
 		<div id="slideshow">
+            <ul class="rslides">
+                <li><img src="ressources/img/slideshow/app-1.png" alt=""></li>
+                <li><img src="ressources/img/slideshow/app-2.png" alt=""></li>
+                <li><img src="ressources/img/slideshow/app-3.png" alt=""></li>
+            </ul>
 		</div>
 	</section>
 	
-	<!-- TOGGLE -->
+	<!-- TOGGLE ---------------------------------------------------------------------->
 	<section id="toggle-co">
-		<button class="open-toggle icon-close-two">fermer</button>
+		<button class="open-toggle icon icon-close-two">fermer</button>
         <!-- article gauche  -->
         <article>
             <h2>La web app</h2>

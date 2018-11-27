@@ -2,12 +2,13 @@
 <!-------------------------------------
 	SCRIPT
 --------------------------------------->
+<!-- JQUERY (toggle/slideshow) -->
+<script src="ressources/js/jquery-1.12.4.js"></script>
+<script src="ressources/js//jquery-ui.js"></script>
 <!-- SCROLL REVEAL -->
 <script src="https://unpkg.com/scrollreveal"></script>
 <script src="ressources/js/scroll-reveal.js"></script>
 <!-- TOGGLE -->
-<script src="ressources/js/jquery-1.12.4.js"></script>
-<script src="ressources/js//jquery-ui.js"></script>
 <script src="ressources/js/toggle.js"></script>
 <script src="ressources/js/anim-icon.js"></script>
 <!-- GALLERY PHOTOS -->
@@ -24,4 +25,7 @@
 <script src="ressources/js/tab.js"></script>
 <!-- MODAL MP -->
 <script src="ressources/js/modal-mp.js"></script>
+<!-- SLIDESHOW -->
+<script src="ressources/js/slideshow/responsiveslides.min.js"></script>
+<script src="ressources/js/slideshow/slideshow.js"></script>
 </html>
