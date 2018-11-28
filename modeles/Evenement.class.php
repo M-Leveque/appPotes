@@ -149,7 +149,6 @@ class Evenement
     public static function toHTML($id, $titre, $description, $dateTime){
 
         $dateTime = new DateTime($dateTime);
-
         $html  = "<a class=\"even\" href=\"?action=InterEvenement&id=$id\">";
         $html .= "<div class=\"content-even\">";
         $html .= "<span>🎁</span>";
