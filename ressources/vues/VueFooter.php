@@ -28,4 +28,5 @@
 <!-- SLIDESHOW -->
 <script src="ressources/js/slideshow/responsiveslides.min.js"></script>
 <script src="ressources/js/slideshow/slideshow.js"></script>
+<script src="ressources/js/evenement.js"></script>
 </html>
