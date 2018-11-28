@@ -2,7 +2,7 @@
 
 var btnShowPastEvent = document.getElementById("btnShowPasteEvents")
 
-btnShowPastEvent.addEventListener("click", function(event){
+btnShowPastEvent.addEventListener("click", function(e){
     let events = document.getElementsByClassName("old-even");
 
     var i;

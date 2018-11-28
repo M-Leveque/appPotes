@@ -58,7 +58,7 @@ class EvenementDAO extends DAO{
     $i = 0;
 
     //Requete SQL
-    $stmt = $this->cnx->prepare("SELECT * FROM Evenement, Acces WHERE Evenement.id_E = Acces.id_E AND Acces.id_U = :idU");
+    $stmt = $this->cnx->prepare("SELECT * FROM Evenement, Acces WHERE Evenement.id_E = Acces.id_E AND Acces.id_U = :idU GROUP BY DateHeureFin_E DESC");
     $stmt->bindValue(':idU', $_SESSION['user_id'], PDO::PARAM_INT);
     $stmt->execute();
     $ligne = $stmt->fetch(PDO::FETCH_OBJ);

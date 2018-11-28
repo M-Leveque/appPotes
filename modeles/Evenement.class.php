@@ -149,7 +149,14 @@ class Evenement
     public static function toHTML($id, $titre, $description, $dateTime){
 
         $dateTime = new DateTime($dateTime);
-        $html  = "<a class=\"even\" href=\"?action=InterEvenement&id=$id\">";
+
+        if (date_format($dateTime, 'U') > time()) {
+            $html = "<a class=\"even\" href=\"?action=InterEvenement&id=$id\">";
+        }
+        else {
+            $html = "<a class=\"even old-even\" href=\"?action=InterEvenement&id=$id\">";
+        }
+
         $html .= "<div class=\"content-even\">";
         $html .= "<span>🎁</span>";
         $html .= "<div class=\"desc-even\"><h6>$titre</h6><p>$description</p></div>";
