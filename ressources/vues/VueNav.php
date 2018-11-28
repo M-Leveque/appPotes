@@ -16,7 +16,7 @@
 		<button id="menu" type="button" name="menu">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><title>icon 7</title>
     <g class="nc-icon-wrapper js-transition-icon" data-effect="scale" data-event="click">
-        <g class="js-transition-icon__state" transform="translate(0 0) scale(1)" style="display: block;">
+        <g class="js-transition-icon__state icon-scale1" style="display: block;">
             <g>
                 <g>
                     <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="8.4827" y1="17.4865" x2="51.8806" y2="42.5422">
@@ -44,7 +44,7 @@
                 </g>
             </g>
         </g>
-        <g class="js-transition-icon__state" style="display: none;" transform="translate(5.999999999999998 5.999999999999998) scale(0.80)" aria-hidden="true">
+        <g class="js-transition-icon__state icon-scale2" style="display: none;" aria-hidden="true">
             <g>
                 <g>
                     <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="11.257" y1="29.9296" x2="48.5757" y2="29.9296">

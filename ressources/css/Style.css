@@ -191,6 +191,16 @@ a .icon, .icon-btn {
 	width: 4vw; height: 4vw;
 }
 
+.icon-scale1 {
+	transform: translate(0 0) scale(1);
+	-moz-transform: translate(0 0) scale(1);
+}
+
+.icon-scale2 {
+	transform: translate(5.999999999999998 5.999999999999998) scale(0.80);
+	-moz-transform: translate(5.999999999999998 5.999999999999998) scale(0.80);
+}
+
 #btn-add p {
 	margin-top: 0;
 }
