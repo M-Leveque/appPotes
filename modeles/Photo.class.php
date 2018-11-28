@@ -153,9 +153,9 @@ class Photo
     //toHTML
     public function toHtml(){
 
-        $html  = "<li class=\"col-xs-6 col-sm-4 col-md-3\" data-src=\"ressources/img/album/1.jpg\">";
+        $html  = "<li class=\"col-xs-6 col-sm-4 col-md-3\" data-src=".$this->getChemin().">";
         $html .= "<a href=\"\">";
-        $html .= "<img class=\"img-responsive\" src=\"ressources/img/album/thumb-1.jpg\" alt=\"Thumb-1\">";
+        $html .= "<img class=\"img-responsive\" src=".substr($this->getChemin(), 0, -4)."-thumb.jpg"." alt=\"Thumb-1\">";
         $html .= "</a>";
         $html .= "</li>";
 

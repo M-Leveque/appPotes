@@ -53,6 +53,7 @@ class PhotoDAO extends DAO{
         $photos[$i] = new Photo(intval($ligne->Id_P), $ligne->Titre_P, $ligne->Chemin_P, $ligne->Compteur_P,
                             $ligne->Date_P, $ligne->DateU_P, intval($ligne->Id_User), intval($ligne->Id_Album));
         $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+        $i++;
       }
 
       //On retourne le tableau
@@ -65,7 +66,7 @@ class PhotoDAO extends DAO{
     public function getByAlbum($idAlbum){
 
         //requete SQL
-        $stmt = $this->cnx->prepare("SELECT * FROM Photo WHERE id_Album = :idA");
+        $stmt = $this->cnx->prepare("SELECT * FROM Photo WHERE Id_Album = :idA");
         $stmt->bindValue(':idA', $idAlbum, PDO::PARAM_INT);
         $stmt->execute();
         $ligne = $stmt->fetch(PDO::FETCH_OBJ);
@@ -80,6 +81,7 @@ class PhotoDAO extends DAO{
             while($ligne){
                 $photos[$i] = new Photo(intval($ligne->Id_P), $ligne->Titre_P, $ligne->Chemin_P, intval($ligne->Compteur_P), $ligne->Date_P, $ligne->DateU_P, intval($ligne->Id_User), intval($ligne->Id_Album));
                 $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+                $i++;
             }
 
             //On retourne le tableau

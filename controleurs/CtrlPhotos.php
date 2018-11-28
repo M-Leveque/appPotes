@@ -15,15 +15,15 @@ elseif(isset($album)){
     $photoDAO = new PhotoDAO();
 
     try{
-        $album = $albumDAO->get($album);
-        $photos = $photoDAO->getByAlbum($album);
+        $album = $albumDAO->get(intval($album));
+        $photos = $photoDAO->getByAlbum($album->getId());
 
         $dateCreation = $album->getDateCreation();
         $titre = $album->getNom();
         $description = $album->getDescription();
 
         foreach ($photos as $photo){
-            $htmlPhotos = $photo->toHtml();
+            $htmlPhotos .= $photo->toHtml();
         }
     }
     catch(Exception $e){
