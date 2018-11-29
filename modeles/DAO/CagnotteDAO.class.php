@@ -50,14 +50,34 @@ class CagnotteDAO extends DAO{
     else{throw new Exception("Aucune ligne trouvé");}
   }
 
-  //La function set permet de modifier la BDD
+  public function getByUser($idUser){
+      if($idUser == null || $idUser <0 || !is_int($idUser)){
+          return false;
+      }
+
+      $i = 0;
+
+      $stmt = $this->cnx->prepare("SELECT Id_C, Titre_C, Description_C, DateHeureFin_C, ArgentR_C, Cagnotte.Id_E FROM Cagnotte, Evenement, Acces WHERE Cagnotte.Id_E = Evenement.Id_E AND Evenement.id_E = Acces.Id_E AND Acces.Id_U = :idU AND Evenement.Id_U = :idU");
+      $stmt->bindValue(':idU', $idUser, PDO::PARAM_INT);
+      $stmt->execute();
+      $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+
+      if($ligne){
+          while($ligne){
+              $cagnottes[$i] =  new Cagnotte(intval($ligne->Id_C), $ligne->Titre_C, $ligne->Description_C, $ligne->DateHeureFin_C, floatval($ligne->ArgentR_C), intval($ligne->Id_E));
+              $i++;
+              $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+          }
+          return $cagnottes;
+      }
+      else{throw new Exception("Aucune cagnotte trouvé");}
+  }
+
   public function set($cagnotte){
-    //Verif de la variable $evenement
     if($cagnotte == null || !is_object($cagnotte)){
       return false;
     }
 
-    //requete SQL
     $stmt = $this->cnx->prepare("UPDATE Cagnotte SET Titre_C= :titre, Description_C= :description, DateHeureFin_C= :dateHeureFin, ArgentR_C= :argentR, Id_E= :idE WHERE Id_C = :id");
     $stmt->bindValue(':titre', $cagnotte->getTitre(), PDO::PARAM_STR);
     $stmt->bindValue(':description', $cagnotte->getDescription(), PDO::PARAM_STR);

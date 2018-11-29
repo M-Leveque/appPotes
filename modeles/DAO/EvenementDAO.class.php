@@ -6,6 +6,7 @@ include_once ('modeles/Evenement.class.php');
 //Class Evenement, elle permet de gerer le transfert de donnees entre la
 //bdd et l'application.
 class EvenementDAO extends DAO{
+
   public function __construct(){
     DAO::__construct();
   }
@@ -73,22 +74,27 @@ class EvenementDAO extends DAO{
   }
 
     public function getByUser($idU){
-        if(empty($idU) || $idU < 0 || !is_int($idU) )
+        if(empty($idU) || $idU < 0 || !is_int($idU))
             throw new Exception("L'id de l'evenement doit être valide");
 
+        $i = 0;
         //Requete SQL
-        $stmt = $this->cnx->prepare("SELECT * FROM Evenement, Acces WHERE Evenement.id_E = Acces.id_E AND Acces.Id_U = :idU AND Evenement.Id_U = :idU");
+        $stmt = $this->cnx->prepare("SELECT * FROM Evenement, Acces WHERE Evenement.id_E = Acces.id_E AND Acces.Id_U = :idU AND Evenement.Id_U = :idU GROUP BY DateHeureFin_E DESC");
         $stmt->bindValue(':idU', $idU, PDO::PARAM_INT);
         $stmt->execute();
         $ligne = $stmt->fetch(PDO::FETCH_OBJ);
 
         if($ligne){
-            //Construction de l'evenement
-            return new Evenement(intval($ligne->Id_E), $ligne->Titre_E, $ligne->Description_E, $ligne->DateCreation_E, $ligne->DateHeureFin_E, boolval($ligne->Archiver_E), intval($ligne->Id_U));
+            while($ligne){
+                $evenements[$i] =  new Evenement(intval($ligne->Id_E), $ligne->Titre_E, $ligne->Description_E, $ligne->DateCreation_E, $ligne->DateHeureFin_E, boolval($ligne->Archiver_E), intval($ligne->Id_U));
+                $i++;
+                $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+            }
         }
         else{
-            throw new Exception("L'evenement n'a pas était trouvé");
+            $evenements = null;
         }
+        return $evenements;
     }
 
   //La function set permet de modifier la BDD
@@ -99,9 +105,7 @@ class EvenementDAO extends DAO{
     }
 
     //requete SQL
-    $stmt = $this->cnx->prepare("UPDATE Evenement 
-                                SET Titre_E= :titre, Description_E= :description, DateCreation_E= :dateC, DateHeureFin_E=:dateTime, Archiver_E= :archiver, Id_U= :idU, Id_Em= :idEm 
-                                WHERE Id_E = :id");
+    $stmt = $this->cnx->prepare("UPDATE Evenement SET Titre_E= :titre, Description_E= :description, DateCreation_E= :dateC, DateHeureFin_E=:dateTime, Archiver_E= :archiver, Id_U= :idU, Id_Em= :idEm WHERE Id_E = :id");
     $stmt->bindValue(':titre', $evenement->getTitre(), PDO::PARAM_STR);
     $stmt->bindValue(':description', $evenement->getDescription(), PDO::PARAM_STR);
     $stmt->bindValue(':dateC', $evenement->getDateC(), PDO::PARAM_STR);

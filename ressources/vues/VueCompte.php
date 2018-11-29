@@ -39,6 +39,8 @@
                 <!-- GRID EVENEMENT -->
                 <section class="grid-gen grid-even">
                     <?php echo $evenements ?>
+                    <!-- BUTTON AFFICHAGE ANCIEN EVENEMENT -->
+                    <button id="btnShowPasteEvents" class="even"><i><u>Afficher les événements passés</u></i></button>
                 </section>
 			</div>
 
@@ -47,31 +49,7 @@
 
                 <!-- GRID CAGNOTTES -->
                 <section class="grid-gen grid-cagn">
-                    <div class="content-cagn">
-                        <div class="desc-cagn">
-                            <h5>Cadeau Bastien</h5>
-                            <p>DÃ©scription cagnottes Et eodem impetu Domitianum praecipitem per scalas itidem funibus constrinxerunt, eosque coniunctos per ampla spatia civitatis acri</p>
-                            <button>Participer</button>
-                        </div>
-
-                        <div class="prix-cagn">
-                            <span>51,00 â‚¬</span>
-                            <p>Fin le<span> 00/00/00</span></p>
-                        </div>
-                    </div>
-
-                    <div class="content-cagn">
-                        <div class="desc-cagn">
-                            <h5>Cadeau Bastien</h5>
-                            <p>DÃ©scription cagnottes Et eodem impetu Domitianum praecipitem per scalas itidem funibus constrinxerunt, eosque coniunctos per ampla spatia civitatis acri</p>
-                            <button>Participer</button>
-                        </div>
-
-                        <div class="prix-cagn">
-                            <span>51,00 â‚¬</span>
-                            <p>Fin le<span> 00/00/00</span></p>
-                        </div>
-                    </div>
+                    <?php echo $cagnottes ?>
                 </section>
 			</div>
 		</div>
