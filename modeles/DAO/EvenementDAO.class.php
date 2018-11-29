@@ -54,7 +54,6 @@ class EvenementDAO extends DAO{
   }
 
   public function getAll(){
-
     //initialisation compteur
     $i = 0;
 

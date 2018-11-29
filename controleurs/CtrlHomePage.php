@@ -4,20 +4,24 @@ include_once('modeles/DAO/EvenementDAO.class.php');
 include_once('modeles/DAO/CagnotteDAO.class.php');
 include_once('modeles/DAO/UtilisateurDAO.class.php');
 
-//Albums
+// ----- Albums -----
 try {
     $albumDAO = new AlbumDAO();
     $albumsInfos = $albumDAO->getInfos();
-    $albums = "";
+    $nbAlbums=0;
+
     if( $albumsInfos !== false ){
         foreach ($albumsInfos as $albumInfo){
-
-            if($albumInfo[0] == 1){
+            if($nbAlbums === 5){
+                break;
+            }
+            if($albumInfo[0] === 1){
                 $albumCommun = Album::toHTML($albumInfo[0], $albumInfo[1], $albumInfo[2], 1);
             }
             else {
                 $albums .= Album::toHTML($albumInfo[0], $albumInfo[1], $albumInfo[2], 0);
             }
+            $nbAlbums++;
         }
     }
     else{
@@ -28,17 +32,19 @@ try {
     echo $e->getMessage();
 }
 
-
-//Evenements
+// ----- Evenements -----
 try {
     $evenementDAO = new EvenementDAO();
     $evenementsInfos = $evenementDAO->getAll();
-    $evenements = "";
+    $nbEvenement = 0;
 
     if ($albumsInfos !== false) {
         foreach ($evenementsInfos as $evenementInfo) {
-
+            if($nbEvenement === 5){
+                break;
+            }
             $evenements .= Evenement::toHTML($evenementInfo->getId(), $evenementInfo->getTitre(), $evenementInfo->getDescription(), $evenementInfo->getDateTime());
+            $nbEvenement++;
         }
     } else {
         $evenements = null;
@@ -47,14 +53,18 @@ try {
     echo $e->getMessage();
 }
 
-//Cagnottes
+// ----- Cagnottes -----
 try{
     $cagnotteDAO = new CagnotteDAO();
     $cagnottesInfos = $cagnotteDAO->getAll();
-    $cagnottes = "";
+    $nbCagnottes = 0;
 
     foreach ($cagnottesInfos as $cagnotteInfo){
+        if($nbCagnottes === 5){
+            break;
+        }
         $cagnottes .= Cagnotte::toHTML($cagnotteInfo->getId(), $cagnotteInfo->getTitre(), $cagnotteInfo->getDescription(), $cagnotteInfo->getArgentR(), $cagnotteInfo->getDateHeureFin());
+        $nbCagnottes++;
     }
 }
 catch (Exception $e){

@@ -13,13 +13,10 @@ class AlbumDAO extends DAO{
 
   //Return le nom et l'image des albums
   public function getInfos(){
-
       //initialisation compteur
-
       $infos = [];
-
       //Requete SQL
-      $stmt = $this->cnx->prepare("SELECT Id_A, Nom_A, Visuel_A FROM Album");
+      $stmt = $this->cnx->prepare("SELECT Id_A, Nom_A, Visuel_A FROM Album ORDER BY DateCreation_A DESC;");
       $stmt->execute();
       $ligne = $stmt->fetch(PDO::FETCH_OBJ);
 
@@ -34,7 +31,7 @@ class AlbumDAO extends DAO{
           }
           return $infos;
       }
-      else{return false;}
+      else{throw new Exception("Echec de la requête");}
   }
 
   public function get($id){
