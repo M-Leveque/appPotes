@@ -75,7 +75,7 @@ class UtilisateurDAO extends DAO{
       }
   }
 
-  public function getAll(){
+  public function getAllUser(){
       //init compteur
       $i = 0;
 

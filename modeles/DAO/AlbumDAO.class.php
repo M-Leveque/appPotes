@@ -56,6 +56,29 @@ class AlbumDAO extends DAO{
     }
   }
 
+    public function getByUser($idU){
+
+        if(empty($idU) || $idU < 0 || !is_int($idU) )
+            throw new Exception("L'id de l'utilisateur doit être valide");
+
+        //Requete SQL
+        $stmt = $this->cnx->prepare("SELECT * FROM Album WHERE Id_U = :id");
+        $stmt->bindValue(':id', $idU, PDO::PARAM_INT);
+        $stmt->execute();
+        $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+
+        if($ligne){
+            while($ligne){
+
+                $albums[$i] =  new Album(intval($ligne->Id_A), $ligne->Nom_A, $ligne->Description_A, $ligne->DateCreation_A, boolval($ligne->Priver_A), $ligne->Visuel_A, intval($ligne->Id_E), intval($ligne->Id_U));
+                $i++;
+                $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+            }
+            return $albums;
+        }
+        else{return false;}
+    }
+
   public function getAll(){
 
     //initialisation compteur

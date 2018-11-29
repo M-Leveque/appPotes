@@ -62,7 +62,6 @@ class AccesDAO extends DAO{
         return false;
       }
     }
-  }
 
   //Supprime l'acces a un evenement
 

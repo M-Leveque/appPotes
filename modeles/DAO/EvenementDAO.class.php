@@ -72,6 +72,25 @@ class EvenementDAO extends DAO{
     return $evenements;
   }
 
+    public function getByUser($idU){
+        if(empty($idU) || $idU < 0 || !is_int($idU) )
+            throw new Exception("L'id de l'evenement doit être valide");
+
+        //Requete SQL
+        $stmt = $this->cnx->prepare("SELECT * FROM Evenement, Acces WHERE Evenement.id_E = Acces.id_E AND Acces.Id_U = :idU AND Evenement.Id_U = :idU");
+        $stmt->bindValue(':idU', $idU, PDO::PARAM_INT);
+        $stmt->execute();
+        $ligne = $stmt->fetch(PDO::FETCH_OBJ);
+
+        if($ligne){
+            //Construction de l'evenement
+            return new Evenement(intval($ligne->Id_E), $ligne->Titre_E, $ligne->Description_E, $ligne->DateCreation_E, $ligne->DateHeureFin_E, boolval($ligne->Archiver_E), intval($ligne->Id_U));
+        }
+        else{
+            throw new Exception("L'evenement n'a pas était trouvé");
+        }
+    }
+
   //La function set permet de modifier la BDD
   public function set($evenement){
     //Verif de la variable $evenement
