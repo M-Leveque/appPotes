@@ -23,7 +23,7 @@
         </div>
     </section><!-- #FORMULAIRE AJOUT -->
 
-    <!-- ELEMENTS EVENEMENT -->
+    <!-- ELEMENTS EVENEMENT --------------------------------------------------------------->
     <section class="content-opt-even">
         <!-- Cagnotte evenement -->
         <div class="content-even-cagn">
