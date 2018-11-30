@@ -36,8 +36,8 @@
                 </div>
 
                 <div class="prix-cagn">
-                        <span>51,00 â‚¬</span>
-                        <p>Fin le<span> 00/00/00</span></p>
+                    <span>51,00 â‚¬</span>
+                    <p>Fin le<span> 00/00/00</span></p>
                 </div>
             </div>
         </div><!-- #content cagnotte -->

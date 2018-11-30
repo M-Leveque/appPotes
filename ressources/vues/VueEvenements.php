@@ -6,7 +6,6 @@
 	<!-- GRID EVENEMENT -->
 	<section class="grid-gen grid-even">
         <?php echo $evenements ?>
-		
 		<!-- BUTTON AFFICHAGE ANCIEN EVENEMENT -->
 		<button id="btnShowPasteEvents" class="even"><i><u>Afficher les événements passés</u></i></button>
 		
