@@ -1,5 +1,6 @@
 // JavaScript Document
 // INFO CONNEXION //
+// TOGGLE PAGE CONNEXION //
 $(document).ready(function(){
     $(".open-toggle").click(function() {
         $("#toggle-co").toggle("slide");
@@ -18,4 +19,11 @@ $(document).ready(function(){
     $("#menu").click(function() {
         $(".btn-add").toggle();
 	});
+});
+
+// TEXTE BOUTON EVENEMENT PASSES //
+$(document).ready(function(){
+    $("#btnShowPasteEvents").click(function() {
+        $(".btn-even-paste").toggle();
+    });
 });

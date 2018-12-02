@@ -36,6 +36,7 @@ input {
 }
 
 button {
+    outline: none;
 	cursor: pointer;
 	background: none;
 	border: none;
@@ -562,6 +563,19 @@ box-shadow: 0px 3px 10px 0px rgba(0,0,0,1);
 	margin-right: 3.95vw;
 }
 
+.content-search-album {
+    margin-bottom: 50px;
+    text-align: right;
+}
+
+.content-search-album svg {
+    width: 2.6vw; height: auto;
+}
+
+.content-search-album div {
+    text-align: left;
+}
+
 #content-album .grid-album { 
 	justify-content: space-between;
 }
@@ -697,6 +711,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d1d1d', end
 	-webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
 	-moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
 	box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
+}
+
+/* BOUTON AJOUT PHOTOS */
+#content-pic .icon-btn {
+    margin: 0;
 }
 
 /* CONTENT PHOTOS */
@@ -875,8 +894,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d1d1d', end
 /*---------------------------
 	SECTION INFOS EVENEMENT
 -----------------------------*/
+/* titre evenement */
 #content-inter-even section {
-	width: 50%;
+	width: 40%;
 }
 
 .content-info-even .title {
@@ -887,6 +907,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d1d1d', end
 }
 
 .content-info-even .title p {
+    margin-bottom: 15px;
 	font-family: 'Trueno';
 	font-weight: 300;
 	font-style: normal;
@@ -903,27 +924,79 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d1d1d', end
 	margin-top: 0px;
 }
 
+/* infos evenement */
+.content-infosup-even {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.count-even p:first-child {
+    margin-bottom: 5px;
+}
+
+.count-even p {
+    font-family: 'Trueno';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 1.04vw;
+}
+
+.count-even span {
+    font-family: 'Trueno';
+    font-weight: 300;
+    font-style: normal;
+    font-size: 1.04vw;
+}
+
+.btn-link {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-family: 'Trueno';
+    font-weight: 300;
+    font-style: normal;
+    font-size: 0.78vw;
+    border-radius: 5px;
+    background-color: #191919;
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
+    -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
+    box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
+}
+
+a .icon-link {
+    margin: 0px;
+}
+
+.icon-link::before {
+    margin-left: 5px;
+    content: "\ea17";
+    font-size: 1.56vw;
+}
+
 .info-even {
 	width: 34.375vw;
-	line-height: 1.3vw;
+	line-height: 1.6vw;
 	font-family: 'Trueno';
 	font-weight: 200;
 	font-style: normal;
 	font-size: 1vw;
 }
 
+/* cagnotte evenement */
 .content-cagn-even {
 	width: 25.26vw;
 	margin-top: 50px;
 }
 
-.content-cagn-even h2 {
-	margin-bottom: 20px;
+.content-cagn-even .title {
+    border-top: solid 0.15vw #FFFFFF;
 }
 
-.content-cagn-even .content-cagn {
-	border-top: solid 0.15vw #FFFFFF;
-	padding-top: 1.4vw;
+.content-cagn-even h2 {
+	margin-bottom: 20px;
 }
 /*---------------------------
 	SECTION CHAT EVENEMENT

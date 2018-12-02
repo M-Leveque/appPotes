@@ -10,6 +10,8 @@
 <link href="ressources/css/StyleConnexion.css" rel="stylesheet" type="text/css">
 	<!-- Style Galerie Photos -->
 <link href="ressources/js/gallery/lightgallery.min.css" rel="stylesheet" type="text/css">
+    <!-- Style Accordion -->
+<link href="ressources/js/accordion/accordion.min.css" rel="stylesheet" type="text/css">
     <!-- Style css -->
 <link href="ressources/css/Style.css" rel="stylesheet" type="text/css">
     <!-- Style Responsive -->

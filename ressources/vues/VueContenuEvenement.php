@@ -6,6 +6,19 @@
             <h2>Anniversaire Bastien 🎂</h2>
         </div>
 
+        <div class="content-infosup-even">
+            <div class="date-even">
+                <!-- code affiche date -->
+            </div>
+
+            <div class="count-even">
+                <p><span>dans </span>10j<span> : </span>5h</p>
+                <p><span>à </span>19h30</p>
+            </div>
+
+            <a class="btn-link" href="#">partager<span class="icon icon-link"></span></a>
+        </div>
+
         <!-- info evenement -->
         <article class="info-even">
             <p>

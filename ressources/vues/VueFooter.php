@@ -29,4 +29,9 @@
 <script src="ressources/js/slideshow/responsiveslides.min.js"></script>
 <script src="ressources/js/slideshow/slideshow.js"></script>
 <script src="ressources/js/evenement.js"></script>
+<!-- ACCORDION -->
+<script src="ressources/js/accordion/accordion.min.js"></script>
+<script>
+    var accordion = new Accordion('.accordion-container');
+</script>
 </html>
