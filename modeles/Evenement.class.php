@@ -151,10 +151,10 @@ class Evenement
         $dateTime = new DateTime($dateTime);
 
         if (date_format($dateTime, 'U') > time()) {
-            $html = "<a class=\"even\" href=\"?action=InterEvenement&id=$id\">";
+            $html = "<a class=\"even\" href=\"?action=Evenement&id=$id\">";
         }
         else {
-            $html = "<a class=\"even old-even\" href=\"?action=InterEvenement&id=$id\">";
+            $html = "<a class=\"even old-even\" href=\"?action=Evenement&id=$id\">";
         }
 
         $html .= "<div class=\"content-even\">";
