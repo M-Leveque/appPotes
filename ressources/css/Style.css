@@ -1320,6 +1320,7 @@ a .icon-link {
 }
 
 .content-form-add textarea {
+    overflow: auto;
 	max-width: 100%;
 	background: none;
 	border: none;
@@ -1343,8 +1344,12 @@ a .icon-link {
 }
 
 /* SECTION DROITE */
+.content-even-cagn {
+	margin-bottom: 20px;
+}
+
 .label-add {
-	margin-bottom: 50px;
+	margin-bottom: 30px;
 	font-family: 'Trueno';
 	font-weight: 600;
 	font-style: normal;
@@ -1353,7 +1358,6 @@ a .icon-link {
 
 .btn-add {
 	width: 60%;
-	margin: 0 auto;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
@@ -1407,6 +1411,7 @@ a .icon-link {
 
 .add-visuel label {
 	width: 11.14vw; height: 11.14vw;
+	padding-top: 48%;
 }
 
 .content-grid-add {

@@ -21,8 +21,6 @@
 		<!-- LEFT LOGIN -->
 		<div id="slideshow">
             <ul class="rslides">
-                <li><img src="ressources/img/slideshow/app-1.png" alt=""></li>
-                <li><img src="ressources/img/slideshow/app-2.png" alt=""></li>
                 <li><img src="ressources/img/slideshow/app-3.png" alt=""></li>
             </ul>
 		</div>
