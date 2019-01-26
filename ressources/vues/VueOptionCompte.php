@@ -3,7 +3,8 @@
         <a href="#">
             <img src="ressources/img/profile/pic-3.jpg" alt="Votre photo profile">
         </a>
-        <button>modifier</button>
+        <label for="modif-pic">modifier</label>
+        <input id="modif-pic" type="file">
     </div>
 
     <form>
@@ -13,23 +14,22 @@
         <input type="email" name="pseudo">
     </form>
 
-        <button id="btn-mp" id="show-modal" @click="showModal = true">Changer de mot de passe</button>
+    <a id="btn-mp" href="#mp-modal" rel="modal:open">Changer de mot de passe</a>
 
-    <script type="text/x-template" id="modal-template">
-        <transition name="modal">
-            <div class="modal-mask">
-                <div class="modal-container"
+        <!-- Modal changement MP -->
+        <div id="mp-modal" class="modal">
+            <h2>Modification<br>de mot de passe</h2>
+            <div class="content-mp-modal">
+                <label for="old-mp">Ancien mot de passe :</label>
+                <input id="old-mp" type="password" name="old mp">
+                <label for="old-mp">Nouveau mot de passe :</label>
+                <input id="new-mp" type="password" name="new mp">
+                <label for="old-mp">Tapez à nouveau :</label>
+                <input id="new-mp2" type="password" name="new mp2">
 
-                <button class="modal-default-button" @click="$emit('close')">
-                    OK
-                </button>
+                <a class="btn-page" href="#"><span>Valider</span></a>
             </div>
-            </div>
-        </transition>
-    </script>
-
-            <modal v-if="showModal" @close="showModal = false">
-            </modal>
+        </div>
 
     <section class="content-btn-page">
         <a class="btn-page" href="#"><span>Annuler</span></a>

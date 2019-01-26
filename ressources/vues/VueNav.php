@@ -77,6 +77,6 @@
 	<ul>
 		<a class="reveal" href="?action=AjoutAlbum"><li><div class="icon-btn icon icon-add-pic"></div></li>Ajouter<br>un album</a>
 		<a class="reveal" href="?action=AjoutEvenement"><li><div class="icon-btn icon icon-add-calendar"></div></li>Ajouter<br>un événement</a>
-		<a class="reveal" href="#"><li><div class="icon-btn icon icon-add-cash"></div></li>Ajouter<br>une cagnotte</a>
+		<a class="reveal" href="?action=AjoutCagnotte"><li><div class="icon-btn icon icon-add-cash"></div></li>Ajouter<br>une cagnotte</a>
 	</ul>
 </section>

@@ -53,6 +53,9 @@ if($niveauUtilisateur === 1 || $niveauUtilisateur === 2){
         case 'AjoutEvenement' :{
             include_once ('controleurs/CtrlAjoutEvenement.php'); break;
         }
+        case 'AjoutCagnotte' :{
+            include_once ('controleurs/CtrlAjoutCagnotte.php'); break;
+        }
 		case 'Connexion': {
 				include_once ('controleurs/CtrlConnexion.php'); break;
 		}

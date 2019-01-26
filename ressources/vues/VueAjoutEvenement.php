@@ -6,15 +6,18 @@
         </div>
 
         <div class="add-visuel">
-            <label for="add-visuel">Ajouter un emoji<span class="icon icon-add"><img style="display: none" src="" alt="icon evenement"></span></label>
-            <input id="add-visuel" type="file">
+            <a id="btn-add-emoji" href="#emoji-modal" rel="modal:open">Ajouter un emoji<span class="icon icon-add"></span></a>
+
+            <div id="emoji-modal" class="modal">
+                <p>Intégratio des emoji</p>
+            </div>
         </div>
 
         <form class="content-form-add">
             <label>Titre de l'evenement :</label>
             <input type="name" placeholder="(max 00 caractères)">
             <label>Déscriptif de l’evenement :</label>
-            <textarea placeholder="(max 00 caractères)" cols="30" rows="1"></textarea>
+            <textarea onkeyup="auto_grow(this)" placeholder="(max 00 caractères)" cols="30" rows="1"></textarea>
         </form>
 
         <div class="content-btn-page">

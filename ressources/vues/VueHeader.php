@@ -12,8 +12,11 @@
 <link href="ressources/js/gallery/lightgallery.min.css" rel="stylesheet" type="text/css">
     <!-- Style Accordion -->
 <link href="ressources/js/accordion/accordion.min.css" rel="stylesheet" type="text/css">
+    <!-- Style Modal -->
+<link href="ressources/js/modal/jquery.modal.min.css" rel="stylesheet" type="text/css">
     <!-- Style css -->
 <link href="ressources/css/Style.css" rel="stylesheet" type="text/css">
+<link href="ressources/css/Responsive.css" rel="stylesheet" type="text/css">
     <!-- Style Responsive -->
 <link href="ressources/css/StyleResponsive.css" rel="stylesheet" type="text/css">
     <!-- Normalize.css -->

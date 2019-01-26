@@ -14,7 +14,7 @@
             <label>Titre de l'album :</label>
             <input type="name" placeholder="(max 00 caractères)">
             <label>Déscriptif de l’album :</label>
-            <textarea placeholder="(max 00 caractères)" cols="30" rows="1"></textarea>
+            <textarea onkeyup="auto_grow(this)" placeholder="(max 00 caractères)" cols="30" rows="1"></textarea>
         </form>
 
         <div class="content-btn-page">

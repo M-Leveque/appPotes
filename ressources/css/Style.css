@@ -67,6 +67,7 @@ button {
 	-webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
 	-moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
 	box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
+	cursor: pointer;
 }
 
 .btn-page:last-child {
@@ -94,7 +95,8 @@ button {
 .content-cagn button,
 #header-pic button,
 .btn-page,
-.btn-add a {
+.btn-add a,
+#btn-mp {
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
@@ -112,14 +114,17 @@ button {
 .content-cagn button:hover, .content-cagn button:focus , .content-cagn button:active,
 #header-pic button:hover, #header-pic button:focus, #header-pic button:active,
 .btn-page:hover, .button:focus, .button:active,
-.btn-add a:hover, .btn-add a:focus, .btn-add a:active {
+.btn-add a:hover, .btn-add a:focus, .btn-add a:active,
+#btn-mp:hover, #btn-mp:focus, #btn-mp:active {
 	-webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 
-/*-----------------------
-	ICON FONTS
-------------------------*/
+/* MODAL */
+
+	/*-----------------------
+        ICON FONTS
+    ------------------------*/
 .icon {
 	display: inline-block;
 	font: normal normal normal 1em/1 'app_potes';
@@ -378,13 +383,9 @@ h2 {
 
 .grid-album {
 	display: flex;
-	justify-content: flex-start;
+	justify-content: space-between;
 	flex-wrap: wrap;
 	align-items: center;
-}
-
-.grid-album a {
-	margin-right: 35px;
 }
 
 .album-grid {
@@ -715,7 +716,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1d1d1d', end
 
 /* BOUTON AJOUT PHOTOS */
 #content-pic .icon-btn {
-    margin: 0;
+	margin: 0 0 15px 0;
 }
 
 /* CONTENT PHOTOS */
@@ -1107,6 +1108,22 @@ a .icon-link {
 	background-color: #1D1D1D;
 }
 
+/* Contenu Tab */
+#content-compte .grid-gen {
+	width: 70%;
+}
+
+#content-compte .content-cagn {
+	padding-top: 1.4vw;
+}
+#content-compte .content-cagn {
+	border-top: solid 0.15vw #ffffff;
+}
+
+#content-compte .content-cagn button {
+	display: none;
+}
+
 /*-----------------------
 	OPTION COMPTE STYLE
 ------------------------*/
@@ -1148,7 +1165,7 @@ a .icon-link {
 	width: 10VW; height: 10vw;
 }
 
-#content-optcompte .profil-pic button {
+#content-optcompte .profil-pic label {
 	margin-top: 10px;
 	padding-bottom: 13px;
 	color: #FFFFFF;
@@ -1157,6 +1174,11 @@ a .icon-link {
 	font-family: 'Trueno';
 	font-weight: 600;
 	font-style: normal;
+	cursor: pointer;
+}
+
+#content-optcompte .profil-pic input {
+	display: none;
 }
 
 #content-optcompte form span {
@@ -1180,6 +1202,9 @@ a .icon-link {
 
 #btn-mp {
 	width: 21.25VW; height: 3.38vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	border: solid 1px #FFFFFF;
 	border-radius: 5px;
 	color: #FFFFFF;
@@ -1189,40 +1214,53 @@ a .icon-link {
 	-webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
 	-moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
 	box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
+	cursor: pointer;
+	transition: 0.2s;
 }
 
-/* MODAL CHANGEMENT MOT DE PASSE */
-.modal-mask {
-	position: fixed;
-	z-index: 9998;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, .5);
-	display: table;
-	transition: opacity .3s ease;
+/*-----------------------
+	MODAL MOT DE PASSE
+------------------------*/
+#mp-modal {
+	max-width: 950px;
+	width: auto;
+	max-height: 900px;
+	height: auto;
+	border-radius: 5px;
+	color: #ffffff;
+	background-color: #191919;
+	-webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
+	-moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
+	box-shadow: 0px 3px 6px 0px rgba(0,0,0,1);
 }
 
-.modal-container {
-	width: 300px;
-	margin: 0px auto;
-	padding: 20px 30px;
-	background-color: #fff;
-	border-radius: 2px;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
-	transition: all .3s ease;
-	font-family: Helvetica, Arial, sans-serif;
+#mp-modal h2 {
+	margin-top: 10px;
+	margin-right: 0;
+	text-align: center;
 }
 
-.modal-enter {opacity: 0;}
+.content-mp-modal {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
 
-.modal-leave-active {opacity: 0;}
+.content-mp-modal label {
+	width: 80%;
+	margin-bottom: 10px;
+	text-align: left;
+	font-family: 'Trueno';
+	font-weight: 600;
+	font-style: normal;
+	font-size: 1.3vw;
 
-.modal-enter .modal-container,
-.modal-leave-active .modal-container {
-	-webkit-transform: scale(1.1);
-	transform: scale(1.1);
+}
+
+.content-mp-modal input {
+	width: 80%;
+	margin-bottom: 5.2vw;
 }
 
 /*---------------------------------------------------------------------------------------------------
@@ -1231,20 +1269,27 @@ a .icon-link {
 /*-----------------------
 	STYLE GENERAL
 ------------------------*/
-.content-add {
-	top: 0;
-	width: 30%; height: 95vh;
+/* main */
+#content-add-album,
+#content-add-even,
+#content-add-cagn {
 	display: flex;
-	flex-direction: column;
 	justify-content: space-between;
 }
 
+.content-add {
+	top: 0;
+	width: 30%; height: auto;
+	display: flex;
+	flex-direction: column;
+}
+
 .content-add .title h2 {
-	margin-bottom: 0px;
+	margin-bottom: 50px;
 }
 
 .add-visuel {
-	margin-bottom: 25px;
+	margin-bottom: 50px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -1259,9 +1304,12 @@ a .icon-link {
 	background: -ms-linear-gradient(-45deg, rgba(142,197,252,1) 0%, rgba(224,195,252,1) 100%);
 	background: linear-gradient(135deg, rgba(142,197,252,1) 0%, rgba(224,195,252,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8ec5fc', endColorstr='#e0c3fc', GradientType=1 );
+	cursor: pointer;
 }
 
 .add-visuel label {
+	display: flex;
+	flex-direction: column;
 	position: relative;
 	border-radius: 5px;
 	text-align: center;
@@ -1284,11 +1332,15 @@ a .icon-link {
 
 #add-visuel {display: none;}
 
+
 .icon-add {
-	content: "\ea08";
-	color: #FFFFFF;
-	font-size: 0.78vw;
+	margin: 5px 0 0 0 !important;
+	text-align: center;
+	font-size: 0.78vw !important;
 }
+
+.icon-add::before{content: "\ea08";}
+
 
 .add-vignette .icon:hover, .add-vignette .icon:active, .add-vignette .icon:focus,
 .icon-add:hover, .icon-add:active, .icon-add:focus {
@@ -1297,6 +1349,7 @@ a .icon-link {
 }
 
 .content-form-add {
+	margin-bottom: 50px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -1320,9 +1373,9 @@ a .icon-link {
 }
 
 .content-form-add textarea {
-    overflow: auto;
+	resize: none;
+	overflow: hidden;
 	max-width: 100%;
-	background: none;
 	border: none;
 	border-bottom: solid 2px #FFFFFF;
 	font-family: 'Trueno';
@@ -1330,6 +1383,7 @@ a .icon-link {
 	font-style: normal;
 	font-size: 1vw;
 	color: #FFFFFF;
+	background: none;
 	outline: none;
 }
 
@@ -1357,7 +1411,6 @@ a .icon-link {
 }
 
 .btn-add {
-	width: 60%;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
@@ -1400,11 +1453,6 @@ a .icon-link {
 /*-----------------------
 	PAGE AJOUT ALBUM
 ------------------------*/
-#content-add-album {
-	display: flex;
-	justify-content: space-between;
-}
-
 .add-visuel {
 	width: 11.14vw; height: 11.14vw;
 }
@@ -1426,9 +1474,27 @@ a .icon-link {
 	PAGE AJOUT EVENEMENT
 ------------------------*/
 #content-add-even {
-	display: flex;
-	justify-content: space-between;
 	align-items: baseline;
+}
+
+#content-add-even .add-visuel {
+	justify-content: center;
+}
+
+#content-add-even #btn-add-emoji {
+	width: 99%;
+	height: 99%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 3px;
+	font-family: 'Trueno';
+	font-weight: 300;
+	font-style: normal;
+	font-size: 0.78vw;
+	text-align: center;
+	background-color: #191919;
 }
 
 .content-opt-even {
@@ -1439,4 +1505,30 @@ a .icon-link {
 	align-items: start;
 }
 
+.content-opt-even .btn-add {
+	width: 65%;
+	justify-content: space-between;
+ }
+
 .icon-add-people-no::before {content: "\ea05";}
+
+/*-----------------------
+	PAGE AJOUT CAGNOTTE
+------------------------*/
+#content-add-cagn h2 {
+	margin-bottom: 8.8vw;
+}
+
+.content-opt-cagn {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: start;
+	align-self: flex-end;
+}
+
+.content-opt-cagn .btn-add {
+	width: 50%;
+	justify-content: space-around;
+}
