@@ -10,7 +10,7 @@ $(document).ready(function(){
 // MENU AJOUT //
 $(document).ready(function(){
 	$("#menu").click(function() {
-		$("#add-menu").toggle("slide");
+		$("#add-menu").toggle("slideDown");
 	});
 });
 

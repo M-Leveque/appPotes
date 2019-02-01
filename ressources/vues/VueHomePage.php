@@ -48,4 +48,9 @@
 
         <?php echo $cagnottes ?>
 	</section>
+
+    <!-- acces compte mobile -->
+    <section>
+        <a class="acces-compte-mob" href="?action=Compte"><span class="icon icon-people"></span>Accéder à mon profile</a>
+    </section>
 </main>

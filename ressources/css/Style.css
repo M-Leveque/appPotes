@@ -35,6 +35,11 @@ input {
 	outline: none;
 }
 
+input[type=submit]{
+	-webkit-appearance: none;
+	border-radius: 0;
+}
+
 button {
     outline: none;
 	cursor: pointer;
@@ -88,6 +93,7 @@ button {
 }
 
 /* EFFECT */
+/*
 #btn-form-co,
 #add-menu a,
 .album,
@@ -119,12 +125,10 @@ button {
 	-webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
-
-/* MODAL */
-
-	/*-----------------------
-        ICON FONTS
-    ------------------------*/
+*/
+/*-----------------------
+    	ICON FONTS
+------------------------*/
 .icon {
 	display: inline-block;
 	font: normal normal normal 1em/1 'app_potes';
@@ -545,6 +549,11 @@ h5 {
 	-webkit-box-shadow: 0px 3px 10px 0px rgba(0,0,0,1);
 -moz-box-shadow: 0px 3px 10px 0px rgba(0,0,0,1);
 box-shadow: 0px 3px 10px 0px rgba(0,0,0,1);
+}
+
+/* acces compte mobile */
+#content-home section:last-child{
+	display: none;
 }
 
 /*---------------------------------------------------------------------------------------------------
